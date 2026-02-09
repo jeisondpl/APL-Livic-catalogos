@@ -19,7 +19,11 @@ export default function LocationCard({ location, edificio }: LocationCardProps) 
     <div className="bg-surface-100 border border-surface-300 rounded-2xl overflow-hidden shadow-sm">
       {/* Mapa Interactivo */}
       <div className="relative h-64 sm:h-80 bg-surface-200 border-b border-surface-300">
-        <InteractiveMap longitude={location.lng} latitude={location.lat} />
+        <InteractiveMap 
+          longitude={location.lng} 
+          latitude={location.lat} 
+          name={`Edificio ${edificio}`}
+        />
         
         {/* Badges flotantes sobre el mapa */}
         <div className="absolute top-4 right-4 flex gap-2 z-10">

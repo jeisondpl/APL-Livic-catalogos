@@ -20,14 +20,15 @@ const customIcon = new L.Icon({
 interface InteractiveMapProps {
   longitude: number;
   latitude: number;
+  name?: string;
 }
 
-export default function LeafletMapContent({ longitude, latitude }: InteractiveMapProps) {
+export default function LeafletMapContent({ longitude, latitude, name }: InteractiveMapProps) {
   return (
     <div className="w-full h-full bg-[#1a1a1a] rounded-xl overflow-hidden border border-surface-300 relative">
       <MapContainer
         center={[latitude, longitude]}
-        zoom={15}
+        zoom={17}
         scrollWheelZoom={true}
         style={{ height: "100%", width: "100%", background: "#1a1a1a" }}
       >
@@ -38,7 +39,7 @@ export default function LeafletMapContent({ longitude, latitude }: InteractiveMa
         <Marker position={[latitude, longitude]} icon={customIcon}>
           <Popup>
             <div className="text-livic-black font-sans">
-              <strong>LIVIC</strong>
+              <strong>{name || "LIVIC"}</strong>
             </div>
           </Popup>
         </Marker>
