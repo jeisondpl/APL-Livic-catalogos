@@ -1,12 +1,14 @@
 /**
  * Card.tsx
  * Tarjeta de apartamento para el listado del catálogo.
- * Server Component (solo renderiza datos estáticos).
+ * Diseño optimizado para evitar desbordamientos y mejorar alineación de iconos.
  */
 
 import Link from "next/link";
+import Image from "next/image";
 import Badge from "@/components/Badge";
 import type { Apartment } from "@/data/apartments";
+import { Users, BedDouble, Bath, Eye, Building2 } from "lucide-react";
 
 interface CardProps {
   apartment: Apartment;
@@ -16,59 +18,87 @@ export default function Card({ apartment }: CardProps) {
   return (
     <Link
       href={`/apartamentos/${apartment.slug}`}
-      className="group block bg-surface-100 border border-surface-300 rounded-2xl overflow-hidden hover:border-livic-pink transition-colors duration-300"
+      className="group block bg-surface-100 border border-surface-300 rounded-2xl overflow-hidden hover:border-livic-pink transition-all duration-300 shadow-sm hover:shadow-md h-full flex flex-col"
     >
       {/* Imagen */}
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <img
+      <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
+        <Image
           src={apartment.heroPhoto.src}
           alt={apartment.heroPhoto.alt}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        {/* Badge "Vista al mar" si aplica */}
-        {apartment.ubicacion.accesoPlaya && (
-          <div className="absolute top-3 left-3">
-            <Badge variant="green">🌊 Vista al mar</Badge>
-          </div>
-        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-livic-black/50 to-transparent opacity-60" />
+        
+        {/* Badges flotantes */}
+        <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+          {apartment.ubicacion.accesoPlaya && (
+            <Badge variant="green">
+              <span className="flex items-center gap-1">
+                <Eye className="w-3 h-3 flex-shrink-0" />
+                Vista al mar
+              </span>
+            </Badge>
+          )}
+          <Badge variant="pink">
+            Piso {apartment.piso}
+          </Badge>
+        </div>
       </div>
 
       {/* Contenido */}
-      <div className="p-4 md:p-5">
-        {/* Edificio */}
-        <p className="text-livic-pink text-xs font-medium uppercase tracking-wide mb-1">
-          {apartment.edificio}
-        </p>
-
-        {/* Nombre */}
-        <h3 className="text-foreground font-semibold text-base md:text-lg leading-snug mb-2">
-          {apartment.nombre}
-        </h3>
-
-        {/* Datos rápidos */}
-        <div className="flex flex-wrap gap-2 mb-3">
-          <Badge variant="neutral">{apartment.huespedes} huéspedes</Badge>
-          <Badge variant="neutral">{apartment.habitaciones} hab.</Badge>
-          <Badge variant="neutral">{apartment.banos} baños</Badge>
+      <div className="p-5 flex flex-col flex-grow">
+        <div className="flex justify-between items-start gap-3 mb-2">
+          <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-livic-pink transition-colors leading-tight line-clamp-2">
+            {apartment.nombre}
+          </h3>
+          <div className="flex items-center gap-1 text-livic-yellow flex-shrink-0 pt-0.5">
+            <span className="text-base leading-none">★</span>
+            <span className="font-bold text-sm">{apartment.anfitrionPrincipal.calificacion || "5.0"}</span>
+          </div>
         </div>
 
-        {/* Ubicación */}
-        <p className="text-text-muted text-xs">
-          {apartment.ubicacion.cercaDe || apartment.ubicacion.ciudad}, {apartment.ubicacion.departamento}
-        </p>
+        {/* Info Edificio */}
+        <div className="flex items-center gap-2 text-text-muted text-sm mb-5">
+          <Building2 className="w-4 h-4 text-livic-pink flex-shrink-0" />
+          <span className="truncate">
+            {apartment.edificio} · {apartment.ubicacion.cercaDe || apartment.ubicacion.ciudad}
+          </span>
+        </div>
 
-        {/* Botón "Ver" */}
-        <div className="mt-4">
-          <span className="inline-flex items-center text-livic-pink text-sm font-medium group-hover:gap-2 transition-all">
+        {/* Grid de Specs (Más robusto que flex) */}
+        <div className="grid grid-cols-3 gap-2 border-t border-surface-300 pt-4 mt-auto">
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <Users className="w-4 h-4 text-livic-pink flex-shrink-0" />
+              <span className="text-sm font-bold text-foreground">{apartment.huespedes}</span>
+            </div>
+            <span className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Huéspedes</span>
+          </div>
+          
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <BedDouble className="w-4 h-4 text-livic-pink flex-shrink-0" />
+              <span className="text-sm font-bold text-foreground">{apartment.habitaciones}</span>
+            </div>
+            <span className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Hab</span>
+          </div>
+
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <Bath className="w-4 h-4 text-livic-pink flex-shrink-0" />
+              <span className="text-sm font-bold text-foreground">{apartment.banos}</span>
+            </div>
+            <span className="text-[10px] uppercase tracking-wider text-text-muted font-medium">Baños</span>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-5 pt-4 border-t border-surface-300">
+          <span className="inline-flex items-center gap-2 text-livic-pink text-sm font-bold group-hover:gap-3 transition-all">
             Ver apartamento
-            <svg
-              className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <span className="text-lg leading-none">→</span>
           </span>
         </div>
       </div>

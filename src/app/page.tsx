@@ -61,7 +61,7 @@ export default function CatalogHome() {
         {apartments.length === 0 && (
           <div className="text-center py-16">
             <p className="text-text-muted text-lg">
-              Pronto estarán disponibles apartamentos. Vuelve después.
+              Pronto estarán disponibles apartamentos. Vuelve después
             </p>
           </div>
         )}

@@ -79,7 +79,7 @@ export default async function ApartmentDetailPage({
 
       {/* ── Galería ── */}
       <Section titulo="Galería de fotos" acento="pink"> 
-        <Gallery photos={apartment.galeria} maxVisible={12} />
+        <Gallery photos={apartment.galeria}  />
       </Section>
 
       {/* ── Amenidades ── */}
