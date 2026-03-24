@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:a0.muscache.com)",
+      "WebFetch(domain:es-l.airbnb.com)",
+      "WebFetch(domain:www.airbnb.com.co)"
+    ]
+  }
+}
