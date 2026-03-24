@@ -54,11 +54,9 @@ export default function AvailabilityBar() {
       const calRange = document.createElement('calendar-range') as HTMLElement & { value: string }
       calRange.setAttribute('locale', 'es-CO')
       calRange.setAttribute('min', today)
-      calRange.setAttribute('months', '2')       // navegar de a 2 meses
+      calRange.setAttribute('months', '2')
       calRange.style.setProperty('--color-accent', '#E288AE')
-      calRange.style.display = 'grid'
-      calRange.style.gridTemplateColumns = '1fr 1fr'
-      calRange.style.gap = '1.5rem'
+      calRange.style.display = 'block'
 
       if (rangeRef.current) calRange.setAttribute('value', rangeRef.current)
 
@@ -66,8 +64,17 @@ export default function AvailabilityBar() {
       const month2 = document.createElement('calendar-month')
       month2.setAttribute('offset', '1')
 
-      calRange.appendChild(month1)
-      calRange.appendChild(month2)
+      /* Wrapper flex: garantiza disposición horizontal sin depender
+         de cómo el web component gestiona su shadow DOM */
+      const row = document.createElement('div')
+      row.style.display = 'flex'
+      row.style.flexDirection = 'row'
+      row.style.gap = '2rem'
+      row.style.alignItems = 'flex-start'
+      row.appendChild(month1)
+      row.appendChild(month2)
+
+      calRange.appendChild(row)
 
       calRange.addEventListener('change', (e: Event) => {
         const val = (e.target as HTMLElement & { value: string }).value ?? ''
@@ -149,9 +156,10 @@ export default function AvailabilityBar() {
       {/* ── Panel calendario (siempre en DOM, visible/oculto) ── */}
       <div
         className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-white dark:bg-surface-100
-          rounded-2xl shadow-2xl border border-surface-300 z-50 p-5 w-max
+          rounded-2xl shadow-2xl border border-surface-300 z-50 p-6
           transition-all duration-200
           ${panel === 'fechas' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        style={{ minWidth: 'max-content' }}
       >
         {/* Contenedor donde se monta cally de forma imperativa */}
         <div ref={calendarRef} />
