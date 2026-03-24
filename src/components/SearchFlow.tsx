@@ -8,7 +8,7 @@
  *   results   → barra de resumen + grid de alojamientos + footer
  */
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Search, MapPin, Check, SlidersHorizontal, X } from 'lucide-react'
@@ -136,37 +136,39 @@ interface SearchFlowProps {
 export default function SearchFlow({ apartments }: SearchFlowProps) {
   const [flow, setFlow] = useState<FlowState>('idle')
   const [params, setParams] = useState<SearchParams>({ range: '', guests: 0 })
-  const resultsRef = useRef<HTMLDivElement>(null)
+  const [heroVisible, setHeroVisible] = useState(true)
 
   function handleSearch(range: string, guests: number) {
     setParams({ range, guests })
-    setFlow('searching')
+    // 1. Fade out hero
+    setHeroVisible(false)
+    // 2. Después del fade, mostrar searching
     setTimeout(() => {
-      setFlow('results')
-    }, 2000)
+      setFlow('searching')
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
+    }, 350)
+    // 3. Mostrar resultados
+    setTimeout(() => setFlow('results'), 2400)
   }
 
   function handleModify() {
     setFlow('idle')
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setHeroVisible(true)
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
   }
 
-  // Scroll suave a resultados cuando aparecen
-  useEffect(() => {
-    if (flow === 'results' && resultsRef.current) {
-      setTimeout(() => {
-        resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 100)
-    }
-  }, [flow])
-
   return (
-    <div className='min-h-screen bg-white'>
+    <div className='min-h-screen bg-white overflow-x-hidden'>
 
       {/* ═══════════════════════════════════════════════════════
-          A) HERO — Card con márgenes laterales
+          A) HERO — se oculta al buscar
       ═══════════════════════════════════════════════════════ */}
-      <header className='w-full pt-10 pb-10 px-4 md:px-8 xl:px-14 bg-white'>
+      {flow === 'idle' && (
+      <header
+        className={`w-full pt-10 pb-10 px-4 md:px-8 xl:px-14 bg-white transition-opacity duration-300 ${
+          heroVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
         <div className='relative max-w-6xl mx-auto rounded-3xl min-h-[580px] md:min-h-[620px] flex items-center shadow-xl animate-in fade-in zoom-in-95 duration-1000 fill-mode-both'>
 
           {/* Capa de fondo */}
@@ -221,7 +223,7 @@ export default function SearchFlow({ apartments }: SearchFlowProps) {
                 ))}
               </ul>
               <button
-                onClick={() => flow === 'results' && resultsRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className='inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 animate-in fade-in slide-in-from-bottom-3 duration-700 fill-mode-both delay-700'
               >
                 <MapPin className='w-4 h-4' />
@@ -238,12 +240,13 @@ export default function SearchFlow({ apartments }: SearchFlowProps) {
           </div>
         </div>
       </header>
+      )}
 
       {/* ═══════════════════════════════════════════════════════
-          SEARCHING — Animación de carga
+          SEARCHING — pantalla completa, sin hero
       ═══════════════════════════════════════════════════════ */}
       {flow === 'searching' && (
-        <div className='bg-gray-50'>
+        <div className='min-h-screen bg-white flex items-center justify-center animate-in fade-in duration-400'>
           <SearchingScreen />
         </div>
       )}
@@ -252,7 +255,7 @@ export default function SearchFlow({ apartments }: SearchFlowProps) {
           RESULTS — Barra resumen + Grid + Footer
       ═══════════════════════════════════════════════════════ */}
       {flow === 'results' && (
-        <div ref={resultsRef} className='animate-in fade-in slide-in-from-bottom-4 duration-700'>
+        <div className='animate-in fade-in slide-in-from-bottom-3 duration-500'>
 
           {/* Barra sticky de resumen */}
           <SearchSummaryBar params={params} onModify={handleModify} />
