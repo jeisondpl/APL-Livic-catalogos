@@ -48,14 +48,16 @@ export default function AvailabilityBar() {
     if (!container) return
 
     import('cally').then(() => {
-      if (!calendarRef.current) return           // panel cerrado antes de cargar
-      container.innerHTML = ''                   // limpiar por si se remonta
+      if (!calendarRef.current) return
+      container.innerHTML = ''
 
       const calRange = document.createElement('calendar-range') as HTMLElement & { value: string }
       calRange.setAttribute('locale', 'es-CO')
       calRange.setAttribute('min', today)
+      calRange.setAttribute('months', '2')       // navegar de a 2 meses
       calRange.style.setProperty('--color-accent', '#E288AE')
-      calRange.style.display = 'flex'
+      calRange.style.display = 'grid'
+      calRange.style.gridTemplateColumns = '1fr 1fr'
       calRange.style.gap = '1.5rem'
 
       if (rangeRef.current) calRange.setAttribute('value', rangeRef.current)

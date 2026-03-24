@@ -62,6 +62,40 @@ calendar-month {
   --color-text-on-accent: #ffffff;
 }
 
+/* Botones Previous / Next */
+calendar-month::part(previous),
+calendar-month::part(next) {
+  background: transparent;
+  border: 1px solid var(--surface-300);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: var(--foreground);
+}
+calendar-month::part(previous):hover,
+calendar-month::part(next):hover {
+  background: var(--surface-200);
+}
+
+/* Encabezado mes/año */
+calendar-month::part(heading) {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--foreground);
+}
+
+/* Días de la semana */
+calendar-month::part(day) {
+  border-radius: 9999px;
+}
+
+/* Días seleccionados */
+calendar-month::part(selected) {
+  background: #E288AE;
+  color: #fff;
+}
+
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
   width: 6px;

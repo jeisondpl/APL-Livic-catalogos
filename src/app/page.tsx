@@ -19,31 +19,35 @@ export default function CatalogHome() {
 
       {/* ── Hero del catálogo ── */}
       <header className='relative w-full pt-[64px]'>
-        {/* Fondo degradé */}
-        <div className='relative overflow-hidden bg-background'>
-          {/* Imagen de fondo decorativa (primera foto del primer apartamento) */}
-          {apartments.length > 0 && <img src={apartments[0].heroPhoto.src} alt='Portada del catálogo LIVIC' className='absolute inset-0 w-full h-full object-cover opacity-20' />}
+        {/* Capas de fondo: overflow-hidden solo aquí para no recortar los dropdowns */}
+        <div className='absolute inset-0 overflow-hidden bg-background pointer-events-none'>
+          {apartments.length > 0 && (
+            <img
+              src={apartments[0].heroPhoto.src}
+              alt='Portada del catálogo LIVIC'
+              className='absolute inset-0 w-full h-full object-cover opacity-20'
+            />
+          )}
           <div className='absolute inset-0 bg-gradient-to-b from-livic-black/40 via-livic-black/70 to-livic-black' />
+        </div>
 
-          {/* Contenido centrado */}
-          <div className='relative z-10 flex flex-col items-center text-center px-5 py-24 md:py-32 max-w-3xl mx-auto'>
-            {/* Marca */}
-            <p className='text-livic-pink text-sm font-semibold uppercase tracking-widest mb-4'>LIVIC</p>
+        {/* Contenido: sin overflow-hidden para que los dropdowns no se recorten */}
+        <div className='relative z-10 flex flex-col items-center text-center px-5 py-24 md:py-32 max-w-3xl mx-auto'>
+          <p className='text-livic-pink text-sm font-semibold uppercase tracking-widest mb-4'>LIVIC</p>
 
-            <h1 className='text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4'>
-              Apartamentos en
-              <br />
-              <span className='text-livic-pink'>Santa Marta</span>
-            </h1>
+          <h1 className='text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4'>
+            Apartamentos en
+            <br />
+            <span className='text-livic-pink'>Santa Marta</span>
+          </h1>
 
-            <p className='text-text-muted text-base md:text-lg max-w-xl leading-relaxed'>
-              Espacios reales, anfitriones reales, experiencias reales. Descubre apartamentos cuidadosamente seleccionados para tu descanso.
-            </p>
+          <p className='text-text-muted text-base md:text-lg max-w-xl leading-relaxed'>
+            Espacios reales, anfitriones reales, experiencias reales. Descubre apartamentos cuidadosamente seleccionados para tu descanso.
+          </p>
 
-            {/* ── Barra de disponibilidad ── */}
-            <div className='w-full mt-8'>
-              <AvailabilityBar />
-            </div>
+          {/* ── Barra de disponibilidad ── */}
+          <div className='w-full mt-8 pb-16'>
+            <AvailabilityBar />
           </div>
         </div>
       </header>
