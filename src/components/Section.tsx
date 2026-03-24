@@ -1,18 +1,23 @@
 /**
  * Section.tsx
  * Contenedor de sección reutilizable con padding y título opcional.
+ * Rediseñado: max-width más amplio, jerarquía visual mejorada, acento más prominente.
  */
 
 interface SectionProps {
   children: React.ReactNode;
   /** Título de la sección (opcional) */
   titulo?: string;
+  /** Subtítulo debajo del título */
+  subtitulo?: string;
   /** Acento de color bajo el título */
   acento?: "pink" | "green" | "purple" | "yellow";
   /** id HTML para anchor links */
   id?: string;
-  /** Clase extra para el contenedor */
+  /** Clase extra para el contenedor exterior */
   className?: string;
+  /** Alinear título al centro */
+  centrado?: boolean;
 }
 
 const ACENTO_CLASSES: Record<string, string> = {
@@ -22,24 +27,47 @@ const ACENTO_CLASSES: Record<string, string> = {
   yellow: "bg-livic-yellow",
 };
 
+const ACENTO_TEXT_CLASSES: Record<string, string> = {
+  pink:   "text-livic-pink",
+  green:  "text-livic-green",
+  purple: "text-livic-purple",
+  yellow: "text-livic-yellow",
+};
+
 export default function Section({
   children,
   titulo,
+  subtitulo,
   acento = "pink",
   id,
   className = "",
+  centrado = false,
 }: SectionProps) {
   return (
     <section
       id={id}
-      className={`w-full max-w-4xl mx-auto px-5 md:px-8 py-12 md:py-16 ${className}`}
+      className={`w-full max-w-6xl mx-auto px-5 md:px-10 py-16 md:py-24 ${className}`}
     >
       {titulo && (
-        <div className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
+        <div className={`mb-10 md:mb-14 ${centrado ? 'text-center' : ''}`}>
+          {/* Etiqueta de acento superior */}
+          <span className={`text-xs font-bold uppercase tracking-[0.2em] ${ACENTO_TEXT_CLASSES[acento]} mb-3 block`}>
+            LIVIC
+          </span>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-4">
             {titulo}
           </h2>
-          <div className={`w-10 h-0.5 rounded-full ${ACENTO_CLASSES[acento]}`} />
+
+          {/* Línea de acento */}
+          <div className={`h-1 rounded-full ${ACENTO_CLASSES[acento]} ${centrado ? 'mx-auto' : ''}`}
+               style={{ width: '3rem' }} />
+
+          {subtitulo && (
+            <p className="text-text-muted text-base md:text-lg mt-4 max-w-2xl leading-relaxed">
+              {subtitulo}
+            </p>
+          )}
         </div>
       )}
       {children}
