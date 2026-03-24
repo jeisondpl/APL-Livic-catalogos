@@ -25,10 +25,10 @@ export default function CatalogHome() {
             <img
               src={apartments[0].heroPhoto.src}
               alt='Portada del catálogo LIVIC'
-              className='absolute inset-0 w-full h-full object-cover opacity-20'
+              className='absolute inset-0 w-full h-full object-cover opacity-60'
             />
           )}
-          <div className='absolute inset-0 bg-gradient-to-b from-livic-black/40 via-livic-black/70 to-livic-black' />
+          <div className='absolute inset-0 bg-gradient-to-b from-livic-black/20 via-livic-black/50 to-livic-black' />
         </div>
 
         {/* Contenido: sin overflow-hidden para que los dropdowns no se recorten */}
