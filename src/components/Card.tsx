@@ -1,7 +1,11 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import useEmblaCarousel from 'embla-carousel-react'
+import { useCallback } from 'react'
 import type { Apartment } from '@/data/apartments'
-import { Users, BedDouble, Bath, Heart, Star } from 'lucide-react'
+import { Users, BedDouble, Bath, Heart, Star, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface CardProps {
   apartment: Apartment
@@ -12,25 +16,52 @@ export default function Card({ apartment }: CardProps) {
   const resenas = apartment.anfitrionPrincipal.resenas ?? 0
   const precio  = apartment.precioNoche
 
+  const precioFormateado = precio != null
+    ? new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(precio)
+    : null
+
+  // Hasta 5 fotos: hero + primeras 4 de la galería
+  const fotos = [apartment.heroPhoto, ...apartment.galeria.slice(0, 4)]
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: false })
+
+  const prev = useCallback((e: React.MouseEvent) => {
+    e.preventDefault()
+    emblaApi?.scrollPrev()
+  }, [emblaApi])
+
+  const next = useCallback((e: React.MouseEvent) => {
+    e.preventDefault()
+    emblaApi?.scrollNext()
+  }, [emblaApi])
+
   return (
     <Link
       href={`/apartamentos/${apartment.slug}`}
       className="card-hover group block bg-white rounded-[3.5rem] p-5 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.10)] border border-gray-100"
     >
-      {/* ── Imagen ── */}
+      {/* ── Slider de fotos ── */}
       <div className="relative">
-        {/* Imagen con overflow-hidden propio */}
-        <div className="relative h-[280px] rounded-[3rem] overflow-hidden">
-          <Image
-            src={apartment.heroPhoto.src}
-            alt={apartment.heroPhoto.alt}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+
+        {/* Viewport Embla */}
+        <div className="relative h-[280px] rounded-[3rem] overflow-hidden" ref={emblaRef}>
+          <div className="flex h-full">
+            {fotos.map((foto, i) => (
+              <div key={i} className="relative flex-[0_0_100%] h-full">
+                <Image
+                  src={foto.src}
+                  alt={foto.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={i === 0}
+                />
+              </div>
+            ))}
+          </div>
 
           {/* Badge top-left */}
-          <div className="absolute top-5 left-5">
+          <div className="absolute top-5 left-5 z-10">
             <span className="bg-white px-5 py-2.5 rounded-[1.25rem] shadow-sm text-livic-pink font-bold text-sm">
               Top Rated
             </span>
@@ -39,11 +70,31 @@ export default function Card({ apartment }: CardProps) {
           {/* Corazón top-right */}
           <button
             aria-label="Guardar"
-            className="absolute top-5 right-5 bg-white p-3 rounded-full shadow-sm hover:scale-110 transition-transform"
+            className="absolute top-5 right-5 z-10 bg-white p-3 rounded-full shadow-sm hover:scale-110 transition-transform"
             onClick={(e) => e.preventDefault()}
           >
             <Heart size={20} className="text-gray-900" />
           </button>
+
+          {/* Flechas — solo si hay más de 1 foto */}
+          {fotos.length > 1 && (
+            <>
+              <button
+                aria-label="Foto anterior"
+                onClick={prev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100"
+              >
+                <ChevronLeft size={18} className="text-gray-800" />
+              </button>
+              <button
+                aria-label="Foto siguiente"
+                onClick={next}
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100"
+              >
+                <ChevronRight size={18} className="text-gray-800" />
+              </button>
+            </>
+          )}
         </div>
 
         {/* Rating badge — fuera del overflow-hidden, sobresale sobre el contenido */}
@@ -80,14 +131,14 @@ export default function Card({ apartment }: CardProps) {
           </div>
         </div>
 
-        {/* Footer: precio + CTA */}
+        {/* Footer: precio + botón circular */}
         <div className="flex items-center justify-between">
-          {precio != null ? (
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-[2rem] font-bold text-gray-900 tracking-tight">
-                ${precio.toFixed(0)}
+          {precioFormateado != null ? (
+            <div className="flex flex-col">
+              <span className="text-[1.5rem] font-bold text-gray-900 tracking-tight leading-none">
+                {precioFormateado}
               </span>
-              <span className="text-gray-400 text-base font-medium">/noche</span>
+              <span className="text-gray-400 text-xs font-medium mt-1">por noche</span>
             </div>
           ) : (
             <p className="text-gray-400 text-sm truncate max-w-[140px]">
@@ -95,11 +146,16 @@ export default function Card({ apartment }: CardProps) {
             </p>
           )}
 
-          <span className="bg-[#F3F4F6] px-7 py-4 rounded-[2rem] font-bold text-gray-900 text-base group-hover:bg-livic-pink group-hover:text-white transition-all whitespace-nowrap">
-            Ver ahora
-          </span>
+          {/* Botón circular con flecha */}
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-14 h-14 rounded-full bg-livic-black flex items-center justify-center shadow-lg group-hover:bg-livic-pink transition-colors duration-300">
+              <ChevronRight size={24} className="text-white translate-x-0.5" />
+            </div>
+            <span className="text-[10px] font-semibold text-gray-400 tracking-wide uppercase">Ver detalle</span>
+          </div>
         </div>
       </div>
     </Link>
   )
 }
+

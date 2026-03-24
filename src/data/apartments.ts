@@ -321,6 +321,8 @@ const apartment1008: Apartment = {
   ],
 
   airbnbCalendarUrl: "https://www.airbnb.com.co/calendar/ical/1608385896028957180.ics?t=088d0e1cf78b4b9cb254562b820c5d24",
+
+  precioNoche: 250000,
 };
 
 // ─── Fotos del apartamento 915 ───────────────────────────────────────────────
@@ -498,6 +500,8 @@ const apartment915: Apartment = {
 
   checkIn: "3:00 p.m.",
   checkOut: "11:00 a.m.",
+
+  precioNoche: 320000,
 
   notas: [
     "Identificarse en portería con nombre y número de reserva al llegar.",
