@@ -1,19 +1,13 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { Search } from 'lucide-react'
 
+/* ── Tipos ── */
+type GuestKey = 'adultos' | 'ninos' | 'bebes' | 'mascotas'
+interface Guests { adultos: number; ninos: number; bebes: number; mascotas: number }
 
 /* ── Helpers ── */
-type GuestKey = 'adultos' | 'ninos' | 'bebes' | 'mascotas'
-
-interface Guests {
-  adultos: number
-  ninos: number
-  bebes: number
-  mascotas: number
-}
-
 function formatRange(value: string): string {
   if (!value?.includes('/')) return ''
   const [s, e] = value.split('/')
@@ -27,25 +21,74 @@ function formatRange(value: string): string {
 
 const GUEST_ROWS: { key: GuestKey; label: string; sub: string }[] = [
   { key: 'adultos', label: 'Adultos', sub: 'Edad: 13 años o más' },
-  { key: 'ninos', label: 'Niños', sub: 'Edades 2 – 12' },
-  { key: 'bebes', label: 'Bebés', sub: 'Menos de 2 años' },
-  { key: 'mascotas', label: 'Mascotas', sub: '¿Traes a un animal de servicio?' },
+  { key: 'ninos',   label: 'Niños',   sub: 'Edades 2 – 12' },
+  { key: 'bebes',   label: 'Bebés',   sub: 'Menos de 2 años' },
+  { key: 'mascotas',label: 'Mascotas',sub: '¿Traes a un animal de servicio?' },
 ]
 
-/* ── Componente ── */
+/* ─────────────────────────────────────────────────────── */
+
 export default function AvailabilityBar() {
   const [range, setRange] = useState('')
   const [guests, setGuests] = useState<Guests>({ adultos: 0, ninos: 0, bebes: 0, mascotas: 0 })
   const [panel, setPanel] = useState<'fechas' | 'quien' | null>(null)
-  const ref = useRef<HTMLDivElement>(null)
 
-  /* Cargar cally solo en el cliente */
-  useEffect(() => { import('cally') }, [])
+  const wrapRef      = useRef<HTMLDivElement>(null)
+  const calendarRef  = useRef<HTMLDivElement>(null)   // contenedor del calendario imperativo
+  const rangeRef     = useRef('')                      // valor actual sin stale closure
+
+  rangeRef.current = range
+
+  const today = new Date().toISOString().split('T')[0]
+  const total  = Object.values(guests).reduce((a, b) => a + b, 0)
+
+  /* ── Montar calendar-range de forma imperativa ── */
+  const mountCalendar = useCallback(() => {
+    const container = calendarRef.current
+    if (!container) return
+
+    import('cally').then(() => {
+      if (!calendarRef.current) return           // panel cerrado antes de cargar
+      container.innerHTML = ''                   // limpiar por si se remonta
+
+      const calRange = document.createElement('calendar-range') as HTMLElement & { value: string }
+      calRange.setAttribute('locale', 'es-CO')
+      calRange.setAttribute('min', today)
+      calRange.style.setProperty('--color-accent', '#E288AE')
+      calRange.style.display = 'flex'
+      calRange.style.gap = '1.5rem'
+
+      if (rangeRef.current) calRange.setAttribute('value', rangeRef.current)
+
+      const month1 = document.createElement('calendar-month')
+      const month2 = document.createElement('calendar-month')
+      month2.setAttribute('offset', '1')
+
+      calRange.appendChild(month1)
+      calRange.appendChild(month2)
+
+      calRange.addEventListener('change', (e: Event) => {
+        const val = (e.target as HTMLElement & { value: string }).value ?? ''
+        setRange(val)
+        rangeRef.current = val
+        if (val.includes('/') && val.split('/').every(Boolean)) {
+          setTimeout(() => setPanel(null), 180)
+        }
+      })
+
+      container.appendChild(calRange)
+    })
+  }, [today])
+
+  /* Montar cuando el panel 'fechas' se abre */
+  useEffect(() => {
+    if (panel === 'fechas') mountCalendar()
+  }, [panel, mountCalendar])
 
   /* Cerrar al hacer clic fuera */
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setPanel(null)
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setPanel(null)
     }
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
@@ -55,22 +98,18 @@ export default function AvailabilityBar() {
     setGuests(prev => ({ ...prev, [key]: Math.max(0, prev[key] + delta) }))
   }
 
-  const total = Object.values(guests).reduce((a, b) => a + b, 0)
-  const today = new Date().toISOString().split('T')[0]
-
+  /* ── Render ── */
   return (
-    <div ref={ref} className="relative w-full max-w-2xl mx-auto">
+    <div ref={wrapRef} className="relative w-full max-w-2xl mx-auto">
 
-      {/* ── Barra ── */}
+      {/* ── Barra pill ── */}
       <div className="flex items-center bg-white dark:bg-surface-100 rounded-full shadow-xl border border-surface-300">
 
         {/* Fechas */}
         <button
-          onClick={() => setPanel(panel === 'fechas' ? null : 'fechas')}
-          className={`
-            flex-1 flex flex-col items-start px-6 py-3.5 rounded-l-full transition-colors min-w-0
-            ${panel === 'fechas' ? 'bg-surface-200 dark:bg-surface-200' : 'hover:bg-surface-100 dark:hover:bg-surface-200'}
-          `}
+          onClick={() => setPanel(p => p === 'fechas' ? null : 'fechas')}
+          className={`flex-1 flex flex-col items-start px-6 py-3.5 rounded-l-full transition-colors min-w-0
+            ${panel === 'fechas' ? 'bg-surface-200' : 'hover:bg-surface-100 dark:hover:bg-surface-200'}`}
         >
           <span className="text-xs font-semibold text-foreground tracking-wide">Fechas</span>
           <span className="text-sm text-text-muted truncate w-full mt-0.5">
@@ -83,11 +122,9 @@ export default function AvailabilityBar() {
 
         {/* Quién */}
         <button
-          onClick={() => setPanel(panel === 'quien' ? null : 'quien')}
-          className={`
-            flex-1 flex flex-col items-start px-6 py-3.5 transition-colors min-w-0
-            ${panel === 'quien' ? 'bg-surface-200 dark:bg-surface-200' : 'hover:bg-surface-100 dark:hover:bg-surface-200'}
-          `}
+          onClick={() => setPanel(p => p === 'quien' ? null : 'quien')}
+          className={`flex-1 flex flex-col items-start px-6 py-3.5 transition-colors min-w-0
+            ${panel === 'quien' ? 'bg-surface-200' : 'hover:bg-surface-100 dark:hover:bg-surface-200'}`}
         >
           <span className="text-xs font-semibold text-foreground tracking-wide">Quién</span>
           <span className="text-sm text-text-muted mt-0.5">
@@ -107,36 +144,16 @@ export default function AvailabilityBar() {
         </div>
       </div>
 
-      {/* ── Panel calendario ── */}
-      {panel === 'fechas' && (
-        <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-white dark:bg-surface-100 rounded-2xl shadow-2xl border border-surface-300 z-50 p-5 w-max">
-          {/* @ts-ignore */}
-          <calendar-range
-            value={range}
-            min={today}
-            months="2"
-            locale="es-CO"
-            onchange={(e: Event) => {
-              const val = (e.target as HTMLInputElement).value
-              setRange(val)
-              /* Cerrar automáticamente al completar el rango */
-              if (val?.includes('/') && val.split('/').every(Boolean)) {
-                setTimeout(() => setPanel(null), 150)
-              }
-            }}
-            style={{
-              '--color-accent': '#E288AE',
-              display: 'flex',
-              gap: '1.5rem',
-            } as React.CSSProperties}
-          >
-            {/* @ts-ignore */}
-            <calendar-month />
-            {/* @ts-ignore */}
-            <calendar-month offset={1} />
-          </calendar-range>
-        </div>
-      )}
+      {/* ── Panel calendario (siempre en DOM, visible/oculto) ── */}
+      <div
+        className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-white dark:bg-surface-100
+          rounded-2xl shadow-2xl border border-surface-300 z-50 p-5 w-max
+          transition-all duration-200
+          ${panel === 'fechas' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      >
+        {/* Contenedor donde se monta cally de forma imperativa */}
+        <div ref={calendarRef} />
+      </div>
 
       {/* ── Panel huéspedes ── */}
       {panel === 'quien' && (
@@ -144,7 +161,8 @@ export default function AvailabilityBar() {
           {GUEST_ROWS.map((row, i) => (
             <div
               key={row.key}
-              className={`flex items-center justify-between py-4 ${i < GUEST_ROWS.length - 1 ? 'border-b border-surface-300' : ''}`}
+              className={`flex items-center justify-between py-4
+                ${i < GUEST_ROWS.length - 1 ? 'border-b border-surface-300' : ''}`}
             >
               <div>
                 <p className="text-sm font-medium text-foreground">{row.label}</p>
@@ -155,18 +173,14 @@ export default function AvailabilityBar() {
                   onClick={() => adjust(row.key, -1)}
                   disabled={guests[row.key] === 0}
                   className="w-8 h-8 rounded-full border border-surface-300 flex items-center justify-center text-foreground text-lg leading-none disabled:opacity-25 hover:border-foreground transition-colors"
-                >
-                  –
-                </button>
+                >–</button>
                 <span className="w-5 text-center text-sm font-medium text-foreground tabular-nums">
                   {guests[row.key]}
                 </span>
                 <button
                   onClick={() => adjust(row.key, 1)}
                   className="w-8 h-8 rounded-full border border-surface-300 flex items-center justify-center text-foreground text-lg leading-none hover:border-foreground transition-colors"
-                >
-                  +
-                </button>
+                >+</button>
               </div>
             </div>
           ))}
