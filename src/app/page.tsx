@@ -55,7 +55,7 @@ export default function CatalogHome() {
         <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent" />
 
         {/* Contenido en dos columnas */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 min-h-screen flex items-center pt-20 pb-10">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 xl:px-16 min-h-screen flex items-center pt-20 pb-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
 
             {/* ── Columna izquierda: texto ── */}
@@ -121,7 +121,7 @@ export default function CatalogHome() {
           B) TAGS DE ZONA — Pills horizontales
       ════════════════════════════════════════════════════════════ */}
       <div className="bg-gray-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-5 md:px-10 py-10">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 xl:px-16 py-10">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-5">
             Explora por zona
           </p>
@@ -173,7 +173,7 @@ export default function CatalogHome() {
           E) FOOTER — 3 columnas
       ════════════════════════════════════════════════════════════ */}
       <footer className="bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-5 md:px-10 py-14 md:py-16">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 xl:px-16 py-14 md:py-16">
 
           {/* Grid 3 columnas */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mb-12">

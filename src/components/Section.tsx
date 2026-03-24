@@ -49,7 +49,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`w-full max-w-7xl mx-auto px-5 md:px-10 py-14 md:py-20 ${className}`}
+      className={`w-full max-w-6xl mx-auto px-6 md:px-12 xl:px-16 py-14 md:py-20 ${className}`}
     >
       {titulo && (
         <div className={`mb-10 md:mb-12 ${centrado ? "text-center" : ""}`}>
