@@ -1,0 +1,437 @@
+{
+  "Editor de anuncios": {
+    "Recorrido fotográfico": {
+      "descripción": "Apartamento 915 en Reserva del Mar, Santa Marta, Colombia. Piso 9 con doble orientación: vista al Caribe y a la Sierra Nevada. Dos habitaciones, dos baños, sala con balcón y decoración náutica artesanal.",
+      "photo-tour": [
+        {
+          "ambiente": "Balcón",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Balcón", "seleccionado": true },
+            { "nombre": "Vista al mar", "seleccionado": true },
+            { "nombre": "Vista a la montaña", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_3169-HDR.jpg",
+              "descripción": {
+                "descripción": "Vista al mar Caribe desde el balcón del piso 9. Bahía, vegetación costera y skyline de Santa Marta.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_3180.jpg",
+              "descripción": {
+                "descripción": "Vista lateral del balcón hacia el mar Caribe. Bahía de aguas turquesas con palmeras y edificios en primer plano.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "Sin-título-9.jpg",
+              "descripción": {
+                "descripción": "Balcón con dos sillas tipo Acapulco y vistas a la Sierra Nevada de Santa Marta.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "Sin-título-10.jpg",
+              "descripción": {
+                "descripción": "Balcón amplio con silla Acapulco y vista panorámica a la Sierra Nevada y vegetación.",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Sala de estar",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Aire acondicionado", "seleccionado": true },
+            { "nombre": "Sofá", "seleccionado": true },
+            { "nombre": "Acceso al balcón", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "Sin-título-8.jpg",
+              "descripción": {
+                "descripción": "Sala con sofá azul, sillones coloridos y acceso directo al balcón con vistas a la Sierra Nevada.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "Sin-título-1.jpg",
+              "descripción": {
+                "descripción": "Sala luminosa con sillones de tapizado geométrico multicolor, puertas corredizas de vidrio y balcón al fondo.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_3000.jpg",
+              "descripción": {
+                "descripción": "Vista desde la entrada hacia la sala. Estantería con velero y pelícano artesanal. Sala con acceso visual al balcón.",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Habitación principal",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Cama doble", "seleccionado": true },
+            { "nombre": "Aire acondicionado", "seleccionado": true },
+            { "nombre": "TV", "seleccionado": true },
+            { "nombre": "Armario", "seleccionado": true },
+            { "nombre": "Vista al mar", "seleccionado": true },
+            { "nombre": "Baño en suite", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "Sin-título-7.jpg",
+              "descripción": {
+                "descripción": "Habitación principal con vista al mar Caribe. Ancla decorativa turquesa y ropa de cama en tonos azules y grises.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "Sin-título-6.jpg",
+              "descripción": {
+                "descripción": "Habitación principal con cama doble, espejo tipo sol, aire acondicionado y acceso al baño en suite.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "Sin-título-3.jpg",
+              "descripción": {
+                "descripción": "Habitación principal con cama doble, ancla decorativa azul en pared, TV montada y ventana con vistas.",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Habitación secundaria",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Dos camas individuales", "seleccionado": true },
+            { "nombre": "Aire acondicionado", "seleccionado": true },
+            { "nombre": "Armario", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "Sin-título-2.jpg",
+              "descripción": {
+                "descripción": "Segunda habitación con dos camas individuales, cangrejo artesanal multicolor en pared y ventana con vistas a la sierra.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "Sin-título-4.jpg",
+              "descripción": {
+                "descripción": "Segunda habitación con armario empotrado, estantería de madera y acceso al baño. Arte decorativo caribeño.",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Baño principal (en suite)",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Ducha de lluvia", "seleccionado": true },
+            { "nombre": "Cabina de vidrio", "seleccionado": true },
+            { "nombre": "Encimera de mármol", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_3091.jpg",
+              "descripción": {
+                "descripción": "Baño en suite con encimera de mármol, ducha tipo lluvia y cabina de vidrio.",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "Sin-título-5.jpg",
+              "descripción": {
+                "descripción": "Baño con velero decorativo colgante, encimera de mármol y detalles artesanales náuticos.",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Segundo baño y almacenamiento",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Toallas provistas", "seleccionado": true },
+            { "nombre": "Armario de almacenamiento", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_3115.jpg",
+              "descripción": {
+                "descripción": "Área de almacenamiento con armario y estanterías de madera. Toallas blancas disponibles. Segundo baño al fondo con figuritas artesanales.",
+                "restricciones": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Título": {
+      "español": "Apto caribeño piso 9 | Vista al mar y la Sierra | Reserva del Mar",
+      "nombre interno": "LIVIC - Reserva del Mar 915 T3"
+    },
+    "Tipo de propiedad": {
+      "¿Cuál se parece más a tu vivienda?": "Apartamento",
+      "tipo de propiedad": "Apartamento",
+      "tipo de espacio": "Alojamiento entero",
+      "¿Cuántos pisos hay en el edificio?": 20,
+      "¿En qué piso se encuentra el alojamiento?": 9,
+      "Año de construcción": 2018,
+      "Tamaño de la propiedad": {
+        "valor": 99,
+        "unidad": "m²"
+      },
+      "Tu categoría": {
+        "descripción": "Apartamento en conjunto residencial cerrado con vista al mar Caribe y a la Sierra Nevada en Santa Marta, Colombia. Decoración náutica artesanal, dos habitaciones y balcón privado.",
+        "categoría": ["Frente al mar", "Vistas increíbles", "Diseño"]
+      }
+    },
+    "precios": {
+      "descripcion": "Precio base calculado para que el propietario reciba $450.000 COP netos/noche tras la comisión de Airbnb (~3%). Ajustar manualmente en temporada alta: diciembre-enero, Semana Santa y puentes festivos.",
+      "precio por noche": {
+        "valor": 465000,
+        "moneda": "COP",
+        "precios inteligentes": false,
+        "nota": "Precio publicado = $465.000 COP. Neto anfitrión tras comisión 3% Airbnb ≈ $450.000 COP"
+      },
+      "precio personalizado para el fin de semana": {
+        "valor": 515000,
+        "moneda": "COP",
+        "nota": "Neto anfitrión fin de semana ≈ $500.000 COP"
+      },
+      "descuentos": {
+        "semanal": {
+          "condicion": "7 noches o más",
+          "porcentaje": 10,
+          "promedio semanal": 418500,
+          "moneda": "COP"
+        },
+        "mensual": {
+          "condicion": "28 noches o más",
+          "porcentaje": 20,
+          "promedio mensual": 372000,
+          "moneda": "COP"
+        }
+      }
+    },
+    "disponibilidad": {
+      "descripcion": "Disponible todo el año salvo bloqueos por mantenimiento o uso personal. Mínimo 2 noches para garantizar rentabilidad operativa.",
+      "duración del viaje": {
+        "número mínimo de noches": 2,
+        "número máximo de noches": 30,
+        "permite estadías largas": {
+          "activado": true,
+          "nota": "Para estadías superiores a 30 noches, consultar condiciones especiales directamente."
+        }
+      },
+      "preaviso": {
+        "descripcion": "Se requiere preaviso mínimo de 1 día para coordinar check-in.",
+        "tiempo": "1 día",
+        "permitir solicitudes con menos de 1 día de anticipación": false,
+        "nota": "Coordinar hora exacta de llegada con anticipación vía mensaje."
+      }
+    },
+    "numero de personas": {
+      "descripcion": "Capacidad para 4 huéspedes: 2 en habitación principal (cama doble) y 2 en habitación secundaria (dos camas individuales).",
+      "huéspedes": 4
+    },
+    "descripcion": {
+      "descripcion del anuncio": "Despierta con el Caribe frente a ti. Este apartamento en el piso 9 de Reserva del Mar tiene vistas directas al mar, palmeras y la Sierra Nevada desde el balcón. Dos habitaciones decoradas con arte náutico artesanal —anclas, veleros, cangrejos— crean una identidad caribeña coherente y con carácter. Espacioso, luminoso y completamente equipado para descansar de verdad en Santa Marta.",
+      "tu propiedad": "El apartamento tiene dos habitaciones y dos baños completos. La habitación principal cuenta con cama doble, aire acondicionado, TV, espejo tipo sol y baño en suite con encimera de mármol y ducha de lluvia. La segunda habitación tiene dos camas individuales, aire acondicionado y arte decorativo caribeño. La sala conecta directamente con el balcón a través de puertas corredizas de vidrio —luz natural todo el día y brisa constante. Desde el balcón se ve el mar Caribe, la vegetación costera y la Sierra Nevada al fondo. El conjunto tiene seguridad 24 horas.",
+      "acceso de los huéspedes": "Tienen acceso completo al apartamento: ambas habitaciones, baños, sala, cocina y balcón. Al llegar, dirígete al lobby de las Torres 3 y 4 para registrarte y adquirir las manillas de acceso ($57.500 COP por persona, a partir de 9 años, solo tarjeta). Se genera un código de apertura de un solo uso para la puerta del apartamento. Dentro, la tarjeta está sobre el mesón de la cocina — es tu llave, siempre pórtalas. Insértala en el tarjetero del muro de la entrada para activar la electricidad.",
+      "interacción con los huéspedes": "Estoy disponible por mensaje para cualquier consulta antes y durante la estadía. Prefiero dar espacio para que disfruten con total independencia, pero respondo rápido si necesitan algo. Si es su primera vez en Santa Marta, con gusto les comparto recomendaciones de playas, restaurantes y planes locales.",
+      "otros detalles a destacar": "¡Hola! Para asegurar que tu llegada y tu estancia sean perfectas, por favor ten en cuenta estos puntos clave:\n\n📍 Ubicación:\n• A menos de 3 minutos en coche del Rodadero, Centro Comercial Arrecifes y Centro Comercial Zasué.\n• A menos de 20 minutos en coche del Centro Histórico de Santa Marta: restaurantes y vida nocturna.\n• A 15 minutos en coche del Aeropuerto Internacional Simón Bolívar y del terminal de buses.\n\n💳 Tasa del complejo:\nEn el vestíbulo, la administración cobrará $57.500 COP por persona. Este monto debe ser pagado directamente por el huésped al check-in.\nNota: Algunas amenidades requieren reserva previa y/o tienen un costo adicional, sujeto a la administración del edificio.\n\n👥 Número de huéspedes:\nLa capacidad máxima es la indicada en la reserva, incluyendo niños y bebés. Si el número de personas supera el límite al llegar, la administración aplicará un cargo adicional por persona.\n\n🕒 Horarios:\n• Check-in: a partir de las 3:00 PM\n• Check-out: antes de las 11:00 AM\nEarly check-in y late check-out disponibles con costo adicional y sujeto a disponibilidad. Consultar con anticipación.\n\n🧳 Equipaje:\nPor políticas del edificio, no es posible guardar equipaje en recepción ni usar zonas comunes antes del check-in. Planifica tu llegada cerca de las 3:00 PM.\n\n🔒 Acceso:\nSolo las personas registradas en la reserva tienen acceso al apartamento y a las áreas del edificio."
+    },
+    "comodidades": {
+      "descripcion": "Comodidades disponibles en el apartamento 915. Las marcadas con * son inferidas como estándar del conjunto y tipo de propiedad.",
+      "comodidades": [
+        "Aire acondicionado",
+        "TV",
+        "Balcón",
+        "Vista al mar",
+        "Vista a las montañas/Sierra Nevada",
+        "Wifi — Red: CLARO-332A",
+        "Cocina equipada *",
+        "Refrigerador *",
+        "Microondas *",
+        "Utensilios de cocina *",
+        "Cafetera *",
+        "Ropa de cama",
+        "Toallas",
+        "Armario/ropero",
+        "Ducha de lluvia",
+        "Agua caliente *",
+        "Elevador *",
+        "Seguridad 24h / portería",
+        "Detector de humo *"
+      ]
+    },
+    "Prestaciones de accesibilidad": {
+      "descripcion": "Sin prestaciones de accesibilidad confirmadas. El acceso es mediante ascensor al piso 9.",
+      "prestaciones de accesibilidad": []
+    },
+    "ubicación": {
+      "descripcion": "Conjunto residencial Reserva del Mar, Santa Marta, Magdalena, Colombia. Zona costera con acceso rápido a playas, Parque Tayrona y centro histórico.",
+      "dirección": {
+        "calle": "Calle 22 #1-67, Playa Salguero",
+        "apartamento/piso/edificio": "Torre 3, Apto 915, Piso 9",
+        "ciudad/municipio": "Santa Marta",
+        "departamento": "Magdalena",
+        "país": "Colombia"
+      },
+      "coordenadas": {
+        "latitud": 11.2247,
+        "longitud": -74.1959
+      },
+      "ubicación compartida": {
+        "muestra la ubicación exacta de tu alojamiento": false,
+        "descripcion": "La ubicación exacta se comparte tras la confirmación de la reserva.",
+        "estado": "Aproximada hasta la reserva"
+      },
+      "características de la ubicación": [
+        "Frente al mar",
+        "Cerca de la playa",
+        "Vistas panorámicas al Caribe y la Sierra Nevada",
+        "Conjunto cerrado con seguridad",
+        "Zona residencial tranquila"
+      ],
+      "descripción del vecindario": "Reserva del Mar está ubicado en Santa Marta, ciudad costera del Caribe colombiano y puerta de entrada al Parque Nacional Tayrona. El conjunto se encuentra en zona residencial con acceso rápido a playas, restaurantes, centros comerciales y al centro histórico de Santa Marta. La ciudad combina mar, sierra y cultura en un radio compacto.",
+      "cómo desplazarse": "Santa Marta cuenta con taxis, InDriver y Uber. El conjunto tiene acceso vehicular. Distancias clave: El Rodadero (3 min), Centro Comercial Arrecifes (3 min), Centro Comercial Zasué (3 min), Centro Histórico de Santa Marta (20 min), Aeropuerto Internacional Simón Bolívar (15 min), Terminal de buses (15 min).",
+      "vistas panorámicas": [
+        "Vista al mar Caribe",
+        "Vista a la Sierra Nevada de Santa Marta",
+        "Vista a la bahía y vegetación costera",
+        "Vista a la ciudad de Santa Marta"
+      ]
+    },
+    "Sobre el anfitrión": {
+      "foto de perfil": "",
+      "perfil": {
+        "dónde estudié": "",
+        "a dónde siempre quise ir": "",
+        "a qué me dedico": "",
+        "porqué mi alojamiento es único": "Cada detalle decorativo fue elegido a mano para transmitir el espíritu del Caribe colombiano. No es decoración genérica: es una propuesta de identidad.",
+        "a los huéspedes, yo siempre": "les doy la bienvenida con recomendaciones locales y respondo rápido si necesitan algo durante su estadía.",
+        "década en la que nací": "",
+        "dato curioso sobre mí": "",
+        "mi habilidad menos útil": "",
+        "a qué dedico demasiado tiempo": "",
+        "mi canción favorita en la secundaria": "",
+        "idiomas que hablo": "Español",
+        "amo": "El mar Caribe y la Sierra Nevada de Santa Marta",
+        "el título de mi biografía sería": "",
+        "vivo en": "Santa Marta, Colombia",
+        "qué hay para desayunar": "",
+        "mascotas": ""
+      },
+      "información sobre mí": "Soy Lina: mamá, emprendedora y especialista en Workation. Busco que tu estancia sea el equilibrio ideal entre enfoque y relax. Te ofrezco \"presencia real\": atención humana y honestidad total. Resuelvo con rapidez y asumo cada reto con responsabilidad para garantizar tu paz mental. No pretendo ser perfecta, sino ser la anfitriona coherente y cercana que necesitas. ¡Será un gusto recibirte!",
+      "lugares donde estuve": {
+        "visible en perfil": false,
+        "sellos de viaje": []
+      },
+      "mis intereses": ["Workation", "Emprendimiento", "Viajes", "Caribe colombiano", "Hospitalidad", "Maternidad"]
+    },
+    "coanfitriones": {
+      "descripcion": "",
+      "coanfitriones": []
+    },
+    "Configuración de las reservaciones": {
+      "descripcion": "Las reservaciones se aprueban manualmente para garantizar compatibilidad con el perfil del huésped y el cuidado del apartamento.",
+      "Mensaje previo a la reservación": "Hola, gracias por tu interés en el apartamento 915 en Reserva del Mar, Santa Marta. Antes de confirmar, cuéntanos brevemente el motivo de tu visita y cuántas personas viajan. ¡Bienvenidos al Caribe colombiano!",
+      "requisitos para los huéspedes": {
+        "requisitos para reservar": [
+          "Identificación verificada",
+          "Foto de perfil"
+        ],
+        "preguntas para los huéspedes": [
+          "¿Cuál es el motivo de tu visita a Santa Marta?",
+          "¿Cuántas personas viajan en total?"
+        ]
+      }
+    },
+    "Reglas de la casa": {
+      "se admiten mascotas": false,
+      "número máximo de mascotas permitidas": 0,
+      "eventos permitidos": false,
+      "está permitido fumar, vapear y utilizar cigarrillos electrónicos": false,
+      "horas de silencio": {
+        "activo": true,
+        "hora de inicio": "22:00",
+        "hora de finalización": "08:00"
+      },
+      "se permite la fotografía y la filmación comerciales": false,
+      "número de personas": 4,
+      "horas de check-in y check-out": {
+        "llegada": {
+          "desde": "15:00",
+          "hasta": "21:00"
+        },
+        "salida": "11:00"
+      },
+      "reglas adicionales": "No se permiten fiestas ni reuniones. No fumar dentro del apartamento ni en el balcón (solo en zonas permitidas del conjunto). Respetar las normas del conjunto residencial Reserva del Mar. Tratar con cuidado la decoración artesanal. El número máximo de personas es 4."
+    },
+    "Seguridad del huésped": {
+      "consideraciones de seguridad": [
+        "El conjunto tiene portería y vigilancia 24 horas",
+        "El apartamento se encuentra en el piso 9 con acceso únicamente por ascensor o escaleras internas"
+      ],
+      "dispositivos de seguridad": [
+        "Detector de humo"
+      ],
+      "información de la propiedad": [
+        "Edificio de apartamentos en conjunto cerrado",
+        "Acceso al piso 9 por ascensor",
+        "Balcón con barandilla de vidrio templado"
+      ]
+    },
+    "Políticas de cancelación": {
+      "estadías de corta duración": {
+        "descripcion": "Política de cancelación para estadías menores de 28 noches.",
+        "tu política": {
+          "nombre": "Flexible",
+          "seleccionada": true,
+          "condiciones": [
+            "Cancelación gratuita hasta 24 horas antes del check-in",
+            "Reembolso completo si se cancela antes del plazo",
+            "Sin reembolso si se cancela con menos de 24 horas de anticipación"
+          ]
+        },
+        "opciones disponibles": ["Flexible", "Moderada", "Estricta"],
+        "opciones de políticas adicionales": {
+          "seleccionada": "",
+          "opciones": []
+        }
+      },
+      "estadías largas": {
+        "descripcion": "Política de cancelación para estadías de 28 noches o más.",
+        "tu política": {
+          "nombre": "Flexible para estadías largas",
+          "seleccionada": true,
+          "condiciones": [
+            "Cancelación gratuita durante las primeras 48 horas tras la reserva",
+            "Reembolso proporcional por noches no disfrutadas con 30 días de aviso previo"
+          ]
+        },
+        "opciones disponibles": ["Flexible para estadías largas", "Estricta para estadías largas"]
+      }
+    }
+  }
+}

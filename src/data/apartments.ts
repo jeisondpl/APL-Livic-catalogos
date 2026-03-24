@@ -113,6 +113,9 @@ export interface Apartment {
   checkIn: string;
   checkOut: string;
   notas: string[];
+
+  // ── Airbnb calendar
+  airbnbCalendarUrl?: string;
 }
 
 // ─── Fotos del apartamento 1008 ──────────────────────────────────────────────
@@ -132,7 +135,7 @@ const FOTOS_1008: ApartmentPhoto[] = [
   { src: `${BASE_1008}/IMG_20260122_160600698_HDR.jpg`, alt: "Cama abatible doble en sala" },
   { src: `${BASE_1008}/IMG_20260122_160604316_HDR.jpg`, alt: "Puerta corrediza del segundo dormitorio" },
   { src: `${BASE_1008}/IMG_20260122_160616948_HDR.jpg`, alt: "Aire acondicionado en habitación" },
-  { src: `${BASE_1008}/IMG_20260122_160722671.jpg`,     alt: "Detalle de mobiliario" },
+  { src: `${BASE_1008}/IMG_20260122_160722671.jpg`, alt: "Detalle de mobiliario" },
   { src: `${BASE_1008}/IMG_20260122_161019869_HDR.jpg`, alt: "Entrada y recepción del edificio" },
   { src: `${BASE_1008}/IMG_20260122_161125216_HDR.jpg`, alt: "Zona de lavandería con lavadora" },
   { src: `${BASE_1008}/IMG_20260122_161216126_HDR.jpg`, alt: "Mesa del comedor como estación de trabajo" },
@@ -312,6 +315,8 @@ const apartment1008: Apartment = {
     "La administración cobra una manilla obligatoria: $20.000 COP por persona (niños desde 9 años), pago único en check-in. Solo tarjeta o transferencia.",
     "Se entrega un PIN de uso único para el primer ingreso; la tarjeta queda dentro del apartamento para ingresos posteriores.",
   ],
+
+  airbnbCalendarUrl: "https://www.airbnb.com.co/calendar/ical/1608385896028957180.ics?t=088d0e1cf78b4b9cb254562b820c5d24",
 };
 
 // ─── Exportación del catálogo ─────────────────────────────────────────────────

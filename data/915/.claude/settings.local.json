@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.airbnb.com)",
+      "WebFetch(domain:www.airbnb.com.co)",
+      "WebFetch(domain:news.airbnb.com)",
+      "WebFetch(domain:reserva-del-mar.com)"
+    ]
+  }
+}
