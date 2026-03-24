@@ -1,34 +1,232 @@
 {
   "Editor de anuncios": {
     "Recorrido fotográfico": {
-      "descripción": "",
+      "descripción": "22 fotos organizadas por ambiente. Ver FICHA TECNICA 419.md para descripcion completa.",
       "photo-tour": [
         {
-          "ambiente": "",
-          "informacion sobre la privacidad": [
-            {
-              "nombre": "",
-              "descripcion": "",
-              "seleccionado": false
-            }
-          ],
+          "ambiente": "Estudio (vista general)",
+          "informacion sobre la privacidad": [],
           "comodidades": [
-            {
-              "nombre": "",
-              "seleccionado": false
-            }
+            { "nombre": "Aire acondicionado", "seleccionado": true },
+            { "nombre": "Balcón", "seleccionado": true }
           ],
-          "Prestaciones de accesibilidad": [
-            {
-              "nombre": "",
-              "seleccionado": false
-            }
-          ],
+          "Prestaciones de accesibilidad": [],
           "fotos": [
             {
-              "foto": "",
+              "foto": "IMG_20260212_104825926.jpg",
               "descripción": {
-                "descripción": "",
+                "descripción": "Estudio luminoso — vista general desde zona comedor hacia sala y balcon con la Sierra Nevada al fondo",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105201695.jpg",
+              "descripción": {
+                "descripción": "Estudio abierto — cama doble, sofa, A/C y pintura de elefante",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105237112.jpg",
+              "descripción": {
+                "descripción": "Vista desde la cocina hacia el estudio y el balcon — amplitud y luz natural",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105719106-Recuperado.jpg",
+              "descripción": {
+                "descripción": "Estudio completo — sofa, closet empotrado, TV y escritorio en una sola vista",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Zona de descanso",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Cama doble", "seleccionado": true },
+            { "nombre": "Armario empotrado", "seleccionado": true },
+            { "nombre": "Aire acondicionado", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_20260212_105115928.jpg",
+              "descripción": {
+                "descripción": "Cama doble con cabecero tapizado — acceso directo al balcon con vista a la Sierra Nevada",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105130134.jpg",
+              "descripción": {
+                "descripción": "Cama doble y closet empotrado de madera — luz natural desde el balcon",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105338697.jpg",
+              "descripción": {
+                "descripción": "Cama, TV, zona de trabajo y balcon — todo en el mismo espacio abierto",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105618230_HDR.jpg",
+              "descripción": {
+                "descripción": "Cama doble con closet y vista panoramica a la Sierra Nevada",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Zona de estar",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Sofá cama", "seleccionado": true },
+            { "nombre": "Aire acondicionado", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_20260212_105258951.jpg",
+              "descripción": {
+                "descripción": "Sala de estar — sofa crema, pintura de elefante, planta decorativa y A/C",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105637255.jpg",
+              "descripción": {
+                "descripción": "Sofa cama y planta — luz natural desde el balcon",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105731023.jpg",
+              "descripción": {
+                "descripción": "Sofa cama en posicion de descanso — espacio amplio y luminoso",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Cocina y zona de trabajo",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Cocina equipada", "seleccionado": true },
+            { "nombre": "Estufa a gas", "seleccionado": true },
+            { "nombre": "Horno", "seleccionado": true },
+            { "nombre": "Nevera", "seleccionado": true },
+            { "nombre": "Microondas", "seleccionado": false },
+            { "nombre": "Blender", "seleccionado": true },
+            { "nombre": "Televisor", "seleccionado": true },
+            { "nombre": "Escritorio / zona de trabajo", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_20260212_105003341.jpg",
+              "descripción": {
+                "descripción": "Cocina completa — estufa, horno, nevera Midea, gabinetes y zona de comedor al fondo",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105304274.jpg",
+              "descripción": {
+                "descripción": "TV, barra corrida con sillas ergonomicas y cocina — diseno funcional ideal para Workation",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105327182.jpg",
+              "descripción": {
+                "descripción": "Cocina vista desde la entrada — layout corredor limpio y bien organizado",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105806280_HDR.jpg",
+              "descripción": {
+                "descripción": "Detalle de la cocina — campana Mabe, estanteria abierta con vasos y blender",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "MEITU_20260217_102539321.jpg",
+              "descripción": {
+                "descripción": "Nevera Midea, lavadora y calentador a gas Rheem en closet de utilidades",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Balcón",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Balcón privado", "seleccionado": true },
+            { "nombre": "Vista a la Sierra Nevada", "seleccionado": true },
+            { "nombre": "Vista al mar (parcial)", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_20260212_105418270.jpg",
+              "descripción": {
+                "descripción": "Vista desde el balcon — vegetacion, edificios y cielo azul de Santa Marta",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105431828.jpg",
+              "descripción": {
+                "descripción": "Vista del balcon hacia la Sierra Nevada — cielo despejado y horizonte montanoso",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105516628_HDR.jpg",
+              "descripción": {
+                "descripción": "Vista lateral del balcon — Reserva del Mar I y el Caribe al fondo",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105521539_HDR.jpg",
+              "descripción": {
+                "descripción": "Balcon con silla y puerta corrediza — amplitud y privacidad",
+                "restricciones": ""
+              }
+            },
+            {
+              "foto": "IMG_20260212_105607528_HDR.jpg",
+              "descripción": {
+                "descripción": "Vista desde el interior al balcon — puerta corrediza de vidrio y Sierra Nevada",
+                "restricciones": ""
+              }
+            }
+          ]
+        },
+        {
+          "ambiente": "Baño",
+          "informacion sobre la privacidad": [],
+          "comodidades": [
+            { "nombre": "Ducha de lluvia", "seleccionado": true },
+            { "nombre": "Encimera de piedra", "seleccionado": true },
+            { "nombre": "Productos de aseo incluidos", "seleccionado": true }
+          ],
+          "Prestaciones de accesibilidad": [],
+          "fotos": [
+            {
+              "foto": "IMG_20260212_104736776_HDR.jpg",
+              "descripción": {
+                "descripción": "Bano completo — lavamanos con encimera de piedra, espejo y ducha de lluvia con particion de vidrio",
                 "restricciones": ""
               }
             }
@@ -37,147 +235,185 @@
       ]
     },
     "Título": {
-      "español": "",
-      "nombre interno": ""
+      "español": "Estudio Luminoso | 3 min Playa | Sierra+Mar",
+      "nombre interno": "LIVIC-RDM2-419"
     },
     "Tipo de propiedad": {
-      "¿Cuál se parece más a tu vivienda?": "",
-      "tipo de propiedad": "",
-      "tipo de espacio": "",
+      "¿Cuál se parece más a tu vivienda?": "Apartamento",
+      "tipo de propiedad": "Loft / Estudio",
+      "tipo de espacio": "Alojamiento entero",
       "¿Cuántos pisos hay en el edificio?": 0,
-      "¿En qué piso se encuentra el alojamiento?": 0,
+      "¿En qué piso se encuentra el alojamiento?": 4,
       "Año de construcción": 0,
       "Tamaño de la propiedad": {
         "valor": 0,
-        "unidad": ""
+        "unidad": "m²"
       },
       "Tu categoría": {
-        "descripción": "",
-        "categoría": []
+        "descripción": "Loft de diseño moderno minimalista en conjunto de playa",
+        "categoría": ["Loft", "Diseño", "Workation"]
       }
     },
     "precios": {
-      "descripcion": "",
+      "descripcion": "Precios pendientes de definir. Consultar con la anfitriona.",
       "precio por noche": {
         "valor": 0,
-        "moneda": "",
+        "moneda": "COP",
         "precios inteligentes": false
       },
       "precio personalizado para el fin de semana": {
         "valor": 0,
-        "moneda": ""
+        "moneda": "COP"
       },
       "descuentos": {
         "semanal": {
-          "condicion": "",
-          "porcentaje": 0,
+          "condicion": "7 noches o más",
+          "porcentaje": 10,
           "promedio semanal": 0,
-          "moneda": ""
+          "moneda": "COP"
         },
         "mensual": {
-          "condicion": "",
-          "porcentaje": 0,
+          "condicion": "28 noches o más",
+          "porcentaje": 20,
           "promedio mensual": 0,
-          "moneda": ""
+          "moneda": "COP"
         }
       }
     },
     "disponibilidad": {
-      "descripcion": "",
+      "descripcion": "Mínimo 2 noches. Máximo 30 noches estándar.",
       "duración del viaje": {
-        "número mínimo de noches": 0,
-        "número máximo de noches": 0,
+        "número mínimo de noches": 2,
+        "número máximo de noches": 30,
         "permite estadías largas": {
-          "activado": false,
-          "nota": ""
+          "activado": true,
+          "nota": "Estadías de 28+ noches disponibles con política flexible para estadías largas"
         }
       },
       "preaviso": {
-        "descripcion": "",
-        "tiempo": "",
+        "descripcion": "El huésped debe reservar con al menos 1 día de anticipación",
+        "tiempo": "1 día",
         "permitir solicitudes con menos de 1 día de anticipación": false,
         "nota": ""
       }
     },
     "numero de personas": {
-      "descripcion": "",
-      "huéspedes": 0
+      "descripcion": "Estudio con cama doble y sofá cama. Máximo 2 huéspedes en reserva estándar.",
+      "huéspedes": 2
     },
     "descripcion": {
-      "descripcion del anuncio": "",
-      "tu propiedad": "",
-      "acceso de los huéspedes": "",
-      "interacción con los huéspedes": "",
-      "otros detalles a destacar": ""
+      "descripcion del anuncio": "Luz, brisa y la Sierra Nevada frente a ti.\n\nEstudio de diseno moderno en Reserva del Mar II — conjunto de playa en Gaira, a 3 minutos del mar. WiFi rapido, zona de trabajo, cocina completa, lavadora y balcon privado con vista a la Sierra.\n\nTrabajar bien y descansar mejor. Todo en el mismo espacio.",
+      "tu propiedad": "Estudio luminoso en el piso 4 de Reserva del Mar II — conjunto residencial en Gaira, Santa Marta.\n\nEspacio de diseno abierto con todo lo que necesitas:\n\nZona de descanso:\nCama doble con cabecero tapizado, ropa de cama de calidad y armario empotrado.\n\nZona de estar:\nSofa cama, mesa de vidrio y planta decorativa. Arte con caracter: pintura de elefante en tonos azules y dorados.\n\nZona de trabajo / comedor:\nBarra corrida con sillas ergonomicas y TV — ideal para trabajar, comer o los dos a la vez.\n\nCocina completa:\nEstufa a gas, horno, nevera con dispensador de agua, campana extractora, blender y utensilios.\n\nBano completo:\nDucha de lluvia, mueble en piedra y calentador a gas.\n\nBalcon privado:\nVista a la Sierra Nevada y el paisaje de Gaira. Perfecto para el cafe de la manana o el atardecer.\n\nLavadora incluida — ideal para estadias de mas de 3 noches.\n\nAmenidades del conjunto Reserva del Mar II:\n- Piscina*\n- Gimnasio*\n- Parqueadero*\n- Porteria y seguridad 24 horas\n(Acceso con manilla — cobro en recepcion al llegar)",
+      "acceso de los huéspedes": "Acceso completo al estudio: zona de descanso, cocina, sala, balcon y bano.\n\nComo funciona:\nAl llegar, dirigete a recepcion para registrarte y adquirir tu manilla.\nSe genera un codigo de apertura de un solo uso para la puerta.\nSin llaves, sin contacto, sin esperas.\n\nDentro encontraras la tarjeta sobre el meson de la cocina — insertala en el tarjetero del muro para activar la electricidad.\n\nSi necesitas ayuda, estoy a un mensaje.",
+      "interacción con los huéspedes": "Soy Lina. Anfitriona y especialista en Workation.\nRespondo rapido y estoy disponible por mensaje durante toda tu estadia.\n\nAntes de tu llegada te envio el codigo de acceso y todo lo que necesitas para instalarte sin contratiempos. Mi estilo es darte espacio total con la tranquilidad de saber que hay alguien real al otro lado.\n\nSi es tu primera vez en Santa Marta, con gusto te recomiendo playas, restaurantes y los mejores spots para trabajar con vista al mar.",
+      "otros detalles a destacar": "Para que tu llegada y estancia sean perfectas:\n\nUbicacion:\n- A 3 minutos en carro de la playa de Gaira y El Rodadero\n- A 20 minutos del Centro Historico de Santa Marta\n- A 15 minutos del Aeropuerto Simon Bolivar\n\nManilla del complejo:\nEn recepcion se cobra una tasa por persona. Solo se acepta tarjeta.\nEste valor no esta incluido en la reserva de Airbnb.\n\nHorarios:\n- Check-in: a partir de las 3:00 PM\n- Check-out: antes de las 11:00 AM\nEarly check-in y late check-out disponibles con costo adicional.\n\nAcceso:\nSolo las personas registradas en la reserva pueden acceder."
     },
     "comodidades": {
-      "descripcion": "",
-      "comodidades": []
+      "descripcion": "Amenidades confirmadas visualmente en fotos. Las marcadas con * son inferidas del conjunto.",
+      "comodidades": [
+        { "nombre": "WiFi", "seleccionado": true },
+        { "nombre": "Aire acondicionado", "seleccionado": true },
+        { "nombre": "Televisor", "seleccionado": true },
+        { "nombre": "Cocina equipada", "seleccionado": true },
+        { "nombre": "Estufa a gas", "seleccionado": true },
+        { "nombre": "Horno", "seleccionado": true },
+        { "nombre": "Nevera", "seleccionado": true },
+        { "nombre": "Campana extractora", "seleccionado": true },
+        { "nombre": "Blender / licuadora", "seleccionado": true },
+        { "nombre": "Utensilios de cocina", "seleccionado": true },
+        { "nombre": "Vajilla y vasos", "seleccionado": true },
+        { "nombre": "Lavadora", "seleccionado": true },
+        { "nombre": "Calentador de agua a gas", "seleccionado": true },
+        { "nombre": "Balcón privado", "seleccionado": true },
+        { "nombre": "Sofá cama", "seleccionado": true },
+        { "nombre": "Armario empotrado", "seleccionado": true },
+        { "nombre": "Ropa de cama", "seleccionado": true },
+        { "nombre": "Toallas", "seleccionado": true },
+        { "nombre": "Productos de aseo", "seleccionado": true },
+        { "nombre": "Detector de humo", "seleccionado": true },
+        { "nombre": "Piscina del conjunto*", "seleccionado": false },
+        { "nombre": "Gimnasio del conjunto*", "seleccionado": false },
+        { "nombre": "Parqueadero*", "seleccionado": false },
+        { "nombre": "Porteria y seguridad 24 horas*", "seleccionado": true }
+      ]
     },
     "Prestaciones de accesibilidad": {
       "descripcion": "",
       "prestaciones de accesibilidad": []
     },
     "ubicación": {
-      "descripcion": "",
+      "descripcion": "Reserva del Mar II — Gaira, Santa Marta. A 3 minutos de la playa de El Rodadero.",
       "dirección": {
         "calle": "",
-        "apartamento/piso/edificio": "",
-        "ciudad/municipio": "",
-        "departamento": "",
-        "país": ""
+        "apartamento/piso/edificio": "Apartamento 419, Piso 4 — Reserva del Mar II",
+        "ciudad/municipio": "Santa Marta",
+        "departamento": "Magdalena",
+        "país": "Colombia"
       },
       "coordenadas": {
-        "latitud": 0.0,
-        "longitud": 0.0
+        "latitud": 11.1911,
+        "longitud": -74.2291
       },
       "ubicación compartida": {
         "muestra la ubicación exacta de tu alojamiento": false,
-        "descripcion": "",
-        "estado": ""
+        "descripcion": "Ubicacion aproximada visible. Direccion exacta se comparte tras la reserva.",
+        "estado": "Pendiente confirmar configuracion"
       },
-      "características de la ubicación": [],
-      "descripción del vecindario": "",
-      "cómo desplazarse": "",
-      "vistas panorámicas": []
+      "características de la ubicación": [
+        "Cerca de la playa (3 min en carro)",
+        "Cerca de El Rodadero",
+        "Transporte disponible: Taxi, InDriver, Uber"
+      ],
+      "descripción del vecindario": "Gaira es un sector residencial y turistico entre El Rodadero y el centro de Santa Marta. Tranquilo, con acceso rapido a restaurantes, centros comerciales y la playa.",
+      "cómo desplazarse": "Taxi, InDriver y Uber disponibles. A 3 minutos en carro de la playa de Gaira y El Rodadero.",
+      "vistas panorámicas": [
+        "Sierra Nevada de Santa Marta",
+        "Paisaje urbano de Gaira",
+        "Vista parcial al mar Caribe"
+      ]
     },
     "Sobre el anfitrión": {
-      "foto de perfil": "",
+      "foto de perfil": "Pendiente",
       "perfil": {
         "dónde estudié": "",
         "a dónde siempre quise ir": "",
-        "a qué me dedico": "",
-        "porqué mi alojamiento es único": "",
-        "a los huéspedes, yo siempre": "",
+        "a qué me dedico": "Anfitriona STR y especialista en Workation",
+        "porqué mi alojamiento es único": "Diseno moderno, luz natural, zona de trabajo real y la Sierra Nevada frente a ti — a 3 minutos del mar.",
+        "a los huéspedes, yo siempre": "Respondo rapido y comparto mis spots favoritos de Santa Marta",
         "década en la que nací": "",
         "dato curioso sobre mí": "",
         "mi habilidad menos útil": "",
         "a qué dedico demasiado tiempo": "",
         "mi canción favorita en la secundaria": "",
-        "idiomas que hablo": "",
-        "amo": "",
+        "idiomas que hablo": "Español",
+        "amo": "El Caribe colombiano, el emprendimiento y la hospitalidad genuina",
         "el título de mi biografía sería": "",
-        "vivo en": "",
+        "vivo en": "Santa Marta, Colombia",
         "qué hay para desayunar": "",
         "mascotas": ""
       },
-      "información sobre mí": "",
+      "información sobre mí": "Soy Lina: mama, emprendedora y especialista en Workation. Busco que tu estancia sea el equilibrio ideal entre enfoque y relax. Te ofrezco presencia real: atencion humana y honestidad total. Resuelvo con rapidez y asumo cada reto con responsabilidad para garantizar tu paz mental. Sera un gusto recibirte!",
       "lugares donde estuve": {
         "visible en perfil": false,
         "sellos de viaje": []
       },
-      "mis intereses": []
+      "mis intereses": ["Workation", "Emprendimiento", "Viajes", "Caribe colombiano", "Hospitalidad"]
     },
     "coanfitriones": {
       "descripcion": "",
       "coanfitriones": []
     },
     "Configuración de las reservaciones": {
-      "descripcion": "",
-      "Mensaje previo a la reservación": "",
+      "descripcion": "Reservacion inmediata recomendada. Filtro de buen historial activado.",
+      "Mensaje previo a la reservación": "Hola! Gracias por tu interes en el Estudio 419 — Reserva del Mar II. Ten en cuenta que el conjunto cobra una tasa de acceso por persona al llegar (solo tarjeta, no incluida en Airbnb). Si tienes alguna pregunta antes de reservar, con gusto te ayudo.",
       "requisitos para los huéspedes": {
-        "requisitos para reservar": [],
-        "preguntas para los huéspedes": []
+        "requisitos para reservar": [
+          "Perfil verificado",
+          "Buen historial en Airbnb"
+        ],
+        "preguntas para los huéspedes": [
+          "¿Cuál es el motivo de tu viaje a Santa Marta?"
+        ]
       }
     },
     "Reglas de la casa": {
@@ -186,48 +422,63 @@
       "eventos permitidos": false,
       "está permitido fumar, vapear y utilizar cigarrillos electrónicos": false,
       "horas de silencio": {
-        "activo": false,
-        "hora de inicio": "",
-        "hora de finalización": ""
+        "activo": true,
+        "hora de inicio": "22:00",
+        "hora de finalización": "08:00"
       },
       "se permite la fotografía y la filmación comerciales": false,
-      "número de personas": 0,
+      "número de personas": 2,
       "horas de check-in y check-out": {
         "llegada": {
-          "desde": "",
-          "hasta": ""
+          "desde": "15:00",
+          "hasta": "22:00"
         },
-        "salida": ""
+        "salida": "11:00"
       },
-      "reglas adicionales": ""
+      "reglas adicionales": "Bienvenidos al Apartamento 419 — Reserva del Mar II\n\n--- HORARIOS ---\nCheck-in: desde las 3:00 PM\nCheck-out: antes de las 11:00 AM\nEarly / late: disponible con costo adicional\n\n--- ELECTRICIDAD ---\nAl entrar: tarjeta de energia sobre el meson de la cocina.\nInsertarla en tarjetero del muro para activar electricidad.\nAl salir: dejarla sobre el meson.\n\n--- CAPACIDAD Y ACCESO ---\nMaximo 2 huespedes. Solo personas registradas.\n\n--- TASA DEL COMPLEJO ---\nSe cobra al ingresar en recepcion. Solo tarjeta. No incluida en Airbnb.\n\n--- NORMAS ---\nNo fumar. No fiestas. Silencio desde las 10:00 PM.\nCuidar el mobiliario y la decoracion.\nMantener puertas del balcon cerradas ante vientos fuertes.\n\nGracias por cuidar este espacio. — Lina"
     },
     "Seguridad del huésped": {
-      "consideraciones de seguridad": [],
-      "dispositivos de seguridad": [],
-      "información de la propiedad": []
+      "consideraciones de seguridad": [
+        { "nombre": "Balcón en piso 4 — supervisión recomendada con niños pequeños", "seleccionado": true },
+        { "nombre": "Piscina sin baranda ni puerta con candado (si aplica en el conjunto)*", "seleccionado": false }
+      ],
+      "dispositivos de seguridad": [
+        { "nombre": "Detector de humo", "seleccionado": true },
+        { "nombre": "Cerradura electrónica", "seleccionado": true },
+        { "nombre": "Portería y vigilancia 24 horas", "seleccionado": true }
+      ],
+      "información de la propiedad": [
+        { "nombre": "Puede haber ruido en zonas comunes del conjunto durante el día", "seleccionado": true }
+      ]
     },
     "Políticas de cancelación": {
       "estadías de corta duración": {
-        "descripcion": "",
+        "descripcion": "Estadías menores a 28 noches",
         "tu política": {
-          "nombre": "",
-          "seleccionada": false,
-          "condiciones": []
+          "nombre": "Flexible",
+          "seleccionada": true,
+          "condiciones": [
+            "Cancelación gratuita hasta 24 horas antes del check-in",
+            "Sin reembolso con menos de 24 horas de anticipación"
+          ]
         },
-        "opciones disponibles": [],
+        "opciones disponibles": ["Flexible", "Moderada", "Estricta"],
         "opciones de políticas adicionales": {
           "seleccionada": "",
           "opciones": []
         }
       },
       "estadías largas": {
-        "descripcion": "",
+        "descripcion": "Estadías de 28 noches o más",
         "tu política": {
-          "nombre": "",
-          "seleccionada": false,
-          "condiciones": []
+          "nombre": "Flexible para estadías largas",
+          "seleccionada": true,
+          "condiciones": [
+            "Cancelación gratuita durante las primeras 48 horas tras la reserva",
+            "Reembolso proporcional por noches no disfrutadas con 30 días de aviso previo"
+          ]
         },
-        "opciones disponibles": []
+        "opciones disponibles": ["Flexible para estadías largas", "Estricta para estadías largas"]
       }
     }
   }
