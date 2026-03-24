@@ -1,8 +1,7 @@
 /**
  * Card.tsx
  * Tarjeta de apartamento para el listado del catálogo.
- * Estilo Travila: imagen 4/3, badge disponible top-left, corazón top-right,
- * rating + título + ubicación + specs + CTA bajo la imagen.
+ * Solo modo claro — sin clases dark:
  */
 
 import Link from "next/link";
@@ -18,7 +17,7 @@ export default function Card({ apartment }: CardProps) {
   return (
     <Link
       href={`/apartamentos/${apartment.slug}`}
-      className="card-hover group block bg-white dark:bg-surface-100 rounded-2xl overflow-hidden shadow-sm border border-transparent dark:border-surface-300/40 h-full flex flex-col"
+      className="card-hover group block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 h-full flex flex-col"
     >
       {/* Imagen 4/3 */}
       <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
@@ -37,12 +36,12 @@ export default function Card({ apartment }: CardProps) {
           </span>
         </div>
 
-        {/* Botón corazón favorito — top right (decorativo por ahora) */}
+        {/* Botón corazón favorito — top right (decorativo) */}
         <div
           aria-hidden="true"
-          className="absolute top-3 right-3 bg-white/80 dark:bg-livic-black/60 backdrop-blur-sm rounded-full p-1.5"
+          className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm rounded-full p-1.5"
         >
-          <Heart className="w-4 h-4 text-livic-black/60 dark:text-white/60" />
+          <Heart className="w-4 h-4 text-gray-400" />
         </div>
       </div>
 
@@ -52,41 +51,41 @@ export default function Card({ apartment }: CardProps) {
         {/* Rating */}
         <div className="flex items-center gap-1 mb-2">
           <span className="text-livic-yellow text-sm leading-none">★</span>
-          <span className="text-foreground font-semibold text-sm">
+          <span className="text-gray-900 font-semibold text-sm">
             {apartment.anfitrionPrincipal.calificacion || "5.0"}
           </span>
           {apartment.anfitrionPrincipal.resenas && (
-            <span className="text-text-muted text-sm">
+            <span className="text-gray-500 text-sm">
               · ({apartment.anfitrionPrincipal.resenas} reseñas)
             </span>
           )}
         </div>
 
         {/* Título — 1 línea truncada */}
-        <h3 className="font-bold text-base text-foreground leading-snug truncate mb-1">
+        <h3 className="font-bold text-base text-gray-900 leading-snug truncate mb-1">
           {apartment.nombre}
         </h3>
 
         {/* Ubicación */}
         <div className="flex items-center gap-1 mb-3">
-          <MapPin className="w-3.5 h-3.5 text-text-muted flex-shrink-0" />
-          <span className="text-text-muted text-sm truncate">
+          <MapPin className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
+          <span className="text-gray-500 text-sm truncate">
             {apartment.ubicacion.cercaDe || apartment.ubicacion.ciudad}, {apartment.ubicacion.departamento}
           </span>
         </div>
 
         {/* Row de specs */}
-        <div className="flex items-center gap-3 text-xs text-text-muted mb-4">
+        <div className="flex items-center gap-3 text-xs text-gray-500 mb-4">
           <span className="flex items-center gap-1">
             <Users className="w-3.5 h-3.5 flex-shrink-0" />
             {apartment.huespedes} huésp.
           </span>
-          <span className="w-px h-3 bg-gray-200 dark:bg-surface-300" />
+          <span className="w-px h-3 bg-gray-200" />
           <span className="flex items-center gap-1">
             <BedDouble className="w-3.5 h-3.5 flex-shrink-0" />
             {apartment.habitaciones} hab.
           </span>
-          <span className="w-px h-3 bg-gray-200 dark:bg-surface-300" />
+          <span className="w-px h-3 bg-gray-200" />
           <span className="flex items-center gap-1">
             <Bath className="w-3.5 h-3.5 flex-shrink-0" />
             {apartment.banos} baños

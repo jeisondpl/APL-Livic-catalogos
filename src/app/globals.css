@@ -1,27 +1,18 @@
 @import "tailwindcss";
 
-/* ─── Variables de Tema ─── */
+/* ─── Variables de Tema (solo modo claro) ─── */
 :root {
-  --background: #DBDBDB;
+  --background: #FFFFFF;
   --foreground: #0C0A0B;
-  
-  --surface-100: #E5E5E5;
+
+  --surface-100: #F5F5F5;
   --surface-200: #F0F0F0;
-  --surface-300: #CCCCCC;
-  
-  --text-muted: #555555;
+  --surface-300: #E0E0E0;
+
+  --text-muted: #6B7280;
 }
 
-.dark {
-  --background: #0C0A0B;
-  --foreground: #FFFFFF;
-  
-  --surface-100: #161315;
-  --surface-200: #1e1b1e;
-  --surface-300: #2a262b;
-  
-  --text-muted: #9e9a9f;
-}
+/* Modo oscuro desactivado — no se usa .dark */
 
 @theme inline {
   /* Paleta Livic (Fija) */
@@ -32,7 +23,7 @@
   --color-livic-yellow: #FBCA00;
   --color-livic-white: #FFFFFF;
 
-  /* Aliases Semánticos (Dinámicos) */
+  /* Aliases Semánticos */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface-100: var(--surface-100);
@@ -52,7 +43,6 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ─── Cally calendar theme ─── */
@@ -66,23 +56,23 @@ calendar-month {
 calendar-month::part(previous),
 calendar-month::part(next) {
   background: transparent;
-  border: 1px solid var(--surface-300);
+  border: 1px solid #E0E0E0;
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
   cursor: pointer;
-  color: var(--foreground);
+  color: #0C0A0B;
 }
 calendar-month::part(previous):hover,
 calendar-month::part(next):hover {
-  background: var(--surface-200);
+  background: #F0F0F0;
 }
 
 /* Encabezado mes/año */
 calendar-month::part(heading) {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--foreground);
+  color: #0C0A0B;
 }
 
 /* Días de la semana */
@@ -101,24 +91,11 @@ calendar-month::part(selected) {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--surface-100);
+  background: #F5F5F5;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-300);
+  background: #E0E0E0;
   border-radius: 3px;
-}
-
-/* ─── Hero light/dark overlay ─── */
-.hero-overlay-light {
-  background: linear-gradient(to bottom, rgba(219,219,219,0.3) 0%, rgba(219,219,219,0.7) 60%, rgba(219,219,219,1) 100%);
-}
-.dark .hero-overlay-light {
-  background: linear-gradient(to bottom, rgba(12,10,11,0.4) 0%, rgba(12,10,11,0.75) 60%, rgba(12,10,11,1) 100%);
-}
-
-/* ─── Hero fullscreen overlay (Travila-style) ─── */
-.hero-overlay-travila {
-  background: linear-gradient(to bottom, rgba(12,10,11,0.25) 0%, rgba(12,10,11,0.55) 50%, rgba(12,10,11,0.85) 100%);
 }
 
 /* ─── Travila-style card hover ─── */
@@ -127,5 +104,5 @@ calendar-month::part(selected) {
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.10);
 }

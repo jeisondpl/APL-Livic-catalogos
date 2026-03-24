@@ -34,8 +34,8 @@ export default function AvailabilityBar() {
   const [panel, setPanel] = useState<'fechas' | 'quien' | null>(null)
 
   const wrapRef      = useRef<HTMLDivElement>(null)
-  const calendarRef  = useRef<HTMLDivElement>(null)   // contenedor del calendario imperativo
-  const rangeRef     = useRef('')                      // valor actual sin stale closure
+  const calendarRef  = useRef<HTMLDivElement>(null)
+  const rangeRef     = useRef('')
 
   rangeRef.current = range
 
@@ -64,8 +64,6 @@ export default function AvailabilityBar() {
       const month2 = document.createElement('calendar-month')
       month2.setAttribute('offset', '1')
 
-      /* Wrapper flex: garantiza disposición horizontal sin depender
-         de cómo el web component gestiona su shadow DOM */
       const row = document.createElement('div')
       row.style.display = 'flex'
       row.style.flexDirection = 'row'
@@ -109,87 +107,86 @@ export default function AvailabilityBar() {
 
   /* ── Render ── */
   return (
-    <div ref={wrapRef} className="relative w-full max-w-2xl mx-auto">
+    <div ref={wrapRef} className="relative w-full">
 
-      {/* ── Barra pill ── */}
-      <div className="flex items-center bg-white dark:bg-surface-100 rounded-full shadow-xl border border-surface-300">
+      {/* ── Secciones apiladas verticalmente ── */}
+      <div className="flex flex-col gap-2 mb-4">
 
         {/* Fechas */}
         <button
           onClick={() => setPanel(p => p === 'fechas' ? null : 'fechas')}
-          className={`flex-1 flex flex-col items-start px-6 py-3.5 rounded-l-full transition-colors min-w-0
-            ${panel === 'fechas' ? 'bg-surface-200' : 'hover:bg-surface-100 dark:hover:bg-surface-200'}`}
+          className={`w-full flex flex-col items-start px-4 py-3 rounded-xl border transition-colors text-left
+            ${panel === 'fechas'
+              ? 'border-livic-pink bg-livic-pink/5'
+              : 'border-gray-200 bg-gray-50 hover:border-gray-300'}`}
         >
-          <span className="text-xs font-semibold text-foreground tracking-wide">Fechas</span>
-          <span className="text-sm text-text-muted truncate w-full mt-0.5">
-            {range ? formatRange(range) : 'Agrega fechas'}
+          <span className="text-xs font-semibold text-gray-700 tracking-wide">Fechas</span>
+          <span className="text-sm text-gray-400 mt-0.5">
+            {range ? formatRange(range) : 'Agrega fechas de entrada y salida'}
           </span>
         </button>
-
-        {/* Divisor */}
-        <div className="w-px h-8 bg-surface-300 shrink-0" />
 
         {/* Quién */}
         <button
           onClick={() => setPanel(p => p === 'quien' ? null : 'quien')}
-          className={`flex-1 flex flex-col items-start px-6 py-3.5 transition-colors min-w-0
-            ${panel === 'quien' ? 'bg-surface-200' : 'hover:bg-surface-100 dark:hover:bg-surface-200'}`}
+          className={`w-full flex flex-col items-start px-4 py-3 rounded-xl border transition-colors text-left
+            ${panel === 'quien'
+              ? 'border-livic-pink bg-livic-pink/5'
+              : 'border-gray-200 bg-gray-50 hover:border-gray-300'}`}
         >
-          <span className="text-xs font-semibold text-foreground tracking-wide">Quién</span>
-          <span className="text-sm text-text-muted mt-0.5">
-            {total > 0 ? `${total} huésped${total !== 1 ? 'es' : ''}` : '¿Cuántos?'}
+          <span className="text-xs font-semibold text-gray-700 tracking-wide">Huéspedes</span>
+          <span className="text-sm text-gray-400 mt-0.5">
+            {total > 0 ? `${total} huésped${total !== 1 ? 'es' : ''}` : '¿Cuántos viajan?'}
           </span>
         </button>
-
-        {/* Botón buscar */}
-        <div className="pr-2 shrink-0">
-          <button
-            onClick={() => setPanel(null)}
-            aria-label="Buscar disponibilidad"
-            className="bg-livic-pink hover:bg-livic-pink/85 active:scale-95 text-white rounded-full p-3.5 transition-all flex items-center justify-center shadow-md"
-          >
-            <Search size={18} strokeWidth={2.5} />
-          </button>
-        </div>
       </div>
 
-      {/* ── Panel calendario (siempre en DOM, visible/oculto) ── */}
+      {/* Botón buscar full-width */}
+      <button
+        onClick={() => setPanel(null)}
+        aria-label="Buscar disponibilidad"
+        className="w-full bg-livic-pink hover:bg-livic-pink/90 active:scale-[0.98] text-white rounded-xl py-3.5 font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-md"
+      >
+        <Search size={16} strokeWidth={2.5} />
+        Buscar disponibilidad
+      </button>
+
+      {/* ── Panel calendario ── */}
       <div
-        className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-white dark:bg-surface-100
-          rounded-2xl shadow-2xl border border-surface-300 z-50 p-6
+        className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-white
+          rounded-2xl shadow-2xl border border-gray-200 z-50 p-6
           transition-all duration-200
           ${panel === 'fechas' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         style={{ minWidth: 'max-content' }}
       >
-        {/* Contenedor donde se monta cally de forma imperativa */}
         <div ref={calendarRef} />
       </div>
 
       {/* ── Panel huéspedes ── */}
       {panel === 'quien' && (
-        <div className="absolute top-full mt-3 right-0 w-80 bg-white dark:bg-surface-100 rounded-2xl shadow-2xl border border-surface-300 z-50 p-5">
+        <div className="absolute top-full mt-3 right-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 p-5">
           {GUEST_ROWS.map((row, i) => (
             <div
               key={row.key}
               className={`flex items-center justify-between py-4
-                ${i < GUEST_ROWS.length - 1 ? 'border-b border-surface-300' : ''}`}
+                ${i < GUEST_ROWS.length - 1 ? 'border-b border-gray-100' : ''}`}
             >
               <div>
-                <p className="text-sm font-medium text-foreground">{row.label}</p>
-                <p className="text-xs text-text-muted mt-0.5">{row.sub}</p>
+                <p className="text-sm font-medium text-gray-900">{row.label}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{row.sub}</p>
               </div>
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => adjust(row.key, -1)}
                   disabled={guests[row.key] === 0}
-                  className="w-8 h-8 rounded-full border border-surface-300 flex items-center justify-center text-foreground text-lg leading-none disabled:opacity-25 hover:border-foreground transition-colors"
+                  className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 text-lg leading-none disabled:opacity-25 hover:border-gray-500 transition-colors"
                 >–</button>
-                <span className="w-5 text-center text-sm font-medium text-foreground tabular-nums">
+                <span className="w-5 text-center text-sm font-medium text-gray-900 tabular-nums">
                   {guests[row.key]}
                 </span>
                 <button
                   onClick={() => adjust(row.key, 1)}
-                  className="w-8 h-8 rounded-full border border-surface-300 flex items-center justify-center text-foreground text-lg leading-none hover:border-foreground transition-colors"
+                  className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 text-lg leading-none hover:border-gray-500 transition-colors"
                 >+</button>
               </div>
             </div>
