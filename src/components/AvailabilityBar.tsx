@@ -32,10 +32,12 @@ function Modal({
   open,
   onClose,
   children,
+  bottomSheet = false,
 }: {
   open: boolean
   onClose: () => void
   children: React.ReactNode
+  bottomSheet?: boolean
 }) {
   const [mounted, setMounted] = useState(false)
   const [visible, setVisible] = useState(false)
@@ -51,23 +53,30 @@ function Modal({
     }
   }, [open])
 
+  // Bloquea scroll del body cuando está abierto
+  useEffect(() => {
+    if (open) document.body.style.overflow = 'hidden'
+    else document.body.style.overflow = ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
   if (!mounted) return null
 
   return createPortal(
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 transition-all duration-300 ${
+      className={`fixed inset-0 z-[9999] transition-all duration-300 ${
         visible ? 'opacity-100' : 'opacity-0'
-      }`}
+      } ${bottomSheet ? 'flex items-end' : 'flex items-center justify-center p-4'}`}
     >
       {/* Backdrop */}
-      <div
-        className='absolute inset-0 bg-black/40 backdrop-blur-sm'
-        onClick={onClose}
-      />
+      <div className='absolute inset-0 bg-black/50 backdrop-blur-sm' onClick={onClose} />
+
       {/* Panel */}
       <div
-        className={`relative z-10 transition-all duration-300 ${
-          visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+        className={`relative z-10 w-full transition-all duration-300 ${
+          bottomSheet
+            ? visible ? 'translate-y-0' : 'translate-y-full'
+            : visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
         }`}
       >
         {children}
@@ -89,10 +98,18 @@ function CalendarModal({
   range: string
   onRangeChange: (val: string) => void
 }) {
-  const calendarRef = useRef<HTMLDivElement>(null)
-  const rangeRef    = useRef(range)
-  rangeRef.current  = range
-  const today = new Date().toISOString().split('T')[0]
+  const calendarRef  = useRef<HTMLDivElement>(null)
+  const rangeRef     = useRef(range)
+  rangeRef.current   = range
+  const today        = new Date().toISOString().split('T')[0]
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+    const onResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   const mountCalendar = useCallback(() => {
     const container = calendarRef.current
@@ -102,23 +119,32 @@ function CalendarModal({
       if (!calendarRef.current) return
       container.innerHTML = ''
 
+      const mobile = window.innerWidth < 768
       const calRange = document.createElement('calendar-range') as HTMLElement & { value: string }
       calRange.setAttribute('locale', 'es-CO')
       calRange.setAttribute('min', today)
-      calRange.setAttribute('months', '2')
+      calRange.setAttribute('months', mobile ? '1' : '2')
       calRange.style.setProperty('--color-accent', '#E288AE')
       calRange.style.display = 'block'
+      if (mobile) calRange.style.width = '100%'
 
       if (rangeRef.current) calRange.setAttribute('value', rangeRef.current)
 
       const month1 = document.createElement('calendar-month')
-      const month2 = document.createElement('calendar-month')
-      month2.setAttribute('offset', '1')
+      if (mobile) month1.style.width = '100%'
 
       const row = document.createElement('div')
-      row.style.cssText = 'display:flex;flex-direction:row;gap:2rem;align-items:flex-start;'
-      row.appendChild(month1)
-      row.appendChild(month2)
+      if (mobile) {
+        row.style.cssText = 'display:block;width:100%;'
+        row.appendChild(month1)
+      } else {
+        const month2 = document.createElement('calendar-month')
+        month2.setAttribute('offset', '1')
+        row.style.cssText = 'display:flex;flex-direction:row;gap:2rem;align-items:flex-start;'
+        row.appendChild(month1)
+        row.appendChild(month2)
+      }
+
       calRange.appendChild(row)
 
       calRange.addEventListener('change', (e: Event) => {
@@ -136,7 +162,6 @@ function CalendarModal({
 
   useEffect(() => {
     if (open) {
-      // pequeño delay para que el portal esté montado antes de crear el custom element
       const t = setTimeout(mountCalendar, 50)
       return () => clearTimeout(t)
     }
@@ -144,10 +169,61 @@ function CalendarModal({
 
   const dateLabel = range ? formatRange(range) : null
 
+  // ── Mobile: bottom sheet ──────────────────────────────────────────────────────
+  if (isMobile) {
+    return (
+      <Modal open={open} onClose={onClose} bottomSheet>
+        <div className='bg-white rounded-t-3xl shadow-2xl w-full max-h-[90vh] flex flex-col'>
+          {/* Handle */}
+          <div className='flex justify-center pt-3 pb-1 flex-shrink-0'>
+            <div className='w-10 h-1 rounded-full bg-gray-200' />
+          </div>
+
+          {/* Header */}
+          <div className='flex items-center justify-between px-5 pt-2 pb-4 border-b border-gray-100 flex-shrink-0'>
+            <div>
+              <p className='font-bold text-gray-900'>Selecciona las fechas</p>
+              {dateLabel
+                ? <p className='text-xs text-livic-pink font-semibold mt-0.5'>{dateLabel}</p>
+                : <p className='text-xs text-gray-400 mt-0.5'>Elige entrada y salida</p>
+              }
+            </div>
+            <button onClick={onClose} className='w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500'>
+              <X className='w-4 h-4' />
+            </button>
+          </div>
+
+          {/* Calendario scrollable */}
+          <div className='flex-1 overflow-y-auto px-4 py-4'>
+            <div ref={calendarRef} />
+          </div>
+
+          {/* Footer */}
+          <div className='px-5 py-4 border-t border-gray-100 flex items-center gap-3 flex-shrink-0'>
+            {range && (
+              <button
+                onClick={() => { onRangeChange(''); rangeRef.current = '' }}
+                className='text-xs text-gray-400 underline underline-offset-2'
+              >
+                Limpiar
+              </button>
+            )}
+            <button
+              onClick={onClose}
+              className='flex-1 flex items-center justify-center gap-2 bg-livic-pink text-white text-sm font-semibold py-3 rounded-full'
+            >
+              {range ? <><Check className='w-4 h-4' />Confirmar fechas</> : 'Cerrar'}
+            </button>
+          </div>
+        </div>
+      </Modal>
+    )
+  }
+
+  // ── Desktop: modal centrado con 2 meses ───────────────────────────────────────
   return (
     <Modal open={open} onClose={onClose}>
       <div className='bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden'>
-        {/* Header */}
         <div className='flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-100'>
           <div className='flex items-center gap-3'>
             <div className='w-9 h-9 rounded-full bg-livic-pink/10 flex items-center justify-center'>
@@ -161,20 +237,13 @@ function CalendarModal({
               }
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className='w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors'
-          >
+          <button onClick={onClose} className='w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors'>
             <X className='w-4 h-4' />
           </button>
         </div>
-
-        {/* Calendario */}
-        <div className='p-6 overflow-x-auto'>
+        <div className='p-6'>
           <div ref={calendarRef} />
         </div>
-
-        {/* Footer */}
         <div className='px-6 pb-5 flex items-center justify-between gap-3'>
           {range && (
             <button
