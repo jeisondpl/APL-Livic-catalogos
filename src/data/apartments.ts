@@ -319,8 +319,194 @@ const apartment1008: Apartment = {
   airbnbCalendarUrl: "https://www.airbnb.com.co/calendar/ical/1608385896028957180.ics?t=088d0e1cf78b4b9cb254562b820c5d24",
 };
 
+// ─── Fotos del apartamento 915 ───────────────────────────────────────────────
+
+const BASE_915 = "/source/reservadelmar/915";
+
+const FOTOS_915: ApartmentPhoto[] = [
+  { src: `${BASE_915}/IMG_3169-HDR.jpg`, alt: "Vista al mar Caribe desde el balcón del piso 9" },
+  { src: `${BASE_915}/IMG_3180.jpg`, alt: "Vista lateral hacia el mar — bahía turquesa" },
+  { src: `${BASE_915}/Sin-título-9.jpg`, alt: "Sillas Acapulco con vistas a la Sierra Nevada" },
+  { src: `${BASE_915}/Sin-título-10.jpg`, alt: "Vista panorámica Sierra Nevada y vegetación" },
+  { src: `${BASE_915}/Sin-título-8.jpg`, alt: "Sofá azul con acceso al balcón y vista a la Sierra" },
+  { src: `${BASE_915}/Sin-título-1.jpg`, alt: "Sillones geométricos y puertas corredizas de vidrio" },
+  { src: `${BASE_915}/IMG_3000.jpg`, alt: "Estantería con velero y pelícano artesanal" },
+  { src: `${BASE_915}/Sin-título-7.jpg`, alt: "Ancla decorativa turquesa, ropa de cama azul y gris" },
+  { src: `${BASE_915}/Sin-título-6.jpg`, alt: "Cama doble, espejo tipo sol, acceso al baño en suite" },
+  { src: `${BASE_915}/Sin-título-3.jpg`, alt: "Cama doble, ancla azul, TV montada" },
+  { src: `${BASE_915}/Sin-título-2.jpg`, alt: "Dos camas individuales, cangrejo artesanal multicolor" },
+  { src: `${BASE_915}/Sin-título-4.jpg`, alt: "Armario empotrado, estantería de madera" },
+  { src: `${BASE_915}/IMG_3091.jpg`, alt: "Ducha de lluvia, cabina de vidrio, encimera de mármol" },
+  { src: `${BASE_915}/Sin-título-5.jpg`, alt: "Velero decorativo colgante, encimera de mármol" },
+  { src: `${BASE_915}/IMG_3115.jpg`, alt: "Armario con toallas blancas y segundo baño al fondo" },
+  { src: `${BASE_915}/IMG_3092.jpg`, alt: "Detalle decorativo del apartamento 915" },
+  { src: `${BASE_915}/IMG_3095.jpg`, alt: "Detalle interior del apartamento 915" },
+  { src: `${BASE_915}/IMG_3181.jpg`, alt: "Vista exterior desde el apartamento 915" },
+];
+
+// ─── Apartamento 915 – Reserva del Mar ───────────────────────────────────────
+
+const apartment915: Apartment = {
+  slug: "reserva-del-mar-915",
+  nombre: "Balcón Piso 9 | Caribe + Sierra Nevada | 2 Hab",
+  edificio: "Reserva del Mar",
+  apartamento: "915",
+  piso: 9,
+  tipo: "Alojamiento entero",
+
+  huespedes: 4,
+  habitaciones: 2,
+  camas: 3,
+  banos: 2,
+
+  ubicacion: {
+    ciudad: "Santa Marta",
+    departamento: "Magdalena",
+    pais: "Colombia",
+    lat: 11.1860,
+    lng: -74.2290,
+    cercaDe: "Playa Salguero",
+    accesoPlaya: true,
+    distanciaPlayas: "Acceso directo a la playa",
+    descripcionUbicacion:
+      "Ubicado en Playa Salguero, Reserva del Mar es un conjunto de lujo valorado con 4.8 estrellas con acceso directo al mar Caribe. A 3 minutos del Rodadero, 20 minutos del centro histórico y 15 minutos del aeropuerto Simón Bolívar.",
+  },
+
+  anfitrionPrincipal: {
+    nombre: "Lina",
+    empresa: "LIVIC",
+    calificacion: 4.8,
+    resenas: 0,
+    anosExperiencia: 3,
+  },
+
+  amenidades: [
+    {
+      titulo: "Dormitorio y Lavandería",
+      icono: "🛏️",
+      items: [
+        { nombre: "Lavadora", icono: "WashingMachine" },
+        { nombre: "Armario empotrado", icono: "Archive" },
+        { nombre: "Sábanas y toallas", icono: "Bed" },
+      ],
+    },
+    {
+      titulo: "Entretenimiento",
+      icono: "📺",
+      items: [
+        { nombre: "TV en habitación principal", icono: "Tv" },
+      ],
+    },
+    {
+      titulo: "Climatización",
+      icono: "❄️",
+      items: [
+        { nombre: "Aire acondicionado en habitación principal", icono: "Wind" },
+        { nombre: "Aire acondicionado en habitación secundaria", icono: "Wind" },
+      ],
+    },
+    {
+      titulo: "Internet",
+      icono: "📶",
+      items: [
+        { nombre: "WiFi (CLARO-332A)", icono: "Wifi" },
+      ],
+    },
+    {
+      titulo: "Cocina",
+      icono: "🍳",
+      items: [
+        { nombre: "Refrigerador", icono: "Refrigerator" },
+        { nombre: "Microondas", icono: "Microwave" },
+        { nombre: "Cafetera", icono: "Coffee" },
+        { nombre: "Utensilios básicos de cocina", icono: "UtensilsCrossed" },
+      ],
+    },
+    {
+      titulo: "Exterior",
+      icono: "🌊",
+      items: [
+        { nombre: "Balcón con vista dual: Caribe + Sierra Nevada (piso 9)", icono: "Sunrise" },
+        { nombre: "Sillas tipo Acapulco", icono: "Armchair" },
+      ],
+    },
+  ],
+
+  servicios: [
+    { etiqueta: "Check-in autónomo", disponible: true, nota: "Cerradura inteligente con código de un solo uso" },
+    { etiqueta: "Estadías largas", disponible: true, nota: "Hasta 30 noches; más de 30 consultar condiciones" },
+    { etiqueta: "Seguridad 24/7", disponible: true, nota: "Portería y vigilancia privada del conjunto" },
+    { etiqueta: "Mascotas permitidas", disponible: false },
+    { etiqueta: "Parqueadero", disponible: true, nota: "Disponible en el conjunto" },
+  ],
+
+  noIncluidos: [
+    "Manilla de acceso al resort (se paga en recepción: $57.500 COP/persona desde 9 años, solo tarjeta)",
+    "Detector de monóxido de carbono",
+    "Calefacción",
+  ],
+
+  badges: [
+    "Vista al Caribe",
+    "Piso 9",
+    "4 huéspedes",
+    "2 habitaciones",
+    "2 baños",
+    "Acceso directo a la playa",
+  ],
+
+  heroPhoto: FOTOS_915[0],
+  galeria: FOTOS_915,
+
+  descripcionCorta:
+    "Despierta con el Caribe frente a ti. Piso 9 en Reserva del Mar (4.8★) con balcón de vistas duales al mar y la Sierra Nevada, decoración náutica artesanal y acceso completo al resort.",
+
+  descripcionLarga:
+    "99 m² decorados con arte náutico artesanal —anclas, veleros, cangrejos— que crean una identidad caribeña coherente y con carácter. " +
+    "La habitación principal tiene cama doble, A/C, TV y baño en suite con encimera de mármol y ducha de lluvia con vista directa al Caribe. " +
+    "La habitación secundaria tiene dos camas individuales, A/C y arte caribeño artesanal con vistas a la Sierra Nevada. " +
+    "El balcón en piso 9 ofrece vistas duales sin obstrucciones: mar Caribe de un lado, Sierra Nevada del otro. " +
+    "El conjunto Reserva del Mar incluye piscina para adultos, piscina infantil, jacuzzi, acceso directo a la playa, gimnasio, spa, parqueadero y seguridad 24 horas.",
+
+  frasePosituelo:
+    "Un balcón entre el Caribe y la Sierra Nevada. Pocas vistas así existen.",
+
+  edificioAmenidades: [
+    { nombre: "Piscina para adultos", icono: "Waves" },
+    { nombre: "Piscina infantil", icono: "Waves" },
+    { nombre: "Jacuzzi", icono: "Bath" },
+    { nombre: "Acceso directo a la playa", icono: "Anchor" },
+    { nombre: "Gimnasio completamente equipado", icono: "Dumbbell" },
+    { nombre: "Spa", icono: "Sparkles" },
+    { nombre: "Parqueadero", icono: "Car" },
+    { nombre: "WiFi en zonas comunes", icono: "Wifi" },
+    { nombre: "Portería y seguridad 24 horas", icono: "Shield" },
+  ],
+
+  edificioReglas: [
+    { nombre: "No se admiten mascotas", icono: "PawPrint" },
+    { nombre: "No se permiten fiestas ni eventos", icono: "Music" },
+    { nombre: "No fumar (interior ni balcón)", icono: "CigaretteOff" },
+    { nombre: "Máximo 4 huéspedes (incluye niños y bebés)", icono: "Users" },
+    { nombre: "Silencio desde las 10:00 p.m.", icono: "Moon" },
+    { nombre: "Solo personas registradas en la reserva", icono: "Lock" },
+  ],
+
+  checkIn: "3:00 p.m.",
+  checkOut: "11:00 a.m.",
+
+  notas: [
+    "Identificarse en portería con nombre y número de reserva al llegar.",
+    "Dirigirse al lobby Torres 3 y 4 para adquirir la manilla de acceso ($57.500 COP por persona desde 9 años, SOLO TARJETA). Este valor no está incluido en la reserva.",
+    "Se envía un código de apertura de un solo uso antes de la llegada. Sin llaves, sin esperas.",
+    "La tarjeta de energía está sobre el mesón de la cocina — insertarla en el tarjetero de la entrada para activar la electricidad.",
+    "Vientos fuertes en el balcón: mantener puertas y ventanas cerradas al entrar y salir.",
+  ],
+};
+
 // ─── Exportación del catálogo ─────────────────────────────────────────────────
 
 export const APARTMENTS: Apartment[] = [
   apartment1008,
+  apartment915,
 ];
