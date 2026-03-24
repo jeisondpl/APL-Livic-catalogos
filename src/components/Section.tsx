@@ -1,7 +1,7 @@
 /**
  * Section.tsx
  * Contenedor de sección reutilizable con padding y título opcional.
- * Rediseñado: max-width más amplio, jerarquía visual mejorada, acento más prominente.
+ * Ajustado: py-14/py-20, max-w-7xl para que respire más en pantallas grandes.
  */
 
 interface SectionProps {
@@ -12,7 +12,7 @@ interface SectionProps {
   subtitulo?: string;
   /** Acento de color bajo el título */
   acento?: "pink" | "green" | "purple" | "yellow";
-  /** Etiqueta pequeña sobre el título (reemplaza el "LIVIC" hardcodeado) */
+  /** Etiqueta pequeña sobre el título */
   etiqueta?: string;
   /** id HTML para anchor links */
   id?: string;
@@ -49,11 +49,11 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`w-full max-w-6xl mx-auto px-5 md:px-10 py-16 md:py-24 ${className}`}
+      className={`w-full max-w-7xl mx-auto px-5 md:px-10 py-14 md:py-20 ${className}`}
     >
       {titulo && (
-        <div className={`mb-10 md:mb-14 ${centrado ? 'text-center' : ''}`}>
-          {/* Etiqueta de acento superior — solo si se pasa la prop */}
+        <div className={`mb-10 md:mb-12 ${centrado ? "text-center" : ""}`}>
+          {/* Etiqueta de acento superior */}
           {etiqueta && (
             <span className={`text-xs font-bold uppercase tracking-[0.2em] ${ACENTO_TEXT_CLASSES[acento]} mb-3 block`}>
               {etiqueta}
@@ -65,8 +65,10 @@ export default function Section({
           </h2>
 
           {/* Línea de acento */}
-          <div className={`h-1 rounded-full ${ACENTO_CLASSES[acento]} ${centrado ? 'mx-auto' : ''}`}
-               style={{ width: '3rem' }} />
+          <div
+            className={`h-1 rounded-full ${ACENTO_CLASSES[acento]} ${centrado ? "mx-auto" : ""}`}
+            style={{ width: "3rem" }}
+          />
 
           {subtitulo && (
             <p className="text-text-muted text-base md:text-lg mt-4 max-w-2xl leading-relaxed">
