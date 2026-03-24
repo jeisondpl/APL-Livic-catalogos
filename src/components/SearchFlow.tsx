@@ -10,6 +10,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import AvailabilityBar from '@/components/AvailabilityBar'
 import Card from '@/components/Card'
 import Section from '@/components/Section'
@@ -23,6 +24,17 @@ type FlowState = 'idle' | 'searching' | 'results'
 interface SearchParams {
   range: string
   guests: number
+}
+
+// ── Variantes Framer Motion ──────────────────────────────────────────────────────
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 }
 
 function formatRange(value: string): string {
@@ -102,52 +114,67 @@ function HeroPanel({ onSearch }: { onSearch: (range: string, guests: number) => 
   return (
     <div className='w-full h-full overflow-y-auto px-4 md:px-8 xl:px-14 py-2 flex items-start lg:items-center'>
       <div
-        className='relative w-full max-w-6xl mx-auto rounded-3xl flex items-center shadow-xl animate-in fade-in zoom-in-95 duration-1000 fill-mode-both'
+        className='relative w-full max-w-6xl mx-auto rounded-3xl flex items-center shadow-xl'
         style={{ minHeight: '560px' }}
       >
         {/* Fondo */}
         <div className='absolute inset-0 rounded-3xl overflow-hidden'>
           <img src='/portada.png' alt='Alojamientos Santa Marta' className='absolute inset-0 w-full h-full object-cover' />
           <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10' />
+
         </div>
 
         {/* Contenido */}
         <div className='relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-10 items-center px-6 md:px-14 py-10 lg:py-14'>
-          {/* Izquierda */}
-          <div>
-            <img src='/logo-livic-white.png' alt='LIVIC' className='h-14 w-auto mb-5 animate-in fade-in slide-in-from-top-4 duration-700 fill-mode-both delay-100' />
-            <span className='inline-block bg-livic-yellow text-livic-black text-xs font-bold px-4 py-1.5 rounded-full mb-5 uppercase tracking-wide animate-in fade-in slide-in-from-top-3 duration-700 fill-mode-both delay-200'>
-              Alojamientos verificados
-            </span>
-            <h1 className='text-4xl md:text-5xl font-black text-white leading-tight mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both delay-300'>
-              Tu alojamiento ideal
-              <br />
-              <span style={{ background: 'linear-gradient(135deg,#E288AE,#AD80B4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                en Santa Marta
+          {/* Izquierda — stagger animado */}
+          <motion.div variants={containerVariants} initial='hidden' animate='visible'>
+            <motion.div variants={itemVariants}>
+              <img src='/logo-livic-white.png' alt='LIVIC' className='h-14 w-auto mb-5' />
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <span className='inline-block bg-livic-yellow text-livic-black text-xs font-bold px-4 py-1.5 rounded-full mb-5 uppercase tracking-wide'>
+                Alojamientos verificados
               </span>
-            </h1>
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <h1 className='text-4xl md:text-5xl font-black text-white leading-tight mb-6'>
+                Tu alojamiento ideal
+                <br />
+                <span style={{ background: 'linear-gradient(135deg,#E288AE,#AD80B4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  en Santa Marta
+                </span>
+              </h1>
+            </motion.div>
+
             <ul className='space-y-2 mb-8'>
-              {HERO_BULLETS.map((item, i) => (
-                <li
+              {HERO_BULLETS.map((item) => (
+                <motion.li
                   key={item}
-                  style={{ animationDelay: `${400 + i * 100}ms` }}
-                  className='flex items-center gap-3 text-white/85 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both'
+                  variants={itemVariants}
+                  className='flex items-center gap-3 text-white/85'
                 >
                   <span className='w-5 h-5 rounded-full bg-livic-green/30 border border-livic-green/50 flex items-center justify-center flex-shrink-0'>
                     <Check className='w-3 h-3 text-livic-green' />
                   </span>
                   <span className='text-sm'>{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Panel de búsqueda */}
-          <div className='bg-white rounded-2xl shadow-2xl p-6 md:p-7 w-full max-w-sm lg:ml-auto animate-in fade-in slide-in-from-right-6 duration-700 fill-mode-both delay-400'>
+          {/* Panel de búsqueda — entrada desde la derecha */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            className='bg-white rounded-2xl shadow-2xl p-6 md:p-7 w-full max-w-sm lg:ml-auto'
+          >
             <h3 className='text-base font-bold text-gray-900 mb-1'>Consulta disponibilidad</h3>
             <p className='text-xs text-gray-500 mb-4'>Selecciona fechas y número de huéspedes</p>
             <AvailabilityBar onSearch={onSearch} />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
@@ -157,7 +184,7 @@ function HeroPanel({ onSearch }: { onSearch: (range: string, guests: number) => 
 // ── ResultsPanel ─────────────────────────────────────────────────────────────────
 function ResultsPanel({ flow, params, apartments, onModify }: { flow: FlowState; params: SearchParams; apartments: Apartment[]; onModify: () => void }) {
   return (
-    <div className='w-full h-full overflow-y-auto bg-white'>
+    <div className='w-full h-full overflow-y-auto'>
       {flow === 'searching' && (
         <div className='h-full flex items-center justify-center'>
           <SearchingScreen />
@@ -167,7 +194,7 @@ function ResultsPanel({ flow, params, apartments, onModify }: { flow: FlowState;
       {flow === 'results' && (
         <div className='animate-in fade-in duration-500'>
           <SearchSummaryBar params={params} onModify={onModify} />
-          <div className='bg-gray-50'>
+          <div>
             <Section id='alojamientos' titulo='Alojamientos disponibles' acento='pink' etiqueta='Resultados'>
               <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
                 {apartments.map((apt) => (
@@ -211,7 +238,7 @@ export default function SearchFlow({ apartments }: { apartments: Apartment[] }) 
       {/* ══════════════════════════════════════════════════════════════
           MOBILE  (< lg) — scroll vertical normal
       ══════════════════════════════════════════════════════════════ */}
-      <div className='lg:hidden min-h-screen bg-white'>
+      <div className='lg:hidden min-h-screen'>
         {flow === 'idle' && (
           <div className='h-screen'>
             <HeroPanel onSearch={handleSearch} />
@@ -225,7 +252,7 @@ export default function SearchFlow({ apartments }: { apartments: Apartment[] }) 
         {flow === 'results' && (
           <div className='animate-in fade-in duration-500'>
             <SearchSummaryBar params={params} onModify={handleModify} />
-            <div className='bg-gray-50'>
+            <div>
               <Section id='alojamientos' titulo='Alojamientos disponibles' acento='pink' etiqueta='Resultados'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
                   {apartments.map((apt) => (

@@ -39,11 +39,15 @@
 
 /* ─── Base reset ─── */
 body {
-  background-color: var(--background);
+  background-color: transparent;
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: #ffffff;
 }
 
 /* ─── Cally calendar theme ─── */
@@ -111,6 +115,53 @@ calendar-month::part(selected) {
 
 /* fill-mode: both — el elemento empieza invisible y termina en el estado final */
 .animate-fill-both { animation-fill-mode: both; }
+
+/* ─── Burbujas tornasol animadas (hero) ─── */
+@keyframes bubble-drift-1 {
+  0%,100% { transform: translate(0px, 0px) scale(1); }
+  25%      { transform: translate(40px, -60px) scale(1.08); }
+  50%      { transform: translate(-30px, -90px) scale(0.95); }
+  75%      { transform: translate(-60px, -30px) scale(1.05); }
+}
+@keyframes bubble-drift-2 {
+  0%,100% { transform: translate(0px, 0px) scale(1); }
+  30%      { transform: translate(-50px, 40px) scale(1.1); }
+  60%      { transform: translate(60px, -50px) scale(0.92); }
+  80%      { transform: translate(20px, 30px) scale(1.06); }
+}
+@keyframes bubble-drift-3 {
+  0%,100% { transform: translate(0px, 0px) scale(1); }
+  20%      { transform: translate(70px, 30px) scale(0.94); }
+  55%      { transform: translate(-40px, 60px) scale(1.12); }
+  80%      { transform: translate(30px, -40px) scale(1.02); }
+}
+@keyframes bubble-drift-4 {
+  0%,100% { transform: translate(0px, 0px) scale(1); }
+  35%      { transform: translate(-60px, -40px) scale(1.07); }
+  65%      { transform: translate(50px, 50px) scale(0.96); }
+}
+@keyframes bubble-drift-5 {
+  0%,100% { transform: translate(0px, 0px) scale(1); }
+  40%      { transform: translate(30px, -50px) scale(1.1); }
+  70%      { transform: translate(-40px, 20px) scale(0.9); }
+}
+@keyframes bubble-drift-6 {
+  0%,100% { transform: translate(0px, 0px) scale(1); }
+  30%      { transform: translate(-20px, 40px) scale(1.08); }
+  60%      { transform: translate(45px, -30px) scale(0.93); }
+}
+@keyframes hue-rotate-slow {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.bubble { position: absolute; border-radius: 9999px; mix-blend-mode: screen; will-change: transform; }
+.bubble-1 { animation: bubble-drift-1 18s ease-in-out infinite, hue-rotate-slow 12s linear infinite; }
+.bubble-2 { animation: bubble-drift-2 22s ease-in-out infinite, hue-rotate-slow 16s linear infinite reverse; }
+.bubble-3 { animation: bubble-drift-3 26s ease-in-out infinite, hue-rotate-slow 20s linear infinite; }
+.bubble-4 { animation: bubble-drift-4 20s ease-in-out infinite, hue-rotate-slow 14s linear infinite reverse; }
+.bubble-5 { animation: bubble-drift-5 15s ease-in-out infinite, hue-rotate-slow 10s linear infinite; }
+.bubble-6 { animation: bubble-drift-6 17s ease-in-out infinite, hue-rotate-slow 13s linear infinite reverse; }
 
 /* ─── Travila-style card hover ─── */
 .card-hover {

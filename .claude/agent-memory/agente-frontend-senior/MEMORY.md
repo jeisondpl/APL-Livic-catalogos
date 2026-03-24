@@ -66,6 +66,12 @@ public/
 2. Agregar el objeto Apartment al array APARTMENTS en `src/data/apartments.ts`
 3. La ruta `/apartamentos/{slug}` se genera automaticamente en el build.
 
+## Animaciones — framer-motion
+- framer-motion 12.38.0 instalado (marzo 2026), comando: `pnpm add framer-motion --ignore-workspace`.
+- Usado en `SearchFlow.tsx` > `HeroPanel`: stagger col izquierda con `containerVariants`/`itemVariants`, panel derecho `initial x:60`, burbujas con `scale` desde 0.
+- `ease` personalizado como tuple: `[0.22, 1, 0.36, 1] as [number, number, number, number]` — necesario para evitar error de tipos en TypeScript.
+- `motion.li` es valido como hijo de `motion.div` con variants (stagger funciona sobre cualquier motion.* hijo).
+
 ## Build y dev
 - `pnpm dev` -- servidor local en localhost:3000
 - `pnpm build` -- build produccion (compilation + SSG)
