@@ -10,6 +10,7 @@ import Nav from '@/components/Nav'
 import Card from '@/components/Card'
 import Section from '@/components/Section'
 import AvailabilityBar from '@/components/AvailabilityBar'
+import ParallaxHero from '@/components/ParallaxHero'
 import { getAllApartments } from '@/lib/catalog'
 import { MapPin, ShieldCheck, Sparkles } from 'lucide-react'
 
@@ -23,22 +24,10 @@ export default function CatalogHome() {
       {/* ── Hero del catálogo ── */}
       <header className='relative w-full min-h-[90vh] flex flex-col justify-center pt-[64px]'>
 
-        {/* Capas de fondo: overflow-hidden solo aquí para no recortar los dropdowns */}
-        <div className='absolute inset-0 overflow-hidden bg-livic-black pointer-events-none'>
-          {apartments.length > 0 && (
-            <img
-              src={apartments[0].heroPhoto.src}
-              alt='Portada del catálogo LIVIC'
-              className='absolute inset-0 w-full h-full object-cover opacity-40'
-            />
-          )}
-          {/* Gradiente multicapa para drama visual */}
-          <div className='absolute inset-0 bg-gradient-to-br from-livic-black via-livic-black/80 to-livic-black/60' />
-          <div className='absolute inset-0 bg-gradient-to-t from-livic-black via-transparent to-transparent' />
-          {/* Acento de color sutil en esquina */}
-          <div className='absolute top-0 right-0 w-96 h-96 bg-livic-pink/10 rounded-full blur-3xl' />
-          <div className='absolute bottom-1/3 left-0 w-72 h-72 bg-livic-purple/10 rounded-full blur-3xl' />
-        </div>
+        {/* Fondo con parallax */}
+        {apartments.length > 0 && (
+          <ParallaxHero src={apartments[0].heroPhoto.src} alt='Portada del catálogo LIVIC' />
+        )}
 
         {/* Contenido del hero */}
         <div className='relative z-10 flex flex-col items-center text-center px-5 py-20 md:py-28 max-w-4xl mx-auto w-full'>
