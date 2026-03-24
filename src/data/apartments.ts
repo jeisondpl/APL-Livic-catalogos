@@ -689,89 +689,187 @@ const apartment519: Apartment = {
   precioNoche: 180000,
 };
 
-// ─── Apartamento 419 (generado desde data\419) ─────────────────────────────────────────
+// ─── Fotos del apartamento 419 – Reserva del Mar II ─────────────────────────
 
-const BASE_419 = "/data/419";
+const BASE_419 = "/source/rdm2-419";
 
 const FOTOS_419: ApartmentPhoto[] = [
-  { src: `${BASE_419}/IMG_20260212_104736776_HDR.jpg`, alt: "Imagen 1 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_104825926.jpg`, alt: "Imagen 2 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105003341.jpg`, alt: "Imagen 3 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105115928.jpg`, alt: "Imagen 4 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105130134.jpg`, alt: "Imagen 5 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105201695.jpg`, alt: "Imagen 6 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105237112.jpg`, alt: "Imagen 7 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105258951.jpg`, alt: "Imagen 8 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105304274.jpg`, alt: "Imagen 9 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105327182.jpg`, alt: "Imagen 10 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105338697.jpg`, alt: "Imagen 11 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105418270.jpg`, alt: "Imagen 12 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105431828.jpg`, alt: "Imagen 13 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105516628_HDR.jpg`, alt: "Imagen 14 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105521539_HDR.jpg`, alt: "Imagen 15 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105607528_HDR.jpg`, alt: "Imagen 16 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105618230_HDR.jpg`, alt: "Imagen 17 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105637255.jpg`, alt: "Imagen 18 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105719106-Recuperado.jpg`, alt: "Imagen 19 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105731023.jpg`, alt: "Imagen 20 - Apartamento 419" },
-  { src: `${BASE_419}/IMG_20260212_105806280_HDR.jpg`, alt: "Imagen 21 - Apartamento 419" },
-  { src: `${BASE_419}/MEITU_20260217_102539321.jpg`, alt: "Imagen 22 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_104825926.jpg`,           alt: "Estudio luminoso — vista general desde zona comedor hacia sala y balcón con la Sierra Nevada al fondo" },
+  { src: `${BASE_419}/IMG_20260212_105201695.jpg`,           alt: "Estudio abierto — cama doble, sofá crema, A/C y pintura de elefante azul y dorado" },
+  { src: `${BASE_419}/IMG_20260212_105237112.jpg`,           alt: "Vista desde la cocina hacia el estudio y el balcón — amplitud y luz natural" },
+  { src: `${BASE_419}/IMG_20260212_105719106-Recuperado.jpg`,alt: "Estudio completo — sofá, closet empotrado, TV y escritorio en una sola vista" },
+  { src: `${BASE_419}/IMG_20260212_105115928.jpg`,           alt: "Cama doble con cabecero tapizado — acceso directo al balcón con vista a la Sierra Nevada" },
+  { src: `${BASE_419}/IMG_20260212_105130134.jpg`,           alt: "Cama doble y closet empotrado de madera clara — luz natural desde el balcón" },
+  { src: `${BASE_419}/IMG_20260212_105338697.jpg`,           alt: "Cama, TV, zona de trabajo y balcón — todo en el mismo espacio abierto" },
+  { src: `${BASE_419}/IMG_20260212_105618230_HDR.jpg`,       alt: "Cama doble con closet y vista panorámica a la Sierra Nevada" },
+  { src: `${BASE_419}/IMG_20260212_105258951.jpg`,           alt: "Sala de estar — sofá crema, pintura de elefante, planta Dracaena y A/C" },
+  { src: `${BASE_419}/IMG_20260212_105637255.jpg`,           alt: "Sofá cama y planta decorativa — luz natural desde el balcón" },
+  { src: `${BASE_419}/IMG_20260212_105731023.jpg`,           alt: "Sofá cama en posición de descanso — espacio amplio y luminoso" },
+  { src: `${BASE_419}/IMG_20260212_105003341.jpg`,           alt: "Cocina completa — estufa a gas, horno, nevera Midea y gabinetes blancos" },
+  { src: `${BASE_419}/IMG_20260212_105304274.jpg`,           alt: "TV, barra corrida con sillas Eames y cocina — diseño funcional ideal para Workation" },
+  { src: `${BASE_419}/IMG_20260212_105327182.jpg`,           alt: "Cocina vista desde la entrada — layout corredor limpio y bien organizado" },
+  { src: `${BASE_419}/IMG_20260212_105806280_HDR.jpg`,       alt: "Detalle de la cocina — campana extractora Mabe, estantería con vasos y blender" },
+  { src: `${BASE_419}/MEITU_20260217_102539321.jpg`,         alt: "Nevera Midea, lavadora y calentador a gas Rheem en closet de utilidades" },
+  { src: `${BASE_419}/IMG_20260212_105418270.jpg`,           alt: "Vista desde el balcón — vegetación, edificios y cielo azul de Santa Marta" },
+  { src: `${BASE_419}/IMG_20260212_105431828.jpg`,           alt: "Balcón con vista a la Sierra Nevada — cielo despejado y horizonte montañoso" },
+  { src: `${BASE_419}/IMG_20260212_105516628_HDR.jpg`,       alt: "Vista lateral del balcón — Reserva del Mar I y el Caribe al fondo" },
+  { src: `${BASE_419}/IMG_20260212_105521539_HDR.jpg`,       alt: "Balcón con silla Eames y puerta corrediza de vidrio — amplitud y privacidad" },
+  { src: `${BASE_419}/IMG_20260212_105607528_HDR.jpg`,       alt: "Vista desde el interior al balcón — puerta corrediza y Sierra Nevada" },
+  { src: `${BASE_419}/IMG_20260212_104736776_HDR.jpg`,       alt: "Baño completo — lavamanos con encimera de piedra, espejo y ducha de lluvia con partición de vidrio" },
 ];
 
+// ─── Apartamento 419 – Reserva del Mar II ────────────────────────────────────
+
 const apartment419: Apartment = {
-  slug: "apartamento-419",
-  nombre: "Apartamento 419",
-  edificio: "",
+  slug: "estudio-luminoso-rdm2-419",
+  nombre: "Estudio Luminoso | 3 min Playa | Sierra+Mar",
+  edificio: "Reserva del Mar II",
   apartamento: "419",
   piso: 4,
-  tipo: "Apartamento entero",
+  tipo: "Alojamiento entero",
 
-  huespedes: 4,
-  habitaciones: 2,
+  huespedes: 3,
+  habitaciones: 1,
   camas: 2,
   banos: 1,
 
   ubicacion: {
-    ciudad: "",
-    departamento: "",
-    pais: "",
-    lat: 0,
-    lng: 0,
+    ciudad: "Gaira",
+    departamento: "Magdalena",
+    pais: "Colombia",
+    lat: 11.1911,
+    lng: -74.2291,
+    cercaDe: "El Rodadero",
+    accesoPlaya: true,
+    distanciaPlayas: "3 minutos en carro a Playa de Gaira",
+    descripcionUbicacion:
+      "Gaira es un sector residencial y turístico entre El Rodadero y el centro de Santa Marta. A 3 min en carro de la playa, 20 min del Centro Histórico y 15 min del aeropuerto Simón Bolívar. Taxi, InDriver y Uber disponibles.",
   },
 
-  anfitrionPrincipal: { nombre: "LIVIC" },
+  anfitrionPrincipal: {
+    nombre: "Lina",
+    empresa: "LIVIC",
+    calificacion: 4.8,
+    resenas: 0,
+    anosExperiencia: 3,
+  },
 
-  amenidades: [],
+  amenidades: [
+    {
+      titulo: "Dormitorio y Descanso",
+      icono: "🛏️",
+      items: [
+        { nombre: "Cama doble con cabecero tapizado", icono: "Bed" },
+        { nombre: "Sofá cama (2-3 plazas, desplegable)", icono: "Sofa" },
+        { nombre: "Armario empotrado puertas corredizas", icono: "Archive" },
+        { nombre: "Ropa de cama y toallas incluidas", icono: "Sparkles" },
+        { nombre: "Lavadora incluida", icono: "WashingMachine" },
+        { nombre: "Calentador a gas Rheem", icono: "Flame" },
+      ],
+    },
+    {
+      titulo: "Cocina Completa",
+      icono: "🍳",
+      items: [
+        { nombre: "Nevera Midea negra con dispensador de agua", icono: "Refrigerator" },
+        { nombre: "Estufa a gas (4 puestos) + horno", icono: "Flame" },
+        { nombre: "Campana extractora Mabe", icono: "Wind" },
+        { nombre: "Blender / licuadora", icono: "Blend" },
+        { nombre: "Vajilla, vasos y utensilios", icono: "UtensilsCrossed" },
+        { nombre: "Lavaplatos en acero inoxidable", icono: "Droplets" },
+      ],
+    },
+    {
+      titulo: "Confort y Entretenimiento",
+      icono: "📺",
+      items: [
+        { nombre: "Aire acondicionado", icono: "Wind" },
+        { nombre: "TV montada (frente al comedor)", icono: "Tv" },
+        { nombre: "WiFi de alta velocidad", icono: "Wifi" },
+        { nombre: "Barra corrida + 2 sillas Eames (Workation)", icono: "Monitor" },
+        { nombre: "Balcón privado con barandilla de vidrio", icono: "Sun" },
+        { nombre: "Cerradura electrónica (sin llaves)", icono: "Lock" },
+      ],
+    },
+  ],
 
-  servicios: [],
+  servicios: [
+    { etiqueta: "WiFi de alta velocidad", disponible: true },
+    { etiqueta: "Aire acondicionado", disponible: true },
+    { etiqueta: "Cocina equipada completa", disponible: true },
+    { etiqueta: "Lavadora", disponible: true },
+    { etiqueta: "TV", disponible: true },
+    { etiqueta: "Balcón privado", disponible: true },
+    { etiqueta: "Zona de trabajo (Workation)", disponible: true },
+    { etiqueta: "Detector de humo", disponible: true },
+    { etiqueta: "Estacionamiento", disponible: false, nota: "Pendiente confirmar con administración" },
+    { etiqueta: "Mascotas", disponible: false },
+    { etiqueta: "Fumadores", disponible: false },
+    { etiqueta: "Eventos o fiestas", disponible: false },
+  ],
 
-  noIncluidos: [],
+  noIncluidos: [
+    "Manilla de acceso a zonas comunes del conjunto (se cobra en recepción al llegar, solo tarjeta)",
+    "Estacionamiento (pendiente confirmación con administración)",
+    "Early check-in / late check-out (disponible con costo adicional)",
+  ],
 
-  badges: ["Nuevo"],
+  badges: [
+    "Estudio de diseño",
+    "Workation",
+    "3 min Playa",
+    "Vista Sierra Nevada",
+    "Balcón privado",
+    "Cocina completa",
+  ],
 
   heroPhoto: FOTOS_419[0],
-  galeria: FOTOS_419,
+  galeria: FOTOS_419.slice(1),
 
-  descripcionCorta: "Apartamento agregado desde data\\419",
-  descripcionLarga: "Apartamento generado automáticamente a partir de la carpeta data\\419.",
-  frasePosituelo: "Nuevo en el catálogo",
+  descripcionCorta:
+    "Luz, brisa y la Sierra Nevada frente a ti. Estudio de diseño moderno en Reserva del Mar II — conjunto de playa en Gaira, a 3 minutos del mar. WiFi rápido, zona de trabajo, cocina completa, lavadora y balcón privado.",
 
-  edificioAmenidades: [],
-  edificioReglas: [],
+  descripcionLarga:
+    "Estudio luminoso en el piso 4 de Reserva del Mar II — conjunto residencial en Gaira, Santa Marta. Espacio de diseño abierto con todo lo que necesitas: cama doble con cabecero tapizado y ropa de cama de calidad, sofá cama crema para un huésped adicional, armario empotrado de madera clara y mesita de noche. La sala tiene sofá, mesa de vidrio con estructura metálica, planta Dracaena y una llamativa pintura de elefante en tonos azul, verde y dorado. La zona de trabajo y comedor combina una barra corrida con sillas Eames y TV montada — perfecta para Workation o cenar. Cocina integral completa con estufa a gas, horno, nevera Midea con dispensador, campana Mabe, blender y utensilios. Baño con ducha de lluvia y encimera de piedra. Lavadora y calentador Rheem en closet de servicio. Balcón privado con barandilla de vidrio y vistas a la Sierra Nevada.",
+
+  frasePosituelo:
+    "Trabajar bien y descansar mejor. Todo en el mismo espacio, a 3 minutos del mar.",
+
+  edificioAmenidades: [
+    { nombre: "Piscina (pendiente confirmar)", icono: "Waves" },
+    { nombre: "Gimnasio (pendiente confirmar)", icono: "Dumbbell" },
+    { nombre: "Parqueadero (pendiente confirmar)", icono: "Car" },
+    { nombre: "Portería y seguridad 24 horas", icono: "Shield" },
+  ],
+
+  edificioReglas: [
+    { nombre: "No mascotas", icono: "PawPrint" },
+    { nombre: "No fumar (interior ni balcón)", icono: "Cigarette" },
+    { nombre: "No fiestas ni eventos", icono: "Music" },
+    { nombre: "Silencio 10:00 PM – 8:00 AM", icono: "Moon" },
+    { nombre: "Máximo 2 huéspedes registrados", icono: "Users" },
+  ],
 
   checkIn: "3:00 p.m.",
   checkOut: "11:00 a.m.",
-  notas: [],
 
-  precioNoche: 230000,
+  notas: [
+    "Llegar a portería, registrarse con nombre y número de reserva.",
+    "Adquirir manilla de acceso en recepción (monto pendiente — solo tarjeta, no incluida en la reserva).",
+    "Ingresar con código de apertura de un solo uso enviado antes de la llegada.",
+    "La tarjeta de energía está sobre el mesón de la cocina — insertarla en el tarjetero del muro para activar la electricidad.",
+    "Al salir: dejar la tarjeta de energía sobre el mesón de la cocina.",
+    "Mantener puertas y ventanas del balcón cerradas ante vientos fuertes.",
+  ],
+
+  precioNoche: undefined,
 };
 
 // ─── Exportación del catálogo ─────────────────────────────────────────────────
 
 export const APARTMENTS: Apartment[] = [
   apartment519,
-  apartment1008,
-  apartment915,
   apartment419,
   apartment1008,
+  apartment915,
 ];
