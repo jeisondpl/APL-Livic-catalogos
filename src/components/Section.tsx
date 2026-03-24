@@ -12,6 +12,8 @@ interface SectionProps {
   subtitulo?: string;
   /** Acento de color bajo el título */
   acento?: "pink" | "green" | "purple" | "yellow";
+  /** Etiqueta pequeña sobre el título (reemplaza el "LIVIC" hardcodeado) */
+  etiqueta?: string;
   /** id HTML para anchor links */
   id?: string;
   /** Clase extra para el contenedor exterior */
@@ -39,6 +41,7 @@ export default function Section({
   titulo,
   subtitulo,
   acento = "pink",
+  etiqueta,
   id,
   className = "",
   centrado = false,
@@ -50,10 +53,12 @@ export default function Section({
     >
       {titulo && (
         <div className={`mb-10 md:mb-14 ${centrado ? 'text-center' : ''}`}>
-          {/* Etiqueta de acento superior */}
-          <span className={`text-xs font-bold uppercase tracking-[0.2em] ${ACENTO_TEXT_CLASSES[acento]} mb-3 block`}>
-            LIVIC
-          </span>
+          {/* Etiqueta de acento superior — solo si se pasa la prop */}
+          {etiqueta && (
+            <span className={`text-xs font-bold uppercase tracking-[0.2em] ${ACENTO_TEXT_CLASSES[acento]} mb-3 block`}>
+              {etiqueta}
+            </span>
+          )}
 
           <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-4">
             {titulo}

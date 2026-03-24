@@ -18,7 +18,7 @@ export default function Card({ apartment }: CardProps) {
   return (
     <Link
       href={`/apartamentos/${apartment.slug}`}
-      className="group block bg-surface-100 border border-surface-300/70 rounded-3xl overflow-hidden hover:border-livic-pink/50 hover:shadow-2xl hover:shadow-livic-pink/10 transition-all duration-500 h-full flex flex-col"
+      className="group block bg-white dark:bg-surface-100 border border-gray-200 dark:border-surface-300/70 rounded-3xl overflow-hidden hover:border-livic-pink/50 hover:shadow-2xl hover:shadow-livic-pink/10 shadow-md dark:shadow-none transition-all duration-500 h-full flex flex-col"
     >
       {/* Imagen grande */}
       <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">
@@ -78,19 +78,19 @@ export default function Card({ apartment }: CardProps) {
 
         {/* Grid de specs */}
         <div className="grid grid-cols-3 gap-3 mb-5">
-          <div className="flex flex-col items-center bg-surface-200/80 rounded-2xl py-3 px-2">
+          <div className="flex flex-col items-center bg-gray-100 dark:bg-surface-200/80 rounded-2xl py-3 px-2">
             <Users className="w-4 h-4 text-livic-pink mb-1.5 flex-shrink-0" />
             <span className="text-base font-bold text-foreground leading-none">{apartment.huespedes}</span>
             <span className="text-[9px] uppercase tracking-widest text-text-muted font-semibold mt-1">Huésp.</span>
           </div>
 
-          <div className="flex flex-col items-center bg-surface-200/80 rounded-2xl py-3 px-2">
+          <div className="flex flex-col items-center bg-gray-100 dark:bg-surface-200/80 rounded-2xl py-3 px-2">
             <BedDouble className="w-4 h-4 text-livic-pink mb-1.5 flex-shrink-0" />
             <span className="text-base font-bold text-foreground leading-none">{apartment.habitaciones}</span>
             <span className="text-[9px] uppercase tracking-widest text-text-muted font-semibold mt-1">Hab.</span>
           </div>
 
-          <div className="flex flex-col items-center bg-surface-200/80 rounded-2xl py-3 px-2">
+          <div className="flex flex-col items-center bg-gray-100 dark:bg-surface-200/80 rounded-2xl py-3 px-2">
             <Bath className="w-4 h-4 text-livic-pink mb-1.5 flex-shrink-0" />
             <span className="text-base font-bold text-foreground leading-none">{apartment.banos}</span>
             <span className="text-[9px] uppercase tracking-widest text-text-muted font-semibold mt-1">Baños</span>

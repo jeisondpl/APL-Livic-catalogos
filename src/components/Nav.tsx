@@ -10,7 +10,7 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 md:px-10 py-3 bg-background/75 backdrop-blur-xl border-b border-surface-300/60 transition-colors duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 md:px-10 py-3 bg-white/80 dark:bg-livic-black/80 backdrop-blur-xl border-b border-gray-200/80 dark:border-surface-300/60 transition-colors duration-300">
 
       {/* Logo / Marca */}
       <Link
@@ -42,18 +42,12 @@ export default function Nav() {
       {/* Links de navegación + Toggle */}
       <div className="flex items-center gap-2 md:gap-3">
         {/* Pill de links */}
-        <div className="hidden sm:flex items-center gap-1 bg-surface-100/80 border border-surface-300/60 rounded-full px-2 py-1">
+        <div className="hidden sm:flex items-center gap-1 bg-gray-100/80 dark:bg-surface-100/80 border border-gray-200/60 dark:border-surface-300/60 rounded-full px-2 py-1">
           <Link
             href="/"
-            className="text-text-muted text-sm font-medium px-4 py-1.5 rounded-full hover:bg-surface-200 hover:text-foreground transition-all duration-200"
+            className="text-text-muted text-sm font-medium px-4 py-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-surface-200 hover:text-foreground transition-all duration-200"
           >
-            Catálogo
-          </Link>
-          <Link
-            href="/#como-funciona"
-            className="text-text-muted text-sm font-medium px-4 py-1.5 rounded-full hover:bg-surface-200 hover:text-foreground transition-all duration-200"
-          >
-            Cómo funciona
+            Alojamientos
           </Link>
         </div>
 

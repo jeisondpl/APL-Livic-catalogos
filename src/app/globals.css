@@ -107,3 +107,11 @@ calendar-month::part(selected) {
   background: var(--surface-300);
   border-radius: 3px;
 }
+
+/* ─── Hero light/dark overlay ─── */
+.hero-overlay-light {
+  background: linear-gradient(to bottom, rgba(219,219,219,0.3) 0%, rgba(219,219,219,0.7) 60%, rgba(219,219,219,1) 100%);
+}
+.dark .hero-overlay-light {
+  background: linear-gradient(to bottom, rgba(12,10,11,0.4) 0%, rgba(12,10,11,0.75) 60%, rgba(12,10,11,1) 100%);
+}
