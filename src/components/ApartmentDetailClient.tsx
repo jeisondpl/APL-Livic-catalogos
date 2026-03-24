@@ -11,6 +11,8 @@ import {
   Bath,
   Users,
   Star,
+  LayoutGrid,
+  X,
 } from 'lucide-react'
 import type { Apartment } from '@/data/apartments'
 import AvailabilityBar from '@/components/AvailabilityBar'
@@ -60,16 +62,24 @@ function SectionCard({ children }: { children: React.ReactNode }) {
 function DetailGallery({ fotos }: { fotos: { src: string; alt: string }[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [showGrid, setShowGrid]           = useState(false)
+  const [lightbox, setLightbox]           = useState<number | null>(null)
 
   const prev = useCallback((e: React.MouseEvent) => {
-    e.preventDefault()
-    emblaApi?.scrollPrev()
+    e.preventDefault(); emblaApi?.scrollPrev()
   }, [emblaApi])
 
   const next = useCallback((e: React.MouseEvent) => {
-    e.preventDefault()
-    emblaApi?.scrollNext()
+    e.preventDefault(); emblaApi?.scrollNext()
   }, [emblaApi])
+
+  const lightboxPrev = useCallback(() =>
+    setLightbox(i => i !== null ? (i === 0 ? fotos.length - 1 : i - 1) : null)
+  , [fotos.length])
+
+  const lightboxNext = useCallback(() =>
+    setLightbox(i => i !== null ? (i === fotos.length - 1 ? 0 : i + 1) : null)
+  , [fotos.length])
 
   useEffect(() => {
     if (!emblaApi) return
@@ -79,78 +89,155 @@ function DetailGallery({ fotos }: { fotos: { src: string; alt: string }[] }) {
     return () => { emblaApi.off('select', onSelect) }
   }, [emblaApi])
 
-  // Dots: máx 5 puntos visibles
+  // Bloquear scroll cuando el grid o lightbox están abiertos
+  useEffect(() => {
+    document.body.style.overflow = (showGrid || lightbox !== null) ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [showGrid, lightbox])
+
   const totalDots = Math.min(fotos.length, 5)
   const dotIndex  = Math.round((selectedIndex / Math.max(fotos.length - 1, 1)) * (totalDots - 1))
 
   return (
-    <motion.div
-      variants={fadeScale}
-      initial="hidden"
-      animate="show"
-      className="relative"
-    >
-      {/* Viewport */}
-      <div
-        ref={emblaRef}
-        className="h-[320px] md:h-[480px] rounded-[2.5rem] overflow-hidden"
-      >
-        <div className="flex h-full">
-          {fotos.map((foto, i) => (
-            <div key={i} className="relative flex-[0_0_100%] h-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={foto.src}
-                alt={foto.alt}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading={i === 0 ? 'eager' : 'lazy'}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+    <>
+      <motion.div variants={fadeScale} initial="hidden" animate="show" className="relative">
 
-      {/* Flechas siempre visibles */}
-      {fotos.length > 1 && (
-        <>
-          <button
-            aria-label="Foto anterior"
-            onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-md transition-all"
-          >
-            <ChevronLeft size={20} className="text-gray-800" />
-          </button>
-          <button
-            aria-label="Foto siguiente"
-            onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-md transition-all"
-          >
-            <ChevronRight size={20} className="text-gray-800" />
-          </button>
-        </>
+        {/* Viewport slider */}
+        <div ref={emblaRef} className="h-[320px] md:h-[480px] rounded-[2.5rem] overflow-hidden">
+          <div className="flex h-full">
+            {fotos.map((foto, i) => (
+              <div key={i} className="relative flex-[0_0_100%] h-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={foto.src} alt={foto.alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Flechas */}
+        {fotos.length > 1 && (
+          <>
+            <button aria-label="Foto anterior" onClick={prev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-md transition-all">
+              <ChevronLeft size={20} className="text-gray-800" />
+            </button>
+            <button aria-label="Foto siguiente" onClick={next}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-md transition-all">
+              <ChevronRight size={20} className="text-gray-800" />
+            </button>
+          </>
+        )}
+
+        {/* Dots */}
+        {fotos.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
+            {Array.from({ length: totalDots }).map((_, i) => (
+              <div key={i} className={`rounded-full transition-all duration-300 ${i === dotIndex ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/60'}`} />
+            ))}
+          </div>
+        )}
+
+        {/* Botón "Mostrar todas las fotos" — bottom-right */}
+        <button
+          onClick={() => setShowGrid(true)}
+          className="absolute bottom-4 right-4 z-10 flex items-center gap-2 bg-white text-gray-900 text-sm font-bold px-4 py-2.5 rounded-2xl shadow-lg hover:bg-gray-50 transition-all border border-gray-100"
+        >
+          <LayoutGrid size={16} />
+          Mostrar todas las fotos
+        </button>
+
+      </motion.div>
+
+      {/* ── Modal grid "todas las fotos" ── */}
+      {showGrid && (
+        <div className="fixed inset-0 z-[200] bg-white overflow-y-auto">
+          {/* Header del modal */}
+          <div className="sticky top-0 bg-white border-b border-gray-100 z-10 px-6 py-4 flex items-center justify-between">
+            <h2 className="font-bold text-gray-900 text-lg">
+              Todas las fotos <span className="text-gray-400 font-normal text-base ml-1">({fotos.length})</span>
+            </h2>
+            <button
+              onClick={() => setShowGrid(false)}
+              className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              aria-label="Cerrar"
+            >
+              <X size={18} className="text-gray-700" />
+            </button>
+          </div>
+
+          {/* Grid de fotos */}
+          <div className="max-w-5xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-3 gap-3">
+            {fotos.map((foto, i) => (
+              <button
+                key={i}
+                onClick={() => { setLightbox(i); setShowGrid(false) }}
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl group"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={foto.src} alt={foto.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors rounded-2xl" />
+              </button>
+            ))}
+          </div>
+        </div>
       )}
 
-      {/* Dots indicadores */}
-      {fotos.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
-          {Array.from({ length: totalDots }).map((_, i) => (
-            <div
-              key={i}
-              className={`rounded-full transition-all duration-300 ${
-                i === dotIndex
-                  ? 'w-5 h-2 bg-white'
-                  : 'w-2 h-2 bg-white/60'
-              }`}
+      {/* ── Lightbox ── */}
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-[300] bg-black/95 flex items-center justify-center"
+          onClick={() => setLightbox(null)}
+        >
+          {/* Cerrar */}
+          <button
+            onClick={() => setLightbox(null)}
+            className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center z-10"
+            aria-label="Cerrar"
+          >
+            <X size={20} className="text-white" />
+          </button>
+
+          {/* Prev */}
+          <button
+            onClick={(e) => { e.stopPropagation(); lightboxPrev() }}
+            className="absolute left-4 md:left-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center z-10 transition-colors"
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={26} className="text-white" />
+          </button>
+
+          {/* Foto */}
+          <div className="max-w-[90vw] max-h-[85vh]" onClick={e => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={fotos[lightbox].src}
+              alt={fotos[lightbox].alt}
+              className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
             />
-          ))}
+          </div>
+
+          {/* Next */}
+          <button
+            onClick={(e) => { e.stopPropagation(); lightboxNext() }}
+            className="absolute right-4 md:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center z-10 transition-colors"
+            aria-label="Siguiente"
+          >
+            <ChevronRight size={26} className="text-white" />
+          </button>
+
+          {/* Contador */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-sm text-white text-sm font-medium px-5 py-2 rounded-full border border-white/20">
+            {lightbox + 1} / {fotos.length}
+          </div>
         </div>
       )}
-
-      {/* Contador total de fotos */}
-      <div className="absolute top-4 right-4 z-10 bg-black/50 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-        {selectedIndex + 1} / {fotos.length}
-      </div>
-    </motion.div>
+    </>
   )
 }
 
