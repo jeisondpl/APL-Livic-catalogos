@@ -689,10 +689,89 @@ const apartment519: Apartment = {
   precioNoche: 180000,
 };
 
+// ─── Apartamento 419 (generado desde data\419) ─────────────────────────────────────────
+
+const BASE_419 = "/data/419";
+
+const FOTOS_419: ApartmentPhoto[] = [
+  { src: `${BASE_419}/IMG_20260212_104736776_HDR.jpg`, alt: "Imagen 1 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_104825926.jpg`, alt: "Imagen 2 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105003341.jpg`, alt: "Imagen 3 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105115928.jpg`, alt: "Imagen 4 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105130134.jpg`, alt: "Imagen 5 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105201695.jpg`, alt: "Imagen 6 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105237112.jpg`, alt: "Imagen 7 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105258951.jpg`, alt: "Imagen 8 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105304274.jpg`, alt: "Imagen 9 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105327182.jpg`, alt: "Imagen 10 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105338697.jpg`, alt: "Imagen 11 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105418270.jpg`, alt: "Imagen 12 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105431828.jpg`, alt: "Imagen 13 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105516628_HDR.jpg`, alt: "Imagen 14 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105521539_HDR.jpg`, alt: "Imagen 15 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105607528_HDR.jpg`, alt: "Imagen 16 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105618230_HDR.jpg`, alt: "Imagen 17 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105637255.jpg`, alt: "Imagen 18 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105719106-Recuperado.jpg`, alt: "Imagen 19 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105731023.jpg`, alt: "Imagen 20 - Apartamento 419" },
+  { src: `${BASE_419}/IMG_20260212_105806280_HDR.jpg`, alt: "Imagen 21 - Apartamento 419" },
+  { src: `${BASE_419}/MEITU_20260217_102539321.jpg`, alt: "Imagen 22 - Apartamento 419" },
+];
+
+const apartment419: Apartment = {
+  slug: "apartamento-419",
+  nombre: "Apartamento 419",
+  edificio: "",
+  apartamento: "419",
+  piso: 4,
+  tipo: "Apartamento entero",
+
+  huespedes: 4,
+  habitaciones: 2,
+  camas: 2,
+  banos: 1,
+
+  ubicacion: {
+    ciudad: "",
+    departamento: "",
+    pais: "",
+    lat: 0,
+    lng: 0,
+  },
+
+  anfitrionPrincipal: { nombre: "LIVIC" },
+
+  amenidades: [],
+
+  servicios: [],
+
+  noIncluidos: [],
+
+  badges: ["Nuevo"],
+
+  heroPhoto: FOTOS_419[0],
+  galeria: FOTOS_419,
+
+  descripcionCorta: "Apartamento agregado desde data\\419",
+  descripcionLarga: "Apartamento generado automáticamente a partir de la carpeta data\\419.",
+  frasePosituelo: "Nuevo en el catálogo",
+
+  edificioAmenidades: [],
+  edificioReglas: [],
+
+  checkIn: "3:00 p.m.",
+  checkOut: "11:00 a.m.",
+  notas: [],
+
+  precioNoche: 230000,
+};
+
 // ─── Exportación del catálogo ─────────────────────────────────────────────────
 
 export const APARTMENTS: Apartment[] = [
   apartment519,
   apartment1008,
   apartment915,
+  apartment419,
+  apartment1008,
 ];
