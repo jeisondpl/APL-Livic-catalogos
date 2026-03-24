@@ -54,6 +54,8 @@ export default function CatalogHome() {
 
             {/* ── Columna izquierda: texto ── */}
             <div>
+              <img src='/logo-livic.png' alt='LIVIC' className='h-16 w-auto mb-5' />
+
               <span className='inline-block bg-livic-yellow text-livic-black text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide'>
                 Alojamientos verificados
               </span>
