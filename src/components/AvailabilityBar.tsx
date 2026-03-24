@@ -28,7 +28,11 @@ const GUEST_ROWS: { key: GuestKey; label: string; sub: string }[] = [
 
 /* ─────────────────────────────────────────────────────── */
 
-export default function AvailabilityBar() {
+interface AvailabilityBarProps {
+  onSearch?: (range: string, guests: number) => void
+}
+
+export default function AvailabilityBar({ onSearch }: AvailabilityBarProps = {}) {
   const [range, setRange] = useState('')
   const [guests, setGuests] = useState<Guests>({ adultos: 0, ninos: 0, bebes: 0, mascotas: 0 })
   const [panel, setPanel] = useState<'fechas' | 'quien' | null>(null)
@@ -143,7 +147,7 @@ export default function AvailabilityBar() {
 
       {/* Botón buscar full-width */}
       <button
-        onClick={() => setPanel(null)}
+        onClick={() => { setPanel(null); onSearch?.(range, total) }}
         aria-label="Buscar disponibilidad"
         className="w-full bg-livic-pink hover:bg-livic-pink/90 active:scale-[0.98] text-white rounded-xl py-3.5 font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-md"
       >
