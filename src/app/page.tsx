@@ -40,13 +40,11 @@ export default function CatalogHome() {
         <div className='relative max-w-6xl mx-auto rounded-3xl overflow-hidden min-h-[580px] md:min-h-[620px] flex items-center shadow-xl'>
 
           {/* Imagen de fondo */}
-          {apartments.length > 0 && (
-            <img
-              src={apartments[0].heroPhoto.src}
-              alt='Alojamientos en Santa Marta, Colombia'
-              className='absolute inset-0 w-full h-full object-cover'
-            />
-          )}
+          <img
+            src='/portada.png'
+            alt='Alojamientos en Santa Marta, Colombia'
+            className='absolute inset-0 w-full h-full object-cover'
+          />
 
           {/* Overlay gradiente izquierdo */}
           <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10' />
