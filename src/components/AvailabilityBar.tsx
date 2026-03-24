@@ -73,7 +73,7 @@ function Modal({
 
       {/* Panel */}
       <div
-        className={`relative z-10 w-full transition-all duration-300 ${
+        className={`relative z-10 transition-all duration-300 ${bottomSheet ? 'w-full' : 'w-auto mx-auto'} ${
           bottomSheet
             ? visible ? 'translate-y-0' : 'translate-y-full'
             : visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
