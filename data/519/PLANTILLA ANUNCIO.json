@@ -1,0 +1,234 @@
+{
+  "Editor de anuncios": {
+    "Recorrido fotográfico": {
+      "descripción": "",
+      "photo-tour": [
+        {
+          "ambiente": "",
+          "informacion sobre la privacidad": [
+            {
+              "nombre": "",
+              "descripcion": "",
+              "seleccionado": false
+            }
+          ],
+          "comodidades": [
+            {
+              "nombre": "",
+              "seleccionado": false
+            }
+          ],
+          "Prestaciones de accesibilidad": [
+            {
+              "nombre": "",
+              "seleccionado": false
+            }
+          ],
+          "fotos": [
+            {
+              "foto": "",
+              "descripción": {
+                "descripción": "",
+                "restricciones": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Título": {
+      "español": "",
+      "nombre interno": ""
+    },
+    "Tipo de propiedad": {
+      "¿Cuál se parece más a tu vivienda?": "",
+      "tipo de propiedad": "",
+      "tipo de espacio": "",
+      "¿Cuántos pisos hay en el edificio?": 0,
+      "¿En qué piso se encuentra el alojamiento?": 0,
+      "Año de construcción": 0,
+      "Tamaño de la propiedad": {
+        "valor": 0,
+        "unidad": ""
+      },
+      "Tu categoría": {
+        "descripción": "",
+        "categoría": []
+      }
+    },
+    "precios": {
+      "descripcion": "",
+      "precio por noche": {
+        "valor": 0,
+        "moneda": "",
+        "precios inteligentes": false
+      },
+      "precio personalizado para el fin de semana": {
+        "valor": 0,
+        "moneda": ""
+      },
+      "descuentos": {
+        "semanal": {
+          "condicion": "",
+          "porcentaje": 0,
+          "promedio semanal": 0,
+          "moneda": ""
+        },
+        "mensual": {
+          "condicion": "",
+          "porcentaje": 0,
+          "promedio mensual": 0,
+          "moneda": ""
+        }
+      }
+    },
+    "disponibilidad": {
+      "descripcion": "",
+      "duración del viaje": {
+        "número mínimo de noches": 0,
+        "número máximo de noches": 0,
+        "permite estadías largas": {
+          "activado": false,
+          "nota": ""
+        }
+      },
+      "preaviso": {
+        "descripcion": "",
+        "tiempo": "",
+        "permitir solicitudes con menos de 1 día de anticipación": false,
+        "nota": ""
+      }
+    },
+    "numero de personas": {
+      "descripcion": "",
+      "huéspedes": 0
+    },
+    "descripcion": {
+      "descripcion del anuncio": "",
+      "tu propiedad": "",
+      "acceso de los huéspedes": "",
+      "interacción con los huéspedes": "",
+      "otros detalles a destacar": ""
+    },
+    "comodidades": {
+      "descripcion": "",
+      "comodidades": []
+    },
+    "Prestaciones de accesibilidad": {
+      "descripcion": "",
+      "prestaciones de accesibilidad": []
+    },
+    "ubicación": {
+      "descripcion": "",
+      "dirección": {
+        "calle": "",
+        "apartamento/piso/edificio": "",
+        "ciudad/municipio": "",
+        "departamento": "",
+        "país": ""
+      },
+      "coordenadas": {
+        "latitud": 0.0,
+        "longitud": 0.0
+      },
+      "ubicación compartida": {
+        "muestra la ubicación exacta de tu alojamiento": false,
+        "descripcion": "",
+        "estado": ""
+      },
+      "características de la ubicación": [],
+      "descripción del vecindario": "",
+      "cómo desplazarse": "",
+      "vistas panorámicas": []
+    },
+    "Sobre el anfitrión": {
+      "foto de perfil": "",
+      "perfil": {
+        "dónde estudié": "",
+        "a dónde siempre quise ir": "",
+        "a qué me dedico": "",
+        "porqué mi alojamiento es único": "",
+        "a los huéspedes, yo siempre": "",
+        "década en la que nací": "",
+        "dato curioso sobre mí": "",
+        "mi habilidad menos útil": "",
+        "a qué dedico demasiado tiempo": "",
+        "mi canción favorita en la secundaria": "",
+        "idiomas que hablo": "",
+        "amo": "",
+        "el título de mi biografía sería": "",
+        "vivo en": "",
+        "qué hay para desayunar": "",
+        "mascotas": ""
+      },
+      "información sobre mí": "",
+      "lugares donde estuve": {
+        "visible en perfil": false,
+        "sellos de viaje": []
+      },
+      "mis intereses": []
+    },
+    "coanfitriones": {
+      "descripcion": "",
+      "coanfitriones": []
+    },
+    "Configuración de las reservaciones": {
+      "descripcion": "",
+      "Mensaje previo a la reservación": "",
+      "requisitos para los huéspedes": {
+        "requisitos para reservar": [],
+        "preguntas para los huéspedes": []
+      }
+    },
+    "Reglas de la casa": {
+      "se admiten mascotas": false,
+      "número máximo de mascotas permitidas": 0,
+      "eventos permitidos": false,
+      "está permitido fumar, vapear y utilizar cigarrillos electrónicos": false,
+      "horas de silencio": {
+        "activo": false,
+        "hora de inicio": "",
+        "hora de finalización": ""
+      },
+      "se permite la fotografía y la filmación comerciales": false,
+      "número de personas": 0,
+      "horas de check-in y check-out": {
+        "llegada": {
+          "desde": "",
+          "hasta": ""
+        },
+        "salida": ""
+      },
+      "reglas adicionales": ""
+    },
+    "Seguridad del huésped": {
+      "consideraciones de seguridad": [],
+      "dispositivos de seguridad": [],
+      "información de la propiedad": []
+    },
+    "Políticas de cancelación": {
+      "estadías de corta duración": {
+        "descripcion": "",
+        "tu política": {
+          "nombre": "",
+          "seleccionada": false,
+          "condiciones": []
+        },
+        "opciones disponibles": [],
+        "opciones de políticas adicionales": {
+          "seleccionada": "",
+          "opciones": []
+        }
+      },
+      "estadías largas": {
+        "descripcion": "",
+        "tu política": {
+          "nombre": "",
+          "seleccionada": false,
+          "condiciones": []
+        },
+        "opciones disponibles": []
+      }
+    }
+  }
+}

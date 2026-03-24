@@ -1,0 +1,45 @@
+{
+  "skill_name": "generar-ficha",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Genera la ficha del apartamento 1008 usando el archivo datos1008.json",
+      "expected_output": "Archivo ficha.md creado en SALGERO SUITE/1008/ficha/ con todas las secciones: habitaciones, baños, comodidades, precios, reglas, seguridad y política de cancelación. Solo se listan comodidades seleccionadas.",
+      "files": ["datos1008.json"],
+      "expectations": [
+        "El archivo ficha.md es creado o actualizado",
+        "El título incluye 'Salguero Suite' o 'SMR SalgueroSuite'",
+        "Se listan exactamente 2 habitaciones (Habitación 1 y Habitación 2)",
+        "Se listan exactamente 2 baños completos",
+        "El precio por noche es $195.000 COP",
+        "Las reglas incluyen 'No mascotas' o menciona que se admiten mascotas según el JSON",
+        "La política de cancelación flexible está mencionada",
+        "No aparecen comodidades con seleccionado:false"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Genera la ficha del apto 1008, necesito ver qué comodidades tiene disponibles",
+      "expected_output": "Ficha generada con sección de comodidades agrupadas (Conectividad, Cocina, Climatización, Edificio, etc.) mostrando solo las disponibles. WiFi, AC, piscina, gym, jacuzzi deben aparecer.",
+      "files": ["datos1008.json"],
+      "expectations": [
+        "La sección de comodidades está agrupada por categorías",
+        "WiFi aparece en la sección Conectividad",
+        "Piscina, Gimnasio y Jacuzzi aparecen en la sección Edificio",
+        "Aire acondicionado aparece en Climatización",
+        "Cocina, Microondas, Licuadora y Cafetera aparecen en la sección Cocina"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Actualiza la ficha del 1008 con la info más reciente del JSON",
+      "expected_output": "La skill detecta que ya existe ficha.md, pregunta si desea sobrescribir o sobrescribe directamente si el contenido difiere, y guarda la versión actualizada.",
+      "files": ["datos1008.json"],
+      "expectations": [
+        "Se guarda el archivo en la ruta correcta: SALGERO SUITE/1008/ficha/ficha.md",
+        "El archivo resultante tiene formato Markdown válido con secciones ## correctas",
+        "Los precios en COP están correctamente formateados"
+      ]
+    }
+  ]
+}

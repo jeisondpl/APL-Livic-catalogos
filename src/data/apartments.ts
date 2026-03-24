@@ -512,9 +512,187 @@ const apartment915: Apartment = {
   ],
 };
 
+// ─── Fotos del apartamento 519 ───────────────────────────────────────────────
+
+const BASE_519 = "/source/apt519";
+
+const FOTOS_519: ApartmentPhoto[] = [
+  { src: `${BASE_519}/IMG_20260128_092308153_HDR.jpg`, alt: "Estudio completo: sofá turquesa, cama doble y armario empotrado" },
+  { src: `${BASE_519}/IMG_20260128_092318483_HDR.jpg`, alt: "Vista del estudio desde la entrada con ventanal y montañas" },
+  { src: `${BASE_519}/IMG_20260128_092332600.jpg`,     alt: "Área de sala con sofá turquesa y vista a la Sierra Nevada" },
+  { src: `${BASE_519}/IMG_20260128_092344672.jpg`,     alt: "Cama doble con ropa de cama premium y ventanal al fondo" },
+  { src: `${BASE_519}/IMG_20260128_092353800_HDR.jpg`, alt: "Sofá cama turquesa, mesa de noche y aire acondicionado" },
+  { src: `${BASE_519}/IMG_20260128_092408707_HDR.jpg`, alt: "Escritorio de trabajo con sillas y TV de pantalla grande" },
+  { src: `${BASE_519}/IMG_20260128_092419374_HDR.jpg`, alt: "TV grande montada con escritorio y sillas tipo Eames" },
+  { src: `${BASE_519}/IMG_20260128_092505049_HDR.jpg`, alt: "Amplia vista del estudio con sofá, escritorio y TV" },
+  { src: `${BASE_519}/IMG_20260128_092523627.jpg`,     alt: "Sofá turquesa con almohadas y ventanal panorámico" },
+  { src: `${BASE_519}/IMG_20260128_092624343_HDR.jpg`, alt: "Cocina integral con nevera Challenger, estufa y horno" },
+  { src: `${BASE_519}/IMG_20260128_092649903_HDR.jpg`, alt: "Cocina equipada con cafetera, extractor y nevera" },
+  { src: `${BASE_519}/IMG_20260128_092710234_HDR.jpg`, alt: "Detalle de la cocina con mesón y gabinetes modernos" },
+  { src: `${BASE_519}/IMG_20260128_092746592_HDR.jpg`, alt: "Área de comedor integrada con sillas y barra" },
+  { src: `${BASE_519}/IMG_20260128_092751523_HDR.jpg`, alt: "Mesa de comedor con sillas y acceso a la cocina" },
+  { src: `${BASE_519}/IMG_20260128_092817592_HDR.jpg`, alt: "Aire acondicionado mini-split y sofá turquesa" },
+  { src: `${BASE_519}/IMG_20260128_092831903_HDR.jpg`, alt: "Cama doble con sofá cama y AC — espacio funcional" },
+  { src: `${BASE_519}/IMG_20260128_092835921_HDR.jpg`, alt: "Ventanal con vistas a la Sierra Nevada desde la cama" },
+  { src: `${BASE_519}/IMG_20260128_092847747_HDR.jpg`, alt: "Armario empotrado en madera con cajones" },
+  { src: `${BASE_519}/IMG_20260128_092922450_HDR.jpg`, alt: "Zona de lavandería con lavadora y calentador de agua" },
+  { src: `${BASE_519}/IMG_20260128_092926792_HDR.jpg`, alt: "Lavadora Samsung y calentador de paso" },
+  { src: `${BASE_519}/IMG_20260128_092935543_HDR.jpg`, alt: "Detalle del closet y zona de lavandería" },
+  { src: `${BASE_519}/IMG_20260128_092946386_HDR.jpg`, alt: "Baño moderno con ducha y accesorios" },
+  { src: `${BASE_519}/IMG_20260128_093006800_HDR.jpg`, alt: "Baño con ducha, encimera y espejo" },
+  { src: `${BASE_519}/IMG_20260128_093025950_HDR.jpg`, alt: "Detalle del baño con accesorios de calidad" },
+  { src: `${BASE_519}/IMG_20260128_093217164_HDR.jpg`, alt: "Vista nocturna del estudio con iluminación cálida" },
+  { src: `${BASE_519}/IMG_20260128_093219253_HDR.jpg`, alt: "Sala con mesita de centro y sillas de exterior" },
+  { src: `${BASE_519}/IMG_20260128_093223044.jpg`,     alt: "Estudio iluminado con toda la decoración" },
+  { src: `${BASE_519}/IMG_20260128_093316715_HDR.jpg`, alt: "Puerta de entrada del apartamento 519" },
+  { src: `${BASE_519}/IMG_20260128_093322265_HDR.jpg`, alt: "Número 519 en la puerta — acceso inteligente sin llave" },
+];
+
+// ─── Apartamento 519 ──────────────────────────────────────────────────────────
+
+const apartment519: Apartment = {
+  slug: "estudio-moderno-519",
+  nombre: "Estudio Moderno 519 | Vista Sierra Nevada | Piso 5",
+  edificio: "Salguero Park",
+  apartamento: "519",
+  piso: 5,
+  tipo: "Estudio completo",
+
+  huespedes: 3,
+  habitaciones: 1,
+  camas: 2,
+  banos: 1,
+
+  ubicacion: {
+    ciudad: "Gaira",
+    departamento: "Magdalena",
+    pais: "Colombia",
+    lat: 11.1872,
+    lng: -74.2305,
+    cercaDe: "Santa Marta",
+    accesoPlaya: true,
+    distanciaPlayas: "~300 m (aprox. 7 min caminando)",
+    descripcionUbicacion:
+      "Estudio moderno en piso 5 con vistas directas a la Sierra Nevada de Santa Marta. Ubicado en Playa Salguero, zona tranquila y vacacional a minutos del Rodadero y a 20 minutos del centro histórico.",
+  },
+
+  anfitrionPrincipal: {
+    nombre: "Lina",
+    empresa: "LIVIC",
+    calificacion: 4.7,
+    resenas: 0,
+    anosExperiencia: 3,
+  },
+  coanfitrion: {
+    nombre: "Zharick",
+  },
+
+  amenidades: [
+    {
+      titulo: "Dormitorio y Lavandería",
+      icono: "🛏️",
+      items: [
+        { nombre: "Cama doble + sofá cama", icono: "Bed" },
+        { nombre: "Armario empotrado", icono: "Archive" },
+        { nombre: "Lavadora Samsung", icono: "WashingMachine" },
+        { nombre: "Sábanas y toallas incluidas", icono: "Sparkles" },
+        { nombre: "Persianas blackout", icono: "Blinds" },
+        { nombre: "Tendedero de ropa", icono: "Shirt" },
+      ],
+    },
+    {
+      titulo: "Cocina y Comedor",
+      icono: "🍳",
+      items: [
+        { nombre: "Nevera Challenger con dispensador de agua", icono: "Refrigerator" },
+        { nombre: "Estufa de gas + horno", icono: "Flame" },
+        { nombre: "Extractor de olores", icono: "Wind" },
+        { nombre: "Cafetera", icono: "Coffee" },
+        { nombre: "Utensilios de cocina completos", icono: "UtensilsCrossed" },
+        { nombre: "Área de comedor", icono: "Table" },
+      ],
+    },
+    {
+      titulo: "Confort y Entretenimiento",
+      icono: "📺",
+      items: [
+        { nombre: "Aire acondicionado mini-split", icono: "Wind" },
+        { nombre: "TV pantalla grande", icono: "Tv" },
+        { nombre: "Escritorio de trabajo con 2 sillas", icono: "Monitor" },
+        { nombre: "Calentador de agua a gas", icono: "Flame" },
+        { nombre: "Cerradura inteligente (sin llave)", icono: "Lock" },
+      ],
+    },
+  ],
+
+  servicios: [
+    { etiqueta: "WiFi de alta velocidad", disponible: true },
+    { etiqueta: "Aire acondicionado", disponible: true },
+    { etiqueta: "Cocina equipada", disponible: true },
+    { etiqueta: "Lavadora", disponible: true },
+    { etiqueta: "TV pantalla grande", disponible: true },
+    { etiqueta: "Estacionamiento", disponible: false, nota: "No incluido, consultar disponibilidad" },
+    { etiqueta: "Mascotas", disponible: false },
+    { etiqueta: "Fumadores", disponible: false },
+    { etiqueta: "Eventos o fiestas", disponible: false },
+  ],
+
+  noIncluidos: [
+    "Estacionamiento (consultar disponibilidad en el edificio)",
+    "Manilla de acceso a la playa del edificio (valor adicional)",
+  ],
+
+  badges: [
+    "Estudio moderno",
+    "Vista Sierra Nevada",
+    "Cocina completa",
+    "Piso 5",
+    "Acceso sin llave",
+    "Lavadora incluida",
+  ],
+
+  heroPhoto: FOTOS_519[0],
+  galeria: FOTOS_519.slice(1),
+
+  descripcionCorta:
+    "Estudio moderno y luminoso en piso 5 con vistas a la Sierra Nevada. Sofá cama turquesa, cama doble, cocina integral completa, lavadora y acceso inteligente sin llave.",
+
+  descripcionLarga:
+    "Bienvenido al Estudio 519, un espacio contemporáneo y funcional pensado para quienes buscan comodidad sin renunciar al estilo. Ubicado en el piso 5 con vistas directas a la Sierra Nevada de Santa Marta, este estudio integra de forma elegante la zona de dormir, sala, cocina y trabajo en un solo ambiente luminoso y bien equipado. La cama doble con ropa de cama de calidad se complementa con un sofá cama turquesa para hasta 3 huéspedes. La cocina integral incluye nevera Challenger con dispensador, estufa de gas, horno, extractor y cafetera — todo lo necesario para preparar tus comidas. El escritorio con sillas te permite trabajar o estudiar con comodidad. Lavadora Samsung, calentador de agua a gas y cerradura inteligente completan la experiencia sin fricciones.",
+
+  frasePosituelo:
+    "Donde la Sierra Nevada se convierte en tu panorama de fondo cada mañana.",
+
+  edificioAmenidades: [
+    { nombre: "Piscina", icono: "Waves" },
+    { nombre: "Seguridad 24/7", icono: "Shield" },
+    { nombre: "Ascensor", icono: "ArrowUp" },
+    { nombre: "Zona de BBQ", icono: "Flame" },
+  ],
+
+  edificioReglas: [
+    { nombre: "No mascotas", icono: "PawPrint" },
+    { nombre: "No fumadores en áreas comunes", icono: "Cigarette" },
+    { nombre: "No eventos o fiestas", icono: "Music" },
+    { nombre: "Silencio nocturno después de las 10 pm", icono: "Moon" },
+  ],
+
+  checkIn: "3:00 p.m.",
+  checkOut: "11:00 a.m.",
+
+  notas: [
+    "Acceso con código de apertura de un solo uso enviado antes de la llegada — sin llaves, sin esperas.",
+    "Manilla de acceso a zonas comunes del edificio con costo adicional por persona.",
+    "El calentador de agua es a gas paso — funciona de forma inmediata.",
+  ],
+
+  precioNoche: 180000,
+};
+
 // ─── Exportación del catálogo ─────────────────────────────────────────────────
 
 export const APARTMENTS: Apartment[] = [
+  apartment519,
   apartment1008,
   apartment915,
 ];
