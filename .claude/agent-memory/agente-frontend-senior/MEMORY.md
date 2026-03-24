@@ -71,11 +71,40 @@ public/
 - `pnpm build` -- build produccion (compilation + SSG)
 - `npx tsc --noEmit` -- check de tipos sin compilar
 
-## Rediseno UI (marzo 2026) — patrones reutilizables
-- Gradiente de texto: `style={{ background: 'linear-gradient(...)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}` -- Tailwind v4 no tiene utilidad nativa para esto.
-- Tinte de card por color de marca: fondo `bg-livic-{color}/10`, borde `border-livic-{color}/20`, icono en `bg-livic-{color}/20`. Patron replicable para cualquier acento.
-- Section.tsx ahora tiene props `subtitulo` y `centrado` (retrocompatibles, opcionales).
-- Card.tsx: nombre del apartamento en overlay inferior de imagen (blanco sobre oscuro). Specs en pills centrados `bg-surface-200/80 rounded-2xl`. CTA hace fill a livic-pink en group-hover.
-- Nav.tsx: links en pill `bg-surface-100/80 border border-surface-300/60 rounded-full`. Separador vertical entre pill y ThemeToggle.
-- page.tsx hero: `min-h-[90vh]`, gradiente multicapa de fondo, pill de etiqueta con MapPin, stats rapidos, flecha scroll con `animate-bounce`.
-- Footer: 3 columnas (logo+desc / explorar / contacto), dot verde "Disponible ahora" en pie.
+## Concepto del sitio (actualizado marzo 2026)
+- El home es un **portal de busqueda de disponibilidad** (estilo Booking/Airbnb simplificado), NO un sitio de marca LIVIC.
+- **Modo oscuro eliminado completamente.** No hay ThemeToggle. No hay clases `dark:`. globals.css sin bloque `.dark`.
+- variables CSS fijadas en modo claro: `--background: #FFFFFF`, `--foreground: #0C0A0B`.
+
+## Hero split layout (diseno final — marzo 2026)
+- `grid grid-cols-1 lg:grid-cols-2` — texto izquierda, panel busqueda derecha.
+- Imagen: `<img>` nativa `absolute inset-0 w-full h-full object-cover`.
+- Overlay: `bg-gradient-to-r from-white/90 via-white/50 to-transparent` (aclara zona texto).
+- Col izquierda: badge `bg-livic-yellow text-livic-black`, H1 negro + span gradiente pink→purple, bullets con `<Check>` lucide + circulo `bg-livic-green/20`.
+- Col derecha: `bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md ml-auto` con `<AvailabilityBar />`.
+
+## AvailabilityBar — layout vertical (dentro de panel blanco)
+- Secciones apiladas `flex flex-col gap-2` (NO pill horizontal).
+- Cada seccion: `rounded-xl border border-gray-200 bg-gray-50`.
+- Boton buscar: full-width `w-full bg-livic-pink rounded-xl py-3.5`.
+- Dropdowns: `bg-white border border-gray-200 rounded-2xl shadow-2xl`.
+
+## Nav.tsx (diseno final)
+- `bg-white border-b border-gray-100` — sin blur, sin dark.
+- Logo: solo `logo-livic.png` (un unico tag `<Image>`).
+- Links centro: `text-sm text-gray-600 font-medium hover:text-livic-pink`.
+- Derecha: link "WhatsApp" texto plano — sin boton CTA pill, sin ThemeToggle.
+
+## Card.tsx (diseno final)
+- `bg-white rounded-2xl border border-gray-100 shadow-sm` — solo modo claro.
+- Corazon decorativo: `<div aria-hidden>` con `text-gray-400` (no Heart interactivo).
+
+## Error resuelto: onClick en Server Component
+- `Card.tsx` es Server Component. Un `<button onClick={...}>` dentro falla en prerender.
+- Solucion: usar `<div aria-hidden>` para elementos decorativos. Para logica real, crear Client Component separado.
+
+## Rediseno base UI — Travila-style (tokens que se mantienen)
+- Stats: `bg-livic-black`, 4 cols `divide-white/10`, numero `text-4xl font-black text-livic-pink`.
+- Footer: 3 columnas, linea inferior con copyright + dot livic-green.
+- Section.tsx: `max-w-7xl`, `py-14 md:py-20`. Tokens `text-foreground` y `text-text-muted` siguen validos (son alias de los CSS vars del :root).
+- globals.css: `.card-hover` para lift al hover (sin clases dark).
