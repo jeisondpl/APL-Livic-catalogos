@@ -70,3 +70,12 @@ public/
 - `pnpm dev` -- servidor local en localhost:3000
 - `pnpm build` -- build produccion (compilation + SSG)
 - `npx tsc --noEmit` -- check de tipos sin compilar
+
+## Rediseno UI (marzo 2026) — patrones reutilizables
+- Gradiente de texto: `style={{ background: 'linear-gradient(...)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}` -- Tailwind v4 no tiene utilidad nativa para esto.
+- Tinte de card por color de marca: fondo `bg-livic-{color}/10`, borde `border-livic-{color}/20`, icono en `bg-livic-{color}/20`. Patron replicable para cualquier acento.
+- Section.tsx ahora tiene props `subtitulo` y `centrado` (retrocompatibles, opcionales).
+- Card.tsx: nombre del apartamento en overlay inferior de imagen (blanco sobre oscuro). Specs en pills centrados `bg-surface-200/80 rounded-2xl`. CTA hace fill a livic-pink en group-hover.
+- Nav.tsx: links en pill `bg-surface-100/80 border border-surface-300/60 rounded-full`. Separador vertical entre pill y ThemeToggle.
+- page.tsx hero: `min-h-[90vh]`, gradiente multicapa de fondo, pill de etiqueta con MapPin, stats rapidos, flecha scroll con `animate-bounce`.
+- Footer: 3 columnas (logo+desc / explorar / contacto), dot verde "Disponible ahora" en pie.
