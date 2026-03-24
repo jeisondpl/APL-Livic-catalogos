@@ -37,30 +37,35 @@ export default function CatalogHome() {
       ════════════════════════════════════════════════════════════ */}
       <header className='w-full pt-24 pb-10 px-4 md:px-8 xl:px-14 bg-white'>
         {/* Tarjeta hero: imagen de fondo con bordes redondeados */}
-        <div className='relative max-w-6xl mx-auto rounded-3xl overflow-hidden min-h-[580px] md:min-h-[620px] flex items-center shadow-xl'>
+        <div className='relative max-w-6xl mx-auto rounded-3xl min-h-[580px] md:min-h-[620px] flex items-center shadow-xl animate-in fade-in zoom-in-95 duration-1000 fill-mode-both'>
 
-          {/* Imagen de fondo */}
-          <img
-            src='/portada.png'
-            alt='Alojamientos en Santa Marta, Colombia'
-            className='absolute inset-0 w-full h-full object-cover'
-          />
+          {/* Capa de fondo — overflow-hidden sólo aquí para respetar el border-radius */}
+          <div className='absolute inset-0 rounded-3xl overflow-hidden'>
+            <img
+              src='/portada.png'
+              alt='Alojamientos en Santa Marta, Colombia'
+              className='absolute inset-0 w-full h-full object-cover'
+            />
+            {/* Overlay gradiente izquierdo */}
+            <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10' />
+          </div>
 
-          {/* Overlay gradiente izquierdo */}
-          <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10' />
-
-          {/* Contenido en dos columnas */}
+          {/* Contenido en dos columnas — sin overflow-hidden para que el calendario no se corte */}
           <div className='relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-8 md:px-14 py-14'>
 
             {/* ── Columna izquierda: texto ── */}
             <div>
-              <img src='/logo-livic.png' alt='LIVIC' className='h-16 w-auto mb-5' />
+              <img
+                src='/logo-livic.png'
+                alt='LIVIC'
+                className='h-16 w-auto mb-5 animate-in fade-in slide-in-from-top-4 duration-700 fill-mode-both delay-100'
+              />
 
-              <span className='inline-block bg-livic-yellow text-livic-black text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide'>
+              <span className='inline-block bg-livic-yellow text-livic-black text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide animate-in fade-in slide-in-from-top-3 duration-700 fill-mode-both delay-200'>
                 Alojamientos verificados
               </span>
 
-              <h1 className='text-4xl md:text-5xl font-black text-white leading-tight mb-6'>
+              <h1 className='text-4xl md:text-5xl font-black text-white leading-tight mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both delay-300'>
                 Tu alojamiento ideal
                 <br />
                 <span style={{
@@ -74,8 +79,12 @@ export default function CatalogHome() {
               </h1>
 
               <ul className='space-y-3 mb-8'>
-                {HERO_BULLETS.map((item) => (
-                  <li key={item} className='flex items-center gap-3 text-white/85'>
+                {HERO_BULLETS.map((item, i) => (
+                  <li
+                    key={item}
+                    style={{ animationDelay: `${400 + i * 100}ms` }}
+                    className='flex items-center gap-3 text-white/85 animate-in fade-in slide-in-from-left-4 duration-500 fill-mode-both'
+                  >
                     <span className='w-5 h-5 rounded-full bg-livic-green/30 border border-livic-green/50 flex items-center justify-center flex-shrink-0'>
                       <Check className='w-3 h-3 text-livic-green' />
                     </span>
@@ -86,7 +95,7 @@ export default function CatalogHome() {
 
               <a
                 href='#alojamientos'
-                className='inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors duration-200'
+                className='inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 animate-in fade-in slide-in-from-bottom-3 duration-700 fill-mode-both delay-700'
               >
                 <MapPin className='w-4 h-4' />
                 Ver todos los alojamientos
@@ -94,7 +103,7 @@ export default function CatalogHome() {
             </div>
 
             {/* ── Columna derecha: panel de búsqueda ── */}
-            <div className='bg-white rounded-2xl shadow-2xl p-6 md:p-7 w-full max-w-sm ml-auto'>
+            <div className='bg-white rounded-2xl shadow-2xl p-6 md:p-7 w-full max-w-sm ml-auto animate-in fade-in slide-in-from-right-6 duration-700 fill-mode-both delay-400'>
               <h3 className='text-base font-bold text-gray-900 mb-1'>Consulta disponibilidad</h3>
               <p className='text-xs text-gray-500 mb-4'>Selecciona fechas y número de huéspedes</p>
               <AvailabilityBar />
