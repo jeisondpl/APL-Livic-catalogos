@@ -22,13 +22,6 @@ const ZONA_TAGS = [
   { label: "Acceso directo playa",   emoji: "🏄" },
 ];
 
-// ─── Estadísticas del bloque oscuro ───────────────────────────────────────────
-const STATS = [
-  { numero: "4.8★", label: "Valoración promedio en Airbnb" },
-  { numero: "2",    label: "Apartamentos disponibles" },
-  { numero: "100%", label: "Check-in autónomo" },
-  { numero: "24/7", label: "Atención al huésped" },
-];
 
 // ─── Bullets del hero ─────────────────────────────────────────────────────────
 const HERO_BULLETS = [
@@ -175,28 +168,6 @@ export default function CatalogHome() {
         </Section>
       </div>
 
-      {/* ════════════════════════════════════════════════════════════
-          D) BLOQUE DE ESTADÍSTICAS — Fondo oscuro 4 columnas
-      ════════════════════════════════════════════════════════════ */}
-      <div className="bg-livic-black">
-        <div className="max-w-7xl mx-auto px-5 md:px-10 py-16 md:py-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            {STATS.map((stat, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center text-center px-6 py-8 md:py-0"
-              >
-                <span className="text-4xl font-black text-livic-pink mb-2 leading-none">
-                  {stat.numero}
-                </span>
-                <span className="text-white/60 text-sm leading-snug max-w-[140px]">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* ════════════════════════════════════════════════════════════
           E) FOOTER — 3 columnas
