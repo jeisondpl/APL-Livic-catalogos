@@ -55,6 +55,13 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ─── Cally calendar theme ─── */
+calendar-range,
+calendar-month {
+  --color-accent: #E288AE;
+  --color-text-on-accent: #ffffff;
+}
+
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
   width: 6px;

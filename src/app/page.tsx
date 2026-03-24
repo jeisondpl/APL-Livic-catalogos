@@ -7,6 +7,7 @@ import Script from 'next/script'
 import Nav from '@/components/Nav'
 import Card from '@/components/Card'
 import Section from '@/components/Section'
+import AvailabilityBar from '@/components/AvailabilityBar'
 import { getAllApartments } from '@/lib/catalog'
 
 export default function CatalogHome() {
@@ -38,6 +39,11 @@ export default function CatalogHome() {
             <p className='text-text-muted text-base md:text-lg max-w-xl leading-relaxed'>
               Espacios reales, anfitriones reales, experiencias reales. Descubre apartamentos cuidadosamente seleccionados para tu descanso.
             </p>
+
+            {/* ── Barra de disponibilidad ── */}
+            <div className='w-full mt-8'>
+              <AvailabilityBar />
+            </div>
           </div>
         </div>
       </header>
