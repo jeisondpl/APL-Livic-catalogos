@@ -1,28 +1,34 @@
 /**
- * Card.tsx — Tarjeta de apartamento estilo Travila
- * Rating sobre la imagen, specs + botón en fila inferior.
+ * Card.tsx — Tarjeta de apartamento estilo referencia visual Livic
+ *
+ * Layout:
+ *   [imagen 4/3 con badges superpuestos]
+ *   [título bold 2 líneas]
+ *   [specs: hab · baños · huéspedes]
+ *   [precio izquierda | botón "Ver ahora" derecha]
  */
 
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Apartment } from '@/data/apartments'
-import { Users, BedDouble, Heart } from 'lucide-react'
+import { Users, BedDouble, Heart, Bath } from 'lucide-react'
 
 interface CardProps {
   apartment: Apartment
 }
 
 export default function Card({ apartment }: CardProps) {
-  const rating = apartment.anfitrionPrincipal.calificacion ?? 5.0
-  const resenas = apartment.anfitrionPrincipal.resenas ?? 0
+  const rating   = apartment.anfitrionPrincipal.calificacion ?? 5.0
+  const resenas  = apartment.anfitrionPrincipal.resenas ?? 0
+  const precio   = apartment.precioNoche
 
   return (
     <Link
       href={`/apartamentos/${apartment.slug}`}
-      className="card-hover group block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 h-full flex flex-col"
+      className="card-hover group block bg-white rounded-2xl border border-gray-100 shadow-md h-full flex flex-col"
     >
       {/* ── Imagen ── */}
-      <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl flex-shrink-0">
         <Image
           src={apartment.heroPhoto.src}
           alt={apartment.heroPhoto.alt}
@@ -31,19 +37,22 @@ export default function Card({ apartment }: CardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
 
-        {/* Badge top-left — blanco con texto oscuro */}
+        {/* Badge "Top Rated" — top-left */}
         <div className="absolute top-3 left-3">
-          <span className="inline-flex items-center bg-white text-gray-800 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
+          <span className="inline-flex items-center bg-white text-gray-800 text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">
             Top Rated
           </span>
         </div>
 
-        {/* Corazón top-right */}
-        <div aria-hidden="true" className="absolute top-3 right-3 bg-white/90 rounded-full p-1.5 shadow-sm">
+        {/* Corazón decorativo — top-right */}
+        <div
+          aria-hidden="true"
+          className="absolute top-3 right-3 bg-white/90 rounded-full p-1.5 shadow-sm"
+        >
           <Heart className="w-4 h-4 text-gray-400" />
         </div>
 
-        {/* Rating sobre la imagen — pill en la esquina inferior izquierda */}
+        {/* Rating pill — bottom-left sobre imagen */}
         <div className="absolute bottom-3 left-3">
           <div className="inline-flex items-center gap-1 bg-white/95 rounded-full px-2.5 py-1 shadow-sm">
             <span className="text-livic-yellow text-xs leading-none">★</span>
@@ -56,35 +65,49 @@ export default function Card({ apartment }: CardProps) {
       </div>
 
       {/* ── Cuerpo ── */}
-      <div className="p-4 flex flex-col flex-grow">
+      <div className="p-4 flex flex-col flex-grow gap-2">
 
-        {/* Título — hasta 2 líneas */}
-        <h3 className="font-bold text-base text-gray-900 leading-snug line-clamp-2 mb-2">
+        {/* Título */}
+        <h3 className="font-bold text-[15px] text-gray-900 leading-snug line-clamp-2">
           {apartment.nombre}
         </h3>
 
-        {/* Specs — huéspedes · habitaciones · baños */}
-        <div className="flex items-center gap-3 text-xs text-gray-500 mb-4">
+        {/* Specs row */}
+        <div className="flex items-center gap-2 text-xs text-gray-500">
           <span className="flex items-center gap-1">
-            <BedDouble className="w-3.5 h-3.5 flex-shrink-0" />
-            {apartment.habitaciones} hab · {apartment.banos} baños
+            <BedDouble className="w-3.5 h-3.5 flex-shrink-0 text-gray-400" />
+            {apartment.habitaciones} hab
           </span>
-          <span className="w-px h-3 bg-gray-200" />
+          <span className="text-gray-300" aria-hidden="true">·</span>
           <span className="flex items-center gap-1">
-            <Users className="w-3.5 h-3.5 flex-shrink-0" />
-            {apartment.huespedes} huéspedes
+            <Bath className="w-3.5 h-3.5 flex-shrink-0 text-gray-400" />
+            {apartment.banos} baños
+          </span>
+          <span className="text-gray-300" aria-hidden="true">·</span>
+          <span className="flex items-center gap-1">
+            <Users className="w-3.5 h-3.5 flex-shrink-0 text-gray-400" />
+            {apartment.huespedes} huésp.
           </span>
         </div>
 
-        {/* Fila inferior: edificio + botón CTA */}
-        <div className="mt-auto flex items-center justify-between gap-2">
-          <p className="text-gray-500 text-xs truncate">
-            {apartment.edificio}
-            <span className="mx-1 text-gray-300">·</span>
-            {apartment.ubicacion.cercaDe ?? apartment.ubicacion.ciudad}
-          </p>
+        {/* Fila inferior: precio + CTA */}
+        <div className="mt-auto pt-2 flex items-center justify-between gap-2">
+          {precio != null ? (
+            <p className="flex items-baseline gap-1">
+              <span className="text-xl font-black text-gray-900">
+                ${precio.toFixed(2)}
+              </span>
+              <span className="text-xs text-gray-400 font-normal">/noche</span>
+            </p>
+          ) : (
+            <p className="text-gray-400 text-xs truncate">
+              {apartment.edificio}
+              <span className="mx-1 text-gray-300">·</span>
+              {apartment.ubicacion.cercaDe ?? apartment.ubicacion.ciudad}
+            </p>
+          )}
 
-          <span className="shrink-0 bg-livic-black text-white text-xs font-semibold px-3.5 py-2 rounded-full transition-colors group-hover:bg-livic-pink whitespace-nowrap">
+          <span className="shrink-0 bg-livic-black text-white text-xs font-bold px-4 py-2 rounded-full transition-colors group-hover:bg-livic-pink whitespace-nowrap">
             Ver ahora
           </span>
         </div>

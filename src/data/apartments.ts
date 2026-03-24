@@ -114,6 +114,10 @@ export interface Apartment {
   checkOut: string;
   notas: string[];
 
+  // ── Precio
+  /** Precio por noche en USD. Opcional; si no existe la Card muestra ubicación. */
+  precioNoche?: number;
+
   // ── Airbnb calendar
   airbnbCalendarUrl?: string;
 }
