@@ -10,7 +10,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Nav from '@/components/Nav'
 import AvailabilityBar from '@/components/AvailabilityBar'
 import Card from '@/components/Card'
 import Section from '@/components/Section'
@@ -267,25 +266,19 @@ export default function SearchFlow({ apartments }: { apartments: Apartment[] }) 
     setFlow('idle')
   }
 
-  // Nav height offset
-  const NAV_H = 'pt-[57px]' // altura del nav fijo
-
   return (
     <>
-      {/* Navbar siempre fijo */}
-      <Nav />
-
       {/* ══════════════════════════════════════════════════════════════
           MOBILE  (< lg) — scroll vertical normal
       ══════════════════════════════════════════════════════════════ */}
-      <div className={`lg:hidden ${NAV_H} min-h-screen bg-white`}>
+      <div className='lg:hidden min-h-screen bg-white'>
         {flow === 'idle' && (
-          <div className='h-[calc(100vh-57px)]'>
+          <div className='h-screen'>
             <HeroPanel onSearch={handleSearch} />
           </div>
         )}
         {flow === 'searching' && (
-          <div className='min-h-[calc(100vh-57px)] flex items-center justify-center animate-in fade-in duration-400'>
+          <div className='min-h-screen flex items-center justify-center animate-in fade-in duration-400'>
             <SearchingScreen />
           </div>
         )}
@@ -308,7 +301,7 @@ export default function SearchFlow({ apartments }: { apartments: Apartment[] }) 
       ══════════════════════════════════════════════════════════════ */}
       <div
         ref={desktopRef}
-        className={`hidden lg:block ${NAV_H} h-[calc(100vh-57px)] overflow-hidden`}
+        className='hidden lg:block h-screen overflow-hidden'
       >
         {/* Track de dos paneles que se desplaza horizontalmente */}
         <div
